@@ -1,4 +1,4 @@
-// HLearn AI Journey Builder v2 — Google Apps Script Webhook
+// HLearn AI Journey Builder v3 — Google Apps Script Webhook
 // Setup: New Sheet → Extensions → Apps Script → paste this → Deploy as Web app
 
 function doPost(e) {
@@ -9,7 +9,7 @@ function doPost(e) {
     if (!sheet) {
       sheet = ss.insertSheet("Responses");
       sheet.appendRow([
-        "Timestamp","Name","Email","Tracks",
+        "Timestamp","Name","Email","Tracks","Waitlist",
         "Overall Score","Overall Band",
         "D1: Conceptual","D2: Capabilities","D3: Tool Proficiency","D4: Critical Eval","D5: Ethics & Risk",
         "D6: SC Use Cases","D7: SC Decisions",
@@ -20,11 +20,11 @@ function doPost(e) {
         "Mastered Resources","Recommended Resources","Next Level Resources",
         "Raw Answers"
       ]);
-      sheet.getRange(1, 1, 1, 29).setFontWeight("bold");
+      sheet.getRange(1, 1, 1, 30).setFontWeight("bold");
       sheet.setFrozenRows(1);
     }
     sheet.appendRow([
-      new Date(), data.name||"", data.email||"", data.tracks||"",
+      new Date(), data.name||"", data.email||"", data.tracks||"", data.waitlist||"",
       data.overallScore||"", data.overallBand||"",
       data.d1||"", data.d2||"", data.d3||"", data.d4||"", data.d5||"",
       data.d6||"", data.d7||"", data.d8||"", data.d9||"", data.d10||"", data.d11||"",
