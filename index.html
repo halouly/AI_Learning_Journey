@@ -7,500 +7,413 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-#app {
-  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-}
-.hidden { display: none !important; }
-
-@keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
-@keyframes barGrow { from{width:0} }
+#app{font-family:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+.hidden{display:none!important}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes barGrow{from{width:0}}
 .anim{animation:fadeUp .45s cubic-bezier(.16,1,.3,1) both}
 .ad1{animation-delay:.06s}.ad2{animation-delay:.12s}.ad3{animation-delay:.18s}
 .ad4{animation-delay:.24s}.ad5{animation-delay:.3s}.ad6{animation-delay:.36s}.ad7{animation-delay:.42s}
 
-#view-welcome {
-  background: linear-gradient(135deg, #0a0e1a 0%, #0f1629 40%, #121d3a 100%);
-  padding: 44px 28px 52px;
-  position: relative;
-  overflow: hidden;
-}
-#view-welcome::before {
-  content:'';position:absolute;top:-30%;right:-20%;width:80%;height:160%;
-  background:linear-gradient(145deg,rgba(0,210,190,.08),rgba(74,108,247,.06) 50%,transparent);
-  transform:rotate(-12deg);pointer-events:none;
-}
-#view-welcome::after {
-  content:'';position:absolute;bottom:-20%;left:-15%;width:70%;height:120%;
-  background:linear-gradient(220deg,rgba(74,108,247,.05),rgba(0,210,190,.04) 40%,transparent);
-  transform:rotate(8deg);pointer-events:none;
-}
-.w-inner { max-width:700px; margin:0 auto; position:relative; z-index:1; }
-.w-hero { text-align:center; padding-bottom:32px; }
-.w-title { font-size:48px; font-weight:800; letter-spacing:-1.2px; line-height:1.1; color:#fff; margin-bottom:18px; }
-.w-accent { background:linear-gradient(135deg,#00D2BE,#00E5CC,#4AF7D0); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
-.w-desc { font-size:17px; color:rgba(255,255,255,.6); max-width:480px; margin:0 auto; line-height:1.7; }
-.w-badges { display:flex; justify-content:center; gap:12px; margin-top:20px; flex-wrap:wrap; }
-.w-badge { display:inline-flex; align-items:center; gap:6px; padding:6px 14px; border-radius:100px; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1); color:rgba(255,255,255,.7); font-size:14px; font-weight:600; }
+#view-welcome{background:linear-gradient(135deg,#0a0e1a 0%,#0f1629 40%,#121d3a 100%);padding:44px 28px 52px;position:relative;overflow:hidden}
+#view-welcome::before{content:'';position:absolute;top:-30%;right:-20%;width:80%;height:160%;background:linear-gradient(145deg,rgba(0,210,190,.08),rgba(74,108,247,.06) 50%,transparent);transform:rotate(-12deg);pointer-events:none}
+#view-welcome::after{content:'';position:absolute;bottom:-20%;left:-15%;width:70%;height:120%;background:linear-gradient(220deg,rgba(74,108,247,.05),rgba(0,210,190,.04) 40%,transparent);transform:rotate(8deg);pointer-events:none}
+.w-inner{max-width:700px;margin:0 auto;position:relative;z-index:1}
+.w-hero{text-align:center;padding-bottom:32px}
+.w-title{font-size:48px;font-weight:800;letter-spacing:-1.2px;line-height:1.1;color:#fff;margin-bottom:18px}
+.w-accent{background:linear-gradient(135deg,#00D2BE,#00E5CC,#4AF7D0);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.w-desc{font-size:17px;color:rgba(255,255,255,.6);max-width:480px;margin:0 auto;line-height:1.7}
+.w-badges{display:flex;justify-content:center;gap:12px;margin-top:20px;flex-wrap:wrap}
+.w-badge{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:100px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.7);font-size:14px;font-weight:600}
+.w-tracks{max-width:500px;margin:0 auto}
+.w-label{font-size:11px;font-weight:700;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:2px;margin-bottom:16px}
+.w-core{border:2px solid rgba(0,210,190,.3);border-radius:12px;padding:16px 24px;background:rgba(0,210,190,.06);margin-bottom:20px}
+.w-core h3{font-size:16px;font-weight:700;color:#00D2BE;margin:0 0 2px}
+.w-core p{font-size:14px;color:rgba(255,255,255,.4);margin:0}
+.w-card{position:relative;border:2px solid rgba(255,255,255,.1);border-radius:12px;padding:18px 56px 18px 24px;cursor:pointer;background:rgba(255,255,255,.04);transition:all .25s;margin-bottom:10px}
+.w-card:hover{border-color:rgba(0,210,190,.3);background:rgba(255,255,255,.06)}
+.w-card.on{border-color:#00D2BE;background:rgba(0,210,190,.08);box-shadow:0 0 0 3px rgba(0,210,190,.15)}
+.w-card h3{font-size:16px;font-weight:700;color:#fff;margin:0 0 2px}
+.w-card p{font-size:14px;color:rgba(255,255,255,.5);margin:0}
+.w-chk{position:absolute;right:20px;top:50%;transform:translateY(-50%);width:22px;height:22px;border-radius:6px;border:2px solid rgba(255,255,255,.2);transition:all .2s}
+.w-card.on .w-chk{border-color:#00D2BE;background:#00D2BE}
+.w-card.on .w-chk::after{content:'';position:absolute;left:5px;top:2px;width:6px;height:10px;border:solid #0a0e1a;border-width:0 2.5px 2.5px 0;transform:rotate(45deg)}
+.w-count{text-align:center;padding:16px 0 4px;font-size:16px;font-weight:700;color:#00D2BE;transition:all .3s}
+.w-start{text-align:center;padding-top:16px}
+.w-btn{display:inline-flex;align-items:center;gap:8px;padding:16px 40px;border-radius:10px;border:none;font-size:18px;font-weight:800;cursor:pointer;font-family:inherit;background:linear-gradient(135deg,#00D2BE,#00C4B0);color:#0a0e1a;box-shadow:0 4px 20px rgba(0,210,190,.3);transition:all .25s}
+.w-btn:hover{box-shadow:0 6px 28px rgba(0,210,190,.45);transform:translateY(-2px)}
+.w-btn:disabled{opacity:.3;cursor:not-allowed;transform:none!important;box-shadow:none!important}
+.w-note{font-size:15px;color:rgba(255,255,255,.3);text-align:center;margin-top:20px}
 
-.w-tracks { max-width:500px; margin:0 auto; }
-.w-label { font-size:11px; font-weight:700; color:rgba(255,255,255,.4); text-transform:uppercase; letter-spacing:2px; margin-bottom:16px; }
-.w-card { position:relative; border:2px solid rgba(255,255,255,.1); border-radius:12px; padding:20px 56px 20px 24px; cursor:pointer; background:rgba(255,255,255,.04); transition:all .25s; margin-bottom:12px; }
-.w-card:hover { border-color:rgba(0,210,190,.3); background:rgba(255,255,255,.06); }
-.w-card.on { border-color:#00D2BE; background:rgba(0,210,190,.08); box-shadow:0 0 0 3px rgba(0,210,190,.15); }
-.w-card h3 { font-size:18px; font-weight:700; color:#fff; margin:0 0 3px; }
-.w-card p { font-size:15px; color:rgba(255,255,255,.5); margin:0; }
-.w-radio { position:absolute; right:20px; top:50%; transform:translateY(-50%); width:22px; height:22px; border-radius:50%; border:2px solid rgba(255,255,255,.2); transition:all .2s; }
-.w-card.on .w-radio { border-color:#00D2BE; background:#00D2BE; }
-.w-card.on .w-radio::after { content:''; position:absolute; left:5px; top:2px; width:6px; height:10px; border:solid #0a0e1a; border-width:0 2.5px 2.5px 0; transform:rotate(45deg); }
-.w-start { text-align:center; padding-top:28px; }
-.w-btn { display:inline-flex; align-items:center; gap:8px; padding:16px 40px; border-radius:10px; border:none; font-size:18px; font-weight:800; cursor:pointer; font-family:inherit; background:linear-gradient(135deg,#00D2BE,#00C4B0); color:#0a0e1a; box-shadow:0 4px 20px rgba(0,210,190,.3); transition:all .25s; }
-.w-btn:hover { box-shadow:0 6px 28px rgba(0,210,190,.45); transform:translateY(-2px); }
-.w-btn:disabled { opacity:.3; cursor:not-allowed; transform:none!important; box-shadow:none!important; }
-.w-note { font-size:15px; color:rgba(255,255,255,.3); text-align:center; margin-top:20px; }
+#view-questions{background:#f5f6fa;color:#1a1a2e;padding:0 28px 40px}
+.q-inner{max-width:700px;margin:0 auto}
+.prog{display:flex;align-items:center;gap:14px;padding:28px 0 12px;margin-bottom:20px}
+.prog-bar{flex:1;height:8px;background:#e6e8ee;border-radius:4px;overflow:hidden}
+.prog-fill{height:100%;background:linear-gradient(90deg,#4A6CF7,#839DFF);border-radius:4px;transition:width .5s cubic-bezier(.22,1,.36,1)}
+.prog-n{font-size:15px;font-weight:600;color:#888;min-width:52px;text-align:right;font-variant-numeric:tabular-nums}
+.qblock{animation:fadeUp .3s cubic-bezier(.16,1,.3,1) both}
+.dim-tag{display:inline-block;font-size:13px;font-weight:700;padding:4px 14px;border-radius:100px;margin-bottom:16px}
+.dim-tag-core{background:#EEF1FF;color:#3949AB}
+.dim-tag-sc{background:#FFF4EB;color:#D84E00}
+.dim-tag-pm{background:#E8F5E9;color:#1B7A35}
+.dim-tag-pe{background:#FCE4EC;color:#AD1457}
+.q-text{font-size:23px;font-weight:700;line-height:1.5;color:#1a1a2e;margin-bottom:28px}
+.opt{display:block;width:100%;text-align:left;padding:16px 20px;margin-bottom:10px;border-radius:12px;border:2px solid #e2e5ec;background:#fff;cursor:pointer;font-size:17px;line-height:1.6;color:#1a1a2e;font-family:inherit;transition:all .15s;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.opt:hover{border-color:#c5c9d2;box-shadow:0 2px 8px rgba(0,0,0,.05)}
+.opt.on{border-color:#4A6CF7;background:#EEF1FF;box-shadow:0 0 0 3px rgba(74,108,247,.12)}
+.nav-row{display:flex;justify-content:space-between;margin-top:32px;padding-top:20px;border-top:1px solid #e2e5ec}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:14px 34px;border-radius:8px;border:none;font-size:17px;font-weight:700;cursor:pointer;font-family:inherit;transition:all .2s}
+.btn-p{background:#4A6CF7;color:#fff;box-shadow:0 2px 10px rgba(74,108,247,.3)}
+.btn-p:hover{background:#3B5DE7;transform:translateY(-1px)}
+.btn-g{background:#fff;color:#1a1a2e;border:2px solid #e2e5ec}
+.btn-g:hover{border-color:#c5c9d2}
+.btn:disabled{opacity:.35;cursor:not-allowed;transform:none!important;box-shadow:none!important}
 
-#view-questions {
-  background: #f5f6fa;
-  color: #1a1a2e;
-  padding: 0 28px 40px;
-}
-.q-inner { max-width:700px; margin:0 auto; }
-.prog { display:flex; align-items:center; gap:14px; padding:28px 0 12px; margin-bottom:20px; }
-.prog-bar { flex:1; height:8px; background:#e6e8ee; border-radius:4px; overflow:hidden; }
-.prog-fill { height:100%; background:linear-gradient(90deg,#4A6CF7,#839DFF); border-radius:4px; transition:width .5s cubic-bezier(.22,1,.36,1); }
-.prog-n { font-size:15px; font-weight:600; color:#888; min-width:52px; text-align:right; font-variant-numeric:tabular-nums; }
-
-.qblock { animation:fadeUp .3s cubic-bezier(.16,1,.3,1) both; }
-.dim-tag { display:inline-block; font-size:13px; font-weight:700; padding:4px 14px; border-radius:100px; margin-bottom:16px; }
-.dim-tag-l1 { background:#EEF1FF; color:#3949AB; }
-.dim-tag-l2 { background:#FFF4EB; color:#D84E00; }
-.q-text { font-size:23px; font-weight:700; line-height:1.5; color:#1a1a2e; margin-bottom:28px; }
-.opt { display:block; width:100%; text-align:left; padding:16px 20px; margin-bottom:10px; border-radius:12px; border:2px solid #e2e5ec; background:#fff; cursor:pointer; font-size:17px; line-height:1.6; color:#1a1a2e; font-family:inherit; transition:all .15s; box-shadow:0 1px 2px rgba(0,0,0,.04); }
-.opt:hover { border-color:#c5c9d2; box-shadow:0 2px 8px rgba(0,0,0,.05); }
-.opt.on { border-color:#4A6CF7; background:#EEF1FF; box-shadow:0 0 0 3px rgba(74,108,247,.12); }
-
-.nav-row { display:flex; justify-content:space-between; margin-top:32px; padding-top:20px; border-top:1px solid #e2e5ec; }
-.btn { display:inline-flex; align-items:center; justify-content:center; gap:6px; padding:14px 34px; border-radius:8px; border:none; font-size:17px; font-weight:700; cursor:pointer; font-family:inherit; transition:all .2s; }
-.btn-p { background:#4A6CF7; color:#fff; box-shadow:0 2px 10px rgba(74,108,247,.3); }
-.btn-p:hover { background:#3B5DE7; transform:translateY(-1px); }
-.btn-g { background:#fff; color:#1a1a2e; border:2px solid #e2e5ec; }
-.btn-g:hover { border-color:#c5c9d2; }
-.btn:disabled { opacity:.35; cursor:not-allowed; transform:none!important; box-shadow:none!important; }
-
-#view-results {
-  background: #f5f6fa;
-  color: #1a1a2e;
-  padding: 28px 28px 40px;
-}
-.r-inner { max-width:700px; margin:0 auto; }
-
-.r-card { background:#fff; border-radius:20px; padding:36px 32px 28px; box-shadow:0 4px 20px rgba(0,0,0,.06); margin-bottom:28px; }
-.r-title { font-size:38px; font-weight:800; letter-spacing:-1px; line-height:1.12; color:#1a1a2e; margin-bottom:22px; }
-.r-accent { background:linear-gradient(135deg,#00D2BE,#00E5CC); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
-.sc-row { display:flex; align-items:center; gap:18px; margin-bottom:28px; }
-.sc-big { font-size:48px; font-weight:800; color:#1a1a2e; line-height:1; letter-spacing:-2px; }
-.band { display:inline-block; padding:6px 18px; border-radius:100px; font-size:16px; font-weight:700; color:#fff; }
-.sc-of { font-size:12px; color:#aaa; margin-top:6px; }
-
-.db { margin-bottom:24px; }
-.dr { display:flex; align-items:center; gap:12px; margin-bottom:14px; }
-.dn { font-size:15px; font-weight:600; color:#4a4a5a; width:160px; text-align:right; flex-shrink:0; }
-.dt { flex:1; height:14px; background:#eef0f5; border-radius:7px; overflow:hidden; }
-.df { height:100%; border-radius:7px; animation:barGrow .9s cubic-bezier(.22,1,.36,1) both; }
+#view-results{background:#f5f6fa;color:#1a1a2e;padding:28px 28px 40px}
+.r-inner{max-width:700px;margin:0 auto}
+.r-card{background:#fff;border-radius:20px;padding:36px 32px 28px;box-shadow:0 4px 20px rgba(0,0,0,.06);margin-bottom:28px}
+.r-title{font-size:38px;font-weight:800;letter-spacing:-1px;line-height:1.12;color:#1a1a2e;margin-bottom:22px}
+.r-accent{background:linear-gradient(135deg,#00D2BE,#00E5CC);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.sc-row{display:flex;align-items:center;gap:18px;margin-bottom:28px}
+.sc-big{font-size:48px;font-weight:800;color:#1a1a2e;line-height:1;letter-spacing:-2px}
+.band{display:inline-block;padding:6px 18px;border-radius:100px;font-size:16px;font-weight:700;color:#fff}
+.sc-of{font-size:12px;color:#aaa;margin-top:6px}
+.db{margin-bottom:24px}
+.dr{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.dn{font-size:15px;font-weight:600;color:#4a4a5a;width:160px;text-align:right;flex-shrink:0}
+.dt{flex:1;height:14px;background:#eef0f5;border-radius:7px;overflow:hidden}
+.df{height:100%;border-radius:7px;animation:barGrow .9s cubic-bezier(.22,1,.36,1) both}
 .df1{background:#E85D4A}.df2{background:#E8A84A}.df3{background:#4AA8E8}.df4{background:#4AE88C}
-.dv { font-size:16px; font-weight:700; width:34px; color:#1a1a2e; font-variant-numeric:tabular-nums; }
-.ddiv { height:1px; background:#e2e5ec; margin:18px 0; }
-.dscl { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:2px; color:#D84E00; margin-bottom:12px; padding-left:172px; }
+.dv{font-size:16px;font-weight:700;width:34px;color:#1a1a2e;font-variant-numeric:tabular-nums}
+.ddiv{height:1px;background:#e2e5ec;margin:18px 0}
+.dscl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:2px;margin-bottom:12px;padding-left:172px}
+.ins-row{display:flex;gap:12px}
+.ins{flex:1;min-width:0;padding:16px 20px;border-radius:12px}
+.ins-s{background:#E8F5E9;border-left:4px solid #4AE88C}
+.ins-g{background:#FFF4EB;border-left:4px solid #E8A84A}
+.ins-t{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;margin:0 0 5px}
+.ins-s .ins-t{color:#1B7A35}.ins-g .ins-t{color:#C44D00}
+.ins-b{font-size:15px;color:#1a1a2e;line-height:1.5;margin:0}
+.ps{margin-bottom:36px}.ps-h{font-size:23px;font-weight:800;letter-spacing:-.3px;color:#1a1a2e;margin-bottom:6px}
+.ps-sub{font-size:15px;color:#888;margin-bottom:20px}
+.ds{margin-bottom:24px}.ds-h{display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap}
+.ds-name{font-size:18px;font-weight:800;color:#1a1a2e}
+.ds-pill{display:inline-block;font-size:13px;font-weight:700;padding:3px 10px;border-radius:100px;color:#fff}
+.sec-label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;padding:6px 0}
+.sec-cur{color:#4A6CF7}.sec-fut{color:#888}
+.m-toggle{display:flex;align-items:center;gap:8px;cursor:pointer;padding:6px 0;border:none;background:none;font-family:inherit;width:100%;text-align:left}
+.m-icon{font-size:10px;color:#888;transition:transform .2s;display:inline-block}
+.m-toggle.open .m-icon{transform:rotate(90deg)}
+.m-text{font-size:13px;font-weight:700;color:#1B7A35;text-transform:uppercase;letter-spacing:1px}
+.m-cnt{font-size:13px;color:#888;font-weight:600}
+.m-list{display:none;margin-bottom:8px}.m-list.open{display:block}
+.m-card{background:#fff;border:1px solid #d4edda;border-radius:12px;padding:14px 18px;margin-bottom:8px;opacity:.85}
+.m-card .ci{display:flex;align-items:flex-start;gap:12px}
+.m-chk{display:flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:#E8F5E9;color:#1B7A35;font-size:14px;flex-shrink:0}
+.m-card .rn{color:#4a4a5a}
+.refresh{display:inline-flex;align-items:center;gap:4px;font-size:14px;font-weight:600;color:#1B7A35;text-decoration:none;margin-top:6px;padding:4px 12px;border-radius:5px;background:#E8F5E9;border:1px solid #C8E6C9;transition:all .15s}
+.refresh:hover{background:#C8E6C9}
+.refresh-soon{background:#F0F1F4;border-color:#E0E1E4;color:#888;cursor:default;font-style:italic}
+.refresh-soon:hover{background:#F0F1F4}
+.rc{background:#fff;border:1px solid #e2e5ec;border-radius:12px;padding:20px 22px;margin-bottom:12px;transition:all .2s;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.rc:hover{box-shadow:0 2px 8px rgba(0,0,0,.05);border-color:#c5c9d2;transform:translateY(-1px)}
+.ci{display:flex;align-items:flex-start;gap:14px}
+.rq{display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:#4A6CF7;color:#fff;font-size:14px;font-weight:800;flex-shrink:0}
+.rq-sc{background:#D84E00}.rq-pm{background:#1B7A35}.rq-pe{background:#AD1457}
+.rb{flex:1;min-width:0}
+.rtr{display:flex;align-items:center;flex-wrap:wrap;gap:7px;margin-bottom:3px}
+.rn{font-size:17px;font-weight:700;color:#1a1a2e}
+.tag{display:inline-block;font-size:12px;font-weight:700;padding:2px 10px;border-radius:5px;letter-spacing:.2px}
+.tag-hl{background:#4A6CF7;color:#fff}
+.tag-fr{background:#E8F5E9;color:#1B7A35}
+.tag-fmt{background:#F0F1F4;color:#888;font-weight:600}
+.rm{font-size:15px;color:#888;margin-bottom:6px}
+.rd{font-size:17px;color:#4a4a5a;line-height:1.55;margin-bottom:8px}
+.rl{display:inline-flex;align-items:center;gap:4px;font-size:14px;font-weight:700;text-decoration:none;padding:6px 16px;border-radius:6px;transition:all .15s}
+.rl-free{color:#1B7A35;background:#E8F5E9;border:1px solid #C8E6C9}
+.rl-free:hover{background:#C8E6C9;transform:translateY(-1px)}
+.rl-soon{background:#F0F1F4;color:#888;font-style:italic;cursor:default}
+.pv{background:#fff;border:1px dashed #e2e5ec;border-radius:12px;padding:16px 18px;margin-bottom:10px;opacity:.65}
+.pv .ci{gap:12px}
+.pv-n{display:flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:#E6E8EE;color:#888;font-size:12px;font-weight:700;flex-shrink:0}
+.pv .rn{color:#4a4a5a}.pv .rd{color:#888}
+.pv-tag{display:inline-block;font-size:10px;font-weight:700;padding:2px 10px;border-radius:5px;background:#F0F1F4;color:#888}
+.save{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:36px;padding-top:24px;border-top:1px solid #e2e5ec}
+.sv-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:8px;border:2px solid #e2e5ec;background:#fff;font-size:16px;font-weight:700;color:#1a1a2e;cursor:pointer;font-family:inherit;transition:all .2s}
+.sv-btn:hover{border-color:#4A6CF7;color:#4A6CF7;box-shadow:0 2px 8px rgba(0,0,0,.05);transform:translateY(-1px)}
+.sv-btn:disabled{opacity:.5;cursor:wait;transform:none!important}
+.sv-btn svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.track-toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);padding:10px 20px;border-radius:8px;font-size:14px;font-weight:600;font-family:inherit;z-index:9999;transition:opacity .3s;pointer-events:none}
+.track-toast-ok{background:#E8F5E9;color:#1B7A35;border:1px solid #C8E6C9}
+.track-toast-err{background:#FFEBEE;color:#C62828;border:1px solid #FFCDD2}
+.retake{text-align:center;margin-top:24px}
+.foot{text-align:center;padding:28px 0 0;margin-top:40px;border-top:1px solid #e2e5ec;font-size:15px;color:#aaa}
 
-.ins-row { display:flex; gap:12px; }
-.ins { flex:1; min-width:0; padding:16px 20px; border-radius:12px; }
-.ins-s { background:#E8F5E9; border-left:4px solid #4AE88C; }
-.ins-g { background:#FFF4EB; border-left:4px solid #E8A84A; }
-.ins-t { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; margin:0 0 5px; }
-.ins-s .ins-t{color:#1B7A35} .ins-g .ins-t{color:#C44D00}
-.ins-b { font-size:15px; color:#1a1a2e; line-height:1.5; margin:0; }
-
-.ps { margin-bottom:36px; }
-.ps-h { font-size:23px; font-weight:800; letter-spacing:-.3px; color:#1a1a2e; margin-bottom:6px; }
-.ps-sub { font-size:15px; color:#888; margin-bottom:20px; }
-
-.ds { margin-bottom:24px; }
-.ds-h { display:flex; align-items:center; gap:10px; margin-bottom:12px; flex-wrap:wrap; }
-.ds-name { font-size:18px; font-weight:800; color:#1a1a2e; }
-.ds-pill { display:inline-block; font-size:13px; font-weight:700; padding:3px 10px; border-radius:100px; color:#fff; }
-.sec-label { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; padding:6px 0; }
-.sec-cur { color:#4A6CF7; }
-.sec-fut { color:#888; }
-
-.m-toggle { display:flex; align-items:center; gap:8px; cursor:pointer; padding:6px 0; border:none; background:none; font-family:inherit; width:100%; text-align:left; }
-.m-icon { font-size:10px; color:#888; transition:transform .2s; display:inline-block; }
-.m-toggle.open .m-icon { transform:rotate(90deg); }
-.m-text { font-size:13px; font-weight:700; color:#1B7A35; text-transform:uppercase; letter-spacing:1px; }
-.m-cnt { font-size:13px; color:#888; font-weight:600; }
-.m-list { display:none; margin-bottom:8px; }
-.m-list.open { display:block; }
-
-.m-card { background:#fff; border:1px solid #d4edda; border-radius:12px; padding:14px 18px; margin-bottom:8px; opacity:.85; }
-.m-card .ci { display:flex; align-items:flex-start; gap:12px; }
-.m-chk { display:flex; align-items:center; justify-content:center; width:28px; height:28px; border-radius:50%; background:#E8F5E9; color:#1B7A35; font-size:14px; flex-shrink:0; }
-.m-card .rn { color:#4a4a5a; }
-.refresh { display:inline-flex; align-items:center; gap:4px; font-size:14px; font-weight:600; color:#1B7A35; text-decoration:none; margin-top:6px; padding:4px 12px; border-radius:5px; background:#E8F5E9; border:1px solid #C8E6C9; transition:all .15s; }
-.refresh:hover { background:#C8E6C9; }
-.refresh-soon { background:#F0F1F4; border-color:#E0E1E4; color:#888; cursor:default; font-style:italic; }
-.refresh-soon:hover { background:#F0F1F4; }
-
-.rc { background:#fff; border:1px solid #e2e5ec; border-radius:12px; padding:20px 22px; margin-bottom:12px; transition:all .2s; box-shadow:0 1px 2px rgba(0,0,0,.04); }
-.rc:hover { box-shadow:0 2px 8px rgba(0,0,0,.05); border-color:#c5c9d2; transform:translateY(-1px); }
-.ci { display:flex; align-items:flex-start; gap:14px; }
-.rq { display:flex; align-items:center; justify-content:center; width:32px; height:32px; border-radius:50%; background:#4A6CF7; color:#fff; font-size:14px; font-weight:800; flex-shrink:0; }
-.rq-sc { background:#D84E00; }
-.rb { flex:1; min-width:0; }
-.rtr { display:flex; align-items:center; flex-wrap:wrap; gap:7px; margin-bottom:3px; }
-.rn { font-size:17px; font-weight:700; color:#1a1a2e; }
-.tag { display:inline-block; font-size:12px; font-weight:700; padding:2px 10px; border-radius:5px; letter-spacing:.2px; }
-.tag-hl { background:#4A6CF7; color:#fff; }
-.tag-fr { background:#E8F5E9; color:#1B7A35; }
-.tag-fmt { background:#F0F1F4; color:#888; font-weight:600; }
-.rm { font-size:15px; color:#888; margin-bottom:6px; }
-.rd { font-size:17px; color:#4a4a5a; line-height:1.55; margin-bottom:8px; }
-
-.rl { display:inline-flex; align-items:center; gap:4px; font-size:14px; font-weight:700; text-decoration:none; padding:6px 16px; border-radius:6px; transition:all .15s; }
-.rl-free { color:#1B7A35; background:#E8F5E9; border:1px solid #C8E6C9; }
-.rl-free:hover { background:#C8E6C9; transform:translateY(-1px); }
-.rl-soon { background:#F0F1F4; color:#888; font-style:italic; cursor:default; }
-
-.pv { background:#fff; border:1px dashed #e2e5ec; border-radius:12px; padding:16px 18px; margin-bottom:10px; opacity:.65; }
-.pv .ci { gap:12px; }
-.pv-n { display:flex; align-items:center; justify-content:center; width:28px; height:28px; border-radius:50%; background:#E6E8EE; color:#888; font-size:12px; font-weight:700; flex-shrink:0; }
-.pv .rn { color:#4a4a5a; }
-.pv .rd { color:#888; }
-.pv-tag { display:inline-block; font-size:10px; font-weight:700; padding:2px 10px; border-radius:5px; background:#F0F1F4; color:#888; }
-
-.scp { display:inline-flex; align-items:center; gap:10px; padding:8px 18px; background:#FFF4EB; border-radius:8px; margin-bottom:18px; }
-.scp-t { font-size:14px; font-weight:700; color:#D84E00; }
-
-.save { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:36px; padding-top:24px; border-top:1px solid #e2e5ec; }
-.sv-btn { display:inline-flex; align-items:center; gap:8px; padding:12px 24px; border-radius:8px; border:2px solid #e2e5ec; background:#fff; font-size:16px; font-weight:700; color:#1a1a2e; cursor:pointer; font-family:inherit; transition:all .2s; }
-.sv-btn:hover { border-color:#4A6CF7; color:#4A6CF7; box-shadow:0 2px 8px rgba(0,0,0,.05); transform:translateY(-1px); }
-.sv-btn:disabled { opacity:.5; cursor:wait; transform:none!important; }
-.sv-btn svg { width:18px; height:18px; stroke:currentColor; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
-
-/* Tracking status toast */
-.track-toast { position:fixed; bottom:20px; left:50%; transform:translateX(-50%); padding:10px 20px; border-radius:8px; font-size:14px; font-weight:600; font-family:inherit; z-index:9999; transition:opacity .3s; pointer-events:none; }
-.track-toast-ok { background:#E8F5E9; color:#1B7A35; border:1px solid #C8E6C9; }
-.track-toast-err { background:#FFEBEE; color:#C62828; border:1px solid #FFCDD2; }
-
-.retake { text-align:center; margin-top:24px; }
-.foot { text-align:center; padding:28px 0 0; margin-top:40px; border-top:1px solid #e2e5ec; font-size:15px; color:#aaa; }
-
-@media(max-width:640px) {
-  #view-welcome { padding:32px 16px 40px; }
-  .w-title { font-size:36px; }
-  .w-desc { font-size:15px; }
-  .w-badge { font-size:11px; padding:5px 10px; }
-  .w-btn { padding:14px 32px; font-size:16px; }
-  #view-questions { padding:0 16px 32px; }
-  #view-results { padding:20px 16px 32px; }
-  .q-text { font-size:19px; }
-  .opt { padding:14px 16px; font-size:15px; }
-  .btn { padding:12px 24px; font-size:15px; }
-  .r-card { padding:24px 18px 20px; border-radius:16px; }
-  .r-title { font-size:32px; }
-  .sc-big { font-size:40px; }
-  .dn { width:auto; text-align:left; font-size:12px; }
-  .dr { flex-wrap:wrap; gap:6px; margin-bottom:16px; }
-  .dt { order:10; width:100%; flex:none; }
-  .dv { margin-left:auto; order:2; }
-  .dscl { padding-left:0; }
-  .ins-row { flex-direction:column; }
-  .rc { padding:16px; }
-  .ci { gap:10px; }
-  .rq { width:28px; height:28px; font-size:12px; }
-  .rn { font-size:15px; }
-  .ps-h { font-size:20px; }
-  .w-card { padding:18px 48px 18px 18px; }
-  .w-card h3 { font-size:16px; }
+@media(max-width:640px){
+#view-welcome{padding:32px 16px 40px}.w-title{font-size:36px}.w-desc{font-size:15px}.w-badge{font-size:11px;padding:5px 10px}.w-btn{padding:14px 32px;font-size:16px}
+#view-questions{padding:0 16px 32px}#view-results{padding:20px 16px 32px}
+.q-text{font-size:19px}.opt{padding:14px 16px;font-size:15px}.btn{padding:12px 24px;font-size:15px}
+.r-card{padding:24px 18px 20px;border-radius:16px}.r-title{font-size:32px}.sc-big{font-size:40px}
+.dn{width:auto;text-align:left;font-size:12px}.dr{flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.dt{order:10;width:100%;flex:none}.dv{margin-left:auto;order:2}.dscl{padding-left:0}
+.ins-row{flex-direction:column}.rc{padding:16px}.ci{gap:10px}.rq{width:28px;height:28px;font-size:12px}
+.rn{font-size:15px}.ps-h{font-size:20px}.w-card{padding:16px 48px 16px 18px}.w-card h3{font-size:15px}
 }
-@media(max-width:380px) {
-  .w-title { font-size:30px; }
-  .opt { font-size:14px; padding:12px 14px; }
-  .sc-big { font-size:34px; }
-}
-
-@media print {
-  #view-welcome { display:none!important; }
-  #view-questions { display:none!important; }
-  #view-results { display:block!important; background:#fff!important; padding:20px!important; }
-  .save,.retake,.nav-row,.prog,.track-toast { display:none!important; }
-  .anim, .qblock, [class*="ad"] {
-    animation:none!important;
-    opacity:1!important;
-    transform:none!important;
-  }
-  .df { animation:none!important; }
-  .r-card { box-shadow:none; border:1px solid #ddd; }
-  .rc { break-inside:avoid; box-shadow:none; border:1px solid #ddd; }
-  .rc:hover { transform:none; }
-  .ds { break-inside:avoid; }
-  .pv { break-inside:avoid; }
-  .m-card { break-inside:avoid; }
-  .m-list { display:block!important; }
-  .m-toggle .m-icon { transform:rotate(90deg); }
-  .band, .ds-pill, .rq, .tag, .df1, .df2, .df3, .df4,
-  .ins-s, .ins-g, .dim-tag-l1, .dim-tag-l2 {
-    -webkit-print-color-adjust:exact!important;
-    print-color-adjust:exact!important;
-    color-adjust:exact!important;
-  }
-  #view-welcome::before, #view-welcome::after { display:none!important; }
+@media(max-width:380px){.w-title{font-size:30px}.opt{font-size:14px;padding:12px 14px}.sc-big{font-size:34px}}
+@media print{
+#view-welcome,#view-questions{display:none!important}
+#view-welcome::before,#view-welcome::after{display:none!important}
+#view-results{display:block!important;background:#fff!important;padding:20px!important}
+.save,.retake,.nav-row,.prog,.track-toast{display:none!important}
+#view-results,#view-results *{animation:none!important;opacity:1!important;transform:none!important;visibility:visible!important}
+.pv,.m-card{opacity:1!important}
+.r-card{box-shadow:none;border:1px solid #ddd}
+.rc{break-inside:avoid;box-shadow:none;border:1px solid #ddd}.rc:hover{transform:none}
+.ds,.pv,.m-card{break-inside:avoid}
+.m-list{display:block!important}
+.m-toggle .m-icon{transform:rotate(90deg)!important}
+*{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;color-adjust:exact!important}
 }
 </style>
 </head>
 <body>
 <div id="app">
-
-<!-- ═══ WELCOME ═══ -->
 <div id="view-welcome">
 <div class="w-inner">
   <div class="w-hero anim">
     <h1 class="w-title">AI <span class="w-accent">Journey Builder</span></h1>
-    <p class="w-desc">Assess your AI proficiency across five core dimensions. Get a personalized learning path with curated free resources and expert-led HLearn courses.</p>
+    <p class="w-desc">Assess your AI proficiency and get a personalized learning path with curated free resources and expert-led HLearn courses.</p>
     <div class="w-badges">
-      <span class="w-badge">&#9201; Takes 8-12 min</span>
       <span class="w-badge">&#9881; Personalized path</span>
       <span class="w-badge">&#127891; Free + HLearn resources</span>
     </div>
   </div>
   <div class="w-tracks">
-    <p class="w-label ad2 anim">Choose your track</p>
-    <div class="w-card ad3 anim" data-t="general" onclick="pick('general')">
-      <h3>General AI Literacy</h3><p>19 questions &middot; ~8 minutes &middot; For any professional</p><span class="w-radio"></span>
-    </div>
-    <div class="w-card ad4 anim" data-t="sc" onclick="pick('sc')">
-      <h3>General AI + Supply Chain</h3><p>26 questions &middot; ~12 minutes &middot; Adds SC-specific assessment</p><span class="w-radio"></span>
-    </div>
-    <div class="w-start ad5 anim">
-      <button class="w-btn" id="startBtn" disabled onclick="go()">Start Assessment &#8594;</button>
-    </div>
-    <p class="w-note ad6 anim">No right or wrong answers. Select the response closest to how you'd think about each situation.</p>
+    <p class="w-label ad1 anim">Always included</p>
+    <div class="w-core ad2 anim"><h3>&#10003; General AI Literacy</h3><p>19 core questions across 5 dimensions</p></div>
+    <p class="w-label ad3 anim">Add a specialization (optional)</p>
+    <div class="w-card ad4 anim" data-t="sc" onclick="tog('sc')"><h3>Supply Chain</h3><p>+7 questions &middot; AI for SC professionals</p><span class="w-chk"></span></div>
+    <div class="w-card ad5 anim" data-t="pm" onclick="tog('pm')"><h3>Project Management</h3><p>+7 questions &middot; AI for PM practice</p><span class="w-chk"></span></div>
+    <div class="w-card ad6 anim" data-t="pe" onclick="tog('pe')"><h3>Professional Engineering (Ontario)</h3><p>+7 questions &middot; AI + P.Eng accountability</p><span class="w-chk"></span></div>
+    <div class="w-count ad7 anim" id="wCount">19 questions &middot; ~8 minutes</div>
+    <div class="w-start"><button class="w-btn" onclick="go()">Start Assessment &#8594;</button></div>
+    <p class="w-note">No right or wrong answers. Select the response closest to how you'd think about each situation.</p>
   </div>
 </div>
 </div>
-
-<!-- ═══ QUESTIONS ═══ -->
 <div id="view-questions" class="hidden">
 <div class="q-inner">
   <div class="prog"><div class="prog-bar"><div class="prog-fill" id="pf"></div></div><span class="prog-n" id="pn"></span></div>
   <div id="qs"></div>
-  <div class="nav-row">
-    <button class="btn btn-g" id="bb" onclick="bk()">&#8592; Back</button>
-    <button class="btn btn-p" id="bn" disabled onclick="nx()">Next &#8594;</button>
-  </div>
+  <div class="nav-row"><button class="btn btn-g" id="bb" onclick="bk()">&#8592; Back</button><button class="btn btn-p" id="bn" disabled onclick="nx()">Next &#8594;</button></div>
 </div>
 </div>
-
-<!-- ═══ RESULTS ═══ -->
 <div id="view-results" class="hidden"></div>
-
 </div>
 <script>
-/* ═══════════════════════════════════════════════════════════
-   CONFIGURATION — Update these two values
-   ═══════════════════════════════════════════════════════════ */
+var WEBHOOK_URL="";
+var LW_USER=window.LW_USER||null;
 
-// Paste your Google Apps Script Web App URL here:
-var WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbz8grlIl26eavKYCG6vDkQqUgeJFqP5Cd2FwgvN_7W1CRAEx9GbtnNTaHQ2DmN4buE/exec";
+var R={R001:{n:"Elements of AI",p:"University of Helsinki",f:"Course",s:"free",d:"20-30 hrs",u:"https://www.elementsofai.com/",c:"Conceptual foundation \u2014 understand what AI actually is and its real implications",dm:["D1","D2"],lv:1},R002:{n:"AI for Everyone 2.0",p:"Andrew Ng / Coursera",f:"Course",s:"free",d:"6 weeks",u:"https://www.coursera.org/learn/ai-for-everyone",c:"Build decision-making fluency \u2014 evaluate AI opportunities and risks",dm:["D1","D2","D5"],lv:1},R003:{n:"Google AI Essentials",p:"Google",f:"Course",s:"free",d:"~10 hrs",u:"https://grow.google/ai-essentials/",c:"Hands-on with AI tools \u2014 practical exercises with real use cases",dm:["D1","D2","D3"],lv:1},R004:{n:"AI Capabilities Survey",p:"HLearn",f:"Course",s:"hl",d:"2-3 hrs",u:"#",c:"Explore AI capabilities \u2014 text, data, images, code, and agents",dm:["D2"],lv:1},R005:{n:"AI Tools in Action",p:"HLearn",f:"Workshop",s:"hl",d:"2 hrs",u:"#",c:"Multi-modal AI workflows \u2014 follow along building real projects",dm:["D2","D3"],lv:2},R006:{n:"Advanced AI Capabilities",p:"HLearn",f:"Course",s:"hl",d:"2 hrs",u:"#",c:"Agentic AI, automation pipelines, and multi-step workflows",dm:["D2"],lv:3},R007:{n:"Prompt Engineering Basics",p:"IBM / Coursera",f:"Course",s:"free",d:"~4 hrs",u:"https://www.coursera.org/learn/generative-ai-prompt-engineering-for-everyone",c:"Zero-shot, few-shot, and chain-of-thought techniques",dm:["D3"],lv:1},R008:{n:"Prompt Engineering for ChatGPT",p:"Vanderbilt / Coursera",f:"Course",s:"free",d:"~6 hrs",u:"https://www.coursera.org/learn/prompt-engineering",c:"Build from basic to sophisticated prompt patterns",dm:["D3"],lv:2},R009:{n:"Prompt Engineering Tutorial",p:"Anthropic",f:"Tutorial",s:"free",d:"3-4 hrs",u:"https://github.com/anthropics/prompt-eng-interactive-tutorial",c:"Interactive hands-on \u2014 9 chapters of exercises with Claude",dm:["D3"],lv:2},R010:{n:"Prompting Best Practices",p:"Anthropic",f:"Article",s:"free",d:"30 min",u:"https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/claude-4-best-practices",c:"Official reference for prompting Claude\u2019s latest models",dm:["D3"],lv:2},R011:{n:"Prompting Masterclass",p:"HLearn",f:"Workshop",s:"hl",d:"2 hrs",u:"#",c:"Bring real work tasks, leave with better AI workflows",dm:["D3"],lv:2},R012:{n:"Context Engineering Guide",p:"Anthropic",f:"Article",s:"free",d:"30 min",u:"https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",c:"Engineer context for AI agents and complex systems",dm:["D3","D4"],lv:3},R013:{n:"When NOT to Trust AI",p:"HLearn",f:"Video",s:"hl",d:"30 min",u:"#",c:"Real examples of where AI fails and why",dm:["D4"],lv:1},R014:{n:"AI Output Evaluation",p:"HLearn",f:"Course",s:"hl",d:"2-3 hrs",u:"#",c:"Spot hallucinations, bias, and errors before damage",dm:["D4"],lv:2},R015:{n:"AI Verification Framework",p:"HLearn",f:"Course",s:"hl",d:"1-2 hrs",u:"#",c:"Systematic team processes \u2014 when to trust, verify, or reject",dm:["D4"],lv:3},R016:{n:"AI Risk & Governance Essentials",p:"HLearn",f:"Course",s:"hl",d:"1-2 hrs",u:"#",c:"Data privacy, IP, and responsible use policies",dm:["D5"],lv:1},R017:{n:"Building Your AI Use Policy",p:"HLearn",f:"Workshop",s:"hl",d:"2 hrs",u:"#",c:"Leave with a working AI policy draft for your org",dm:["D5"],lv:3},R018:{n:"AI in Supply Chain",p:"AI CERTs / Coursera",f:"Course",s:"free",d:"~8 hrs",u:"https://www.coursera.org/learn/ai-in-supply-chain",c:"AI for forecasting, procurement, inventory, logistics",dm:["D6"],lv:1},R019:{n:"AI for Supply Chains & Logistics",p:"Alison",f:"Course",s:"free",d:"3-4 hrs",u:"https://alison.com/course/artificial-intelligence-for-supply-chains-and-logistics",c:"AI for inventory, demand prediction, last-mile delivery",dm:["D6"],lv:1},R020:{n:"SC AI Quick Wins",p:"HLearn",f:"Video",s:"hl",d:"45 min",u:"#",c:"AI applied to each supply chain function",dm:["D6"],lv:1},R021:{n:"AI for SC Professionals",p:"HLearn",f:"Course",s:"hl",d:"4-6 hrs",u:"#",c:"AI use cases across Plan, Source, Make, Deliver",dm:["D6","D7"],lv:2},R022:{n:"ML for Supply Chains",p:"LearnQuest / Coursera",f:"Course",s:"free",d:"~20 hrs",u:"https://www.coursera.org/learn/advanced-ai-techniques-for-the-supply-chain",c:"ML paradigms and neural networks for SC problems",dm:["D6","D7"],lv:2},R023:{n:"AI-Powered SC Analysis",p:"HLearn",f:"Workshop",s:"hl",d:"3 hrs",u:"#",c:"Upload data, run AI segmentation and scenario modeling",dm:["D7"],lv:2},R024:{n:"AI for SC Leaders",p:"HLearn",f:"Course",s:"hl",d:"3-4 hrs",u:"#",c:"Strategic AI adoption \u2014 build the case, measure ROI",dm:["D7","D6"],lv:3},R025:{n:"OpenAI Academy",p:"OpenAI",f:"Sandbox",s:"free",d:"Varies",u:"https://academy.openai.com/",c:"Workshops, content, peer connections for AI learning",dm:["D1","D2","D3"],lv:1},
+R026:{n:"Free Intro: PMI-CPMAI",p:"PMI",f:"Course",s:"free",d:"~2 hrs",u:"https://www.pmi.org/shop/p-/elearning/free-introduction-to-cognitive-project-management-in-ai-cpmai/el185",c:"AI project management foundations and the CPMAI methodology",dm:["D8"],lv:1},R027:{n:"ChatGPT for PM",p:"Vanderbilt / Coursera",f:"Course",s:"free",d:"~8 hrs",u:"https://www.coursera.org/specializations/chatgpt-project-management",c:"Leverage AI for planning, execution, tracking, and stakeholder comms",dm:["D8","D9"],lv:1},R028:{n:"PMI AI Learning Hub",p:"PMI",f:"Hub",s:"free",d:"Varies",u:"https://www.pmi.org/learning/ai-in-project-management",c:"Curated AI resources, research reports, and frameworks for PMs",dm:["D8"],lv:2},R029:{n:"AI for PM Professionals",p:"HLearn",f:"Course",s:"hl",d:"4-6 hrs",u:"#",c:"AI use cases across initiation, planning, execution, and close",dm:["D8","D9"],lv:2},R030:{n:"AI-Powered Project Planning",p:"HLearn",f:"Workshop",s:"hl",d:"3 hrs",u:"#",c:"Hands-on: build an AI-augmented project plan from real data",dm:["D9"],lv:2},R031:{n:"AI PM Mastery",p:"HLearn",f:"Course",s:"hl",d:"3-4 hrs",u:"#",c:"Strategic AI adoption for PMOs and program leaders",dm:["D9","D8"],lv:3},
+R032:{n:"PEO AI Practice Advisory",p:"PEO / EGBC",f:"Advisory",s:"free",d:"30 min",u:"https://www.peo.on.ca/knowledge-centre/practice-advice-resources-and-guidelines/practice-guidelines",c:"PEO\u2019s adopted guidance on AI use in professional engineering practice",dm:["D10","D11"],lv:1},R033:{n:"Engineers Canada AI Guidance",p:"Engineers Canada",f:"Guide",s:"free",d:"1 hr",u:"https://engineerscanada.ca/",c:"National guidance for engineers and teams working on AI-involved projects",dm:["D10"],lv:1},R034:{n:"OSPE EngTalks: AI & Engineering",p:"OSPE",f:"Event",s:"free",d:"2 hrs",u:"https://ospe.on.ca/advocacy/join-the-conversation-on-ai-and-engineering/",c:"Panel discussions on AI adoption, innovation, and risk in engineering",dm:["D10","D11"],lv:2},R035:{n:"AI for Licensed Engineers",p:"HLearn",f:"Course",s:"hl",d:"4-6 hrs",u:"#",c:"AI tools and verification methods for professional engineering work",dm:["D10","D11"],lv:2},R036:{n:"AI Verification for Engineering",p:"HLearn",f:"Workshop",s:"hl",d:"3 hrs",u:"#",c:"Hands-on V&V protocols for AI-assisted engineering calculations",dm:["D11"],lv:2},R037:{n:"AI Practice Leadership for P.Eng",p:"HLearn",f:"Course",s:"hl",d:"3-4 hrs",u:"#",c:"Lead responsible AI adoption within your engineering organization",dm:["D11","D10"],lv:3}};
 
-// LearnWorlds injects these via Liquid templates (see setup instructions).
-// If running outside LearnWorlds, user will see a fallback form.
-var LW_USER = window.LW_USER || null;
-
-/* ═══════════════════════════════════════════════════════════ */
-
-var R={R001:{n:"Elements of AI",p:"University of Helsinki",f:"Course",s:"free",d:"20-30 hrs",u:"https://www.elementsofai.com/",c:"Conceptual foundation \u2014 understand what AI actually is and its real implications",dm:["D1","D2"],lv:1},R002:{n:"AI for Everyone 2.0",p:"Andrew Ng / Coursera",f:"Course",s:"free",d:"6 weeks",u:"https://www.coursera.org/learn/ai-for-everyone",c:"Build decision-making fluency \u2014 evaluate AI opportunities and risks",dm:["D1","D2","D5"],lv:1},R003:{n:"Google AI Essentials",p:"Google",f:"Course",s:"free",d:"~10 hrs",u:"https://grow.google/ai-essentials/",c:"Hands-on with AI tools \u2014 practical exercises with real use cases",dm:["D1","D2","D3"],lv:1},R004:{n:"AI Capabilities Survey",p:"HLearn",f:"Course",s:"hl",d:"2-3 hrs",u:"https://hlearn.com/courses/ai-capabilities-survey",c:"Explore AI capabilities \u2014 text, data, images, code, and agents",dm:["D2"],lv:1},R005:{n:"AI Tools in Action",p:"HLearn",f:"Workshop",s:"hl",d:"2 hrs",u:"https://hlearn.com/workshops/ai-tools-in-action",c:"Multi-modal AI workflows \u2014 follow along building real projects",dm:["D2","D3"],lv:2},R006:{n:"Advanced AI Capabilities",p:"HLearn",f:"Course",s:"hl",d:"2 hrs",u:"https://hlearn.com/courses/advanced-ai-capabilities",c:"Agentic AI, automation pipelines, and multi-step workflows",dm:["D2"],lv:3},R007:{n:"Prompt Engineering Basics",p:"IBM / Coursera",f:"Course",s:"free",d:"~4 hrs",u:"https://www.coursera.org/learn/generative-ai-prompt-engineering-for-everyone",c:"Zero-shot, few-shot, and chain-of-thought techniques",dm:["D3"],lv:1},R008:{n:"Prompt Engineering for ChatGPT",p:"Vanderbilt / Coursera",f:"Course",s:"free",d:"~6 hrs",u:"https://www.coursera.org/learn/prompt-engineering",c:"Build from basic to sophisticated prompt patterns",dm:["D3"],lv:2},R009:{n:"Prompt Engineering Tutorial",p:"Anthropic",f:"Tutorial",s:"free",d:"3-4 hrs",u:"https://github.com/anthropics/prompt-eng-interactive-tutorial",c:"Interactive hands-on \u2014 9 chapters of exercises with Claude",dm:["D3"],lv:2},R010:{n:"Prompting Best Practices",p:"Anthropic",f:"Article",s:"free",d:"30 min",u:"https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/claude-4-best-practices",c:"Official reference for prompting Claude\u2019s latest models",dm:["D3"],lv:2},R011:{n:"Prompting Masterclass",p:"HLearn",f:"Workshop",s:"hl",d:"2 hrs",u:"https://hlearn.com/workshops/prompting-masterclass",c:"Bring real work tasks, leave with better AI workflows",dm:["D3"],lv:2},R012:{n:"Context Engineering Guide",p:"Anthropic",f:"Article",s:"free",d:"30 min",u:"https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",c:"Engineer context for AI agents and complex systems",dm:["D3","D4"],lv:3},R013:{n:"When NOT to Trust AI",p:"HLearn",f:"Video",s:"hl",d:"30 min",u:"https://hlearn.com/videos/when-not-to-trust-ai",c:"Real examples of where AI fails and why",dm:["D4"],lv:1},R014:{n:"AI Output Evaluation",p:"HLearn",f:"Course",s:"hl",d:"2-3 hrs",u:"https://hlearn.com/courses/ai-output-evaluation",c:"Spot hallucinations, bias, and errors before damage",dm:["D4"],lv:2},R015:{n:"AI Verification Framework",p:"HLearn",f:"Course",s:"hl",d:"1-2 hrs",u:"https://hlearn.com/courses/ai-verification-framework",c:"Systematic team processes \u2014 when to trust, verify, or reject",dm:["D4"],lv:3},R016:{n:"AI Risk & Governance Essentials",p:"HLearn",f:"Course",s:"hl",d:"1-2 hrs",u:"https://hlearn.com/courses/ai-risk-governance-essentials",c:"Data privacy, IP, and responsible use policies",dm:["D5"],lv:1},R017:{n:"Building Your AI Use Policy",p:"HLearn",f:"Workshop",s:"hl",d:"2 hrs",u:"https://hlearn.com/workshops/building-ai-use-policy",c:"Leave with a working AI policy draft for your org",dm:["D5"],lv:3},R018:{n:"AI in Supply Chain",p:"AI CERTs / Coursera",f:"Course",s:"free",d:"~8 hrs",u:"https://www.coursera.org/learn/ai-in-supply-chain",c:"AI for forecasting, procurement, inventory, logistics",dm:["D6"],lv:1},R019:{n:"AI for Supply Chains & Logistics",p:"Alison",f:"Course",s:"free",d:"3-4 hrs",u:"https://alison.com/course/artificial-intelligence-for-supply-chains-and-logistics",c:"AI for inventory, demand prediction, last-mile delivery",dm:["D6"],lv:1},R020:{n:"SC AI Quick Wins",p:"HLearn",f:"Video",s:"hl",d:"45 min",u:"https://hlearn.com/videos/sc-ai-quick-wins",c:"AI applied to each supply chain function",dm:["D6"],lv:1},R021:{n:"AI for SC Professionals",p:"HLearn",f:"Course",s:"hl",d:"4-6 hrs",u:"https://hlearn.com/courses/ai-for-supply-chain-professionals",c:"AI use cases across Plan, Source, Make, Deliver",dm:["D6","D7"],lv:2},R022:{n:"ML for Supply Chains",p:"LearnQuest / Coursera",f:"Course",s:"free",d:"~20 hrs",u:"https://www.coursera.org/learn/advanced-ai-techniques-for-the-supply-chain",c:"ML paradigms and neural networks for SC problems",dm:["D6","D7"],lv:2},R023:{n:"AI-Powered SC Analysis",p:"HLearn",f:"Workshop",s:"hl",d:"3 hrs",u:"https://hlearn.com/workshops/ai-powered-sc-analysis",c:"Upload data, run AI segmentation and scenario modeling",dm:["D7"],lv:2},R024:{n:"AI for SC Leaders",p:"HLearn",f:"Course",s:"hl",d:"3-4 hrs",u:"https://hlearn.com/courses/ai-for-sc-leaders",c:"Strategic AI adoption \u2014 build the case, measure ROI",dm:["D7","D6"],lv:3},R025:{n:"OpenAI Academy",p:"OpenAI",f:"Sandbox",s:"free",d:"Varies",u:"https://academy.openai.com/",c:"Workshops, content, peer connections for AI learning",dm:["D1","D2","D3"],lv:1}};
-
-var DN={D1:"Conceptual Understanding",D2:"Capabilities Awareness",D3:"Tool Proficiency",D4:"Critical Evaluation",D5:"Ethics & Risk",D6:"SC-AI Use Cases",D7:"AI-Augmented SC Decisions"};
+var DN={D1:"Conceptual Understanding",D2:"Capabilities Awareness",D3:"Tool Proficiency",D4:"Critical Evaluation",D5:"Ethics & Risk",D6:"SC-AI Use Cases",D7:"AI-Augmented SC Decisions",D8:"AI in PM Practice",D9:"AI-Augmented PM Decisions",D10:"AI in Engineering Practice",D11:"AI + Professional Accountability"};
 var BN={1:"Unaware",2:"Aware",3:"Practitioner",4:"Strategic"};
 var BC={1:"#E85D4A",2:"#E8A84A",3:"#4AA8E8",4:"#4AE88C"};
+var TRACK_DIMS={sc:["D6","D7"],pm:["D8","D9"],pe:["D10","D11"]};
+var TRACK_LABELS={sc:"Supply Chain",pm:"Project Management",pe:"Professional Engineering"};
+var DIM_TAG={D1:"core",D2:"core",D3:"core",D4:"core",D5:"core",D6:"sc",D7:"sc",D8:"pm",D9:"pm",D10:"pe",D11:"pe"};
 
 var TX={};
-(function(){["D1","D2","D3","D4","D5","D6","D7"].forEach(function(d){TX[d]={1:[],2:[],3:[]}});Object.keys(R).forEach(function(id){R[id].dm.forEach(function(d){if(TX[d])TX[d][R[id].lv].push(id)})})})();
+(function(){var allD=Object.keys(DN);allD.forEach(function(d){TX[d]={1:[],2:[],3:[]}});Object.keys(R).forEach(function(id){R[id].dm.forEach(function(d){if(TX[d])TX[d][R[id].lv].push(id)})})})();
 function nl(s){return s<2?1:s<3?2:s<3.5?3:4}
 
-var Q=[{id:"Q1.1",d:"D1",q:"Which best describes how tools like ChatGPT generate responses?",o:[{t:"It searches the internet for the best answer and rewrites it, similar to how a research assistant would compile information from multiple sources and present a thorough summary.",v:1},{t:"It pulls from a large database of pre-written responses and matches your question to the closest one, then adjusts the phrasing so it reads naturally.",v:2},{t:"It understands your question, thinks about it, and writes a thoughtful answer \u2014 essentially a very fast, knowledgeable thinker.",v:1},{t:"It predicts the most probable next words based on patterns learned from its training data.",v:4}]},{id:"Q1.2",d:"D1",q:"Your company uses: (1) Auto-route tickets via keyword rules. (2) Fraud detector that improves with more data. (3) Chatbot for employee questions. Which use AI/ML?",o:[{t:"All three. Any software handling complex tasks without a human is AI.",v:1},{t:"Only the chatbot. It talks like a person, so that\u2019s clearly AI.",v:2},{t:"Fraud detection and chatbot. The ticket router follows fixed rules \u2014 automation, not AI.",v:3},{t:"Depends on implementation. Fraud tool is ML if it updates its model. Chatbot is likely LLM-based. Ticket router is probably rules \u2014 but could use NLP.",v:4}]},{id:"Q1.3",d:"D1",q:"You ask AI about a policy updated last week. Confident answer, but details are wrong. Most likely explanation?",o:[{t:"AI made a mistake. Try asking again more clearly.",v:1},{t:"Probably doesn\u2019t have information that recent.",v:2},{t:"Training data predates the update. Rather than saying \u201cI don\u2019t know,\u201d it generated a plausible response \u2014 a hallucination.",v:3},{t:"It lacks the new info and filled the gap. Fix: provide the updated policy as context, or use a tool with document access.",v:4}]},{id:"Q1.4",d:"D1",q:"Vendor claims \u201cadvanced AI\u201d automates expense approvals. Your first question?",o:[{t:"If it saves time, that\u2019s what matters.",v:1},{t:"I\u2019d want a demo and check what other companies use it.",v:2},{t:"What kind of AI \u2014 pattern matching, LLM, or just rules with an \u201cAI\u201d label?",v:3},{t:"What does the AI actually do vs. rules? Error rate? What happens when it\u2019s wrong?",v:4}]},{id:"Q2.1",d:"D2",q:"Beyond generating text, what can current AI tools do?",o:[{t:"Mainly answer questions and help with writing.",v:1},{t:"Also create images, translate languages, summarize documents.",v:2},{t:"Generate/analyze images, write and run code, process spreadsheets, search the web, read documents, transcribe audio, connect to tools.",v:3},{t:"All of that, plus chain tasks into multi-step workflows, operate within software, and act autonomously on goals.",v:4}]},{id:"Q2.2",d:"D2",q:"200-page document: find all liability sections, compare to your standard terms. Your AI approach?",o:[{t:"Read it myself. Too important to trust AI.",v:1},{t:"Copy sections into ChatGPT, ask for summaries, compare manually.",v:2},{t:"Upload to a long-document tool, extract liability clauses, compare to standards. Review before acting.",v:3},{t:"Upload both documents, extract with locations, comparison table flagging deviations, verify high-risk items myself.",v:4}]},{id:"Q2.3",d:"D2",q:"Colleague wants AI for: (1) Status report. (2) Final compliance determination. (3) Survey themes. (4) Slides. Push back on which?",o:[{t:"All of them \u2014 test AI on our work first.",v:1},{t:"Task 4 \u2014 design needs a human eye.",v:2},{t:"Task 2 \u2014 compliance is high-stakes. Also cautious on Task 3.",v:3},{t:"Task 2. AI can draft, analyze, create \u2014 but compliance needs guaranteed accuracy and accountability.",v:4}]},{id:"Q2.4",d:"D2",q:"\u201cAI just generates text \u2014 can\u2019t actually do things.\u201d Most accurate correction:",o:[{t:"Mostly true. Writing is the main strength.",v:1},{t:"It also makes images, translates, does basic analysis.",v:2},{t:"It can browse the web, run code, analyze files, create documents.",v:3},{t:"Two years ago, sure. AI agents now research, code, iterate, use tools, deliver outputs autonomously.",v:4}]},{id:"Q3.1",d:"D3",q:"Prompt to decline a meeting via email. Which gets the best result?",o:[{t:"Write an email saying I can\u2019t make the meeting.",v:1},{t:"Write a professional email declining a meeting politely due to a conflict.",v:2},{t:"Decline meeting with Jordan, Q3 planning. Conflict Thursday 2pm. Respectful. Suggest alternative. Concise.",v:3},{t:"Decline Thursday 2pm with Jordan. Warm but clear. Client call conflicts. Suggest Friday AM. Under 100 words.",v:4}]},{id:"Q3.2",d:"D3",q:"AI\u2019s project data analysis is surface-level. Next move?",o:[{t:"AI can\u2019t handle this. I\u2019ll use a spreadsheet.",v:1},{t:"Rephrase more specifically and retry.",v:2},{t:"Targeted follow-up: \u201cBreak down by team and month. Flag delivery rate drops >10%.\u201d",v:3},{t:"Steer iteratively: breakdown, cross-cuts, anomalies. If it runs code, analyze programmatically.",v:4}]},{id:"Q3.3",d:"D3",q:"Summarize a report, build presentation, send to team. How do you use AI?",o:[{t:"Do all three manually. Explaining to AI and fixing takes longer.",v:1},{t:"AI for summary. Slides and email myself.",v:2},{t:"Upload report, get summary, draft slides and email. Review before sending.",v:3},{t:"Match tool to task: long-context for summary, slide generator for deck, AI for email. Automate if recurring.",v:4}]},{id:"Q3.4",d:"D3",q:"Skilled AI user decides NOT to use AI. Most sophisticated reason?",o:[{t:"Too important \u2014 critical work should always be manual.",v:1},{t:"AI lacks access to the right data or systems.",v:2},{t:"Confidential info can\u2019t go to an external service.",v:3},{t:"Time to prompt, review, verify exceeds doing it \u2014 and verification cost scales with stakes.",v:4}]},{id:"Q4.1",d:"D4",q:"AI recommends 3 books with titles, authors, years. Perfectly formatted. What do you do?",o:[{t:"Search for them. Start with the best-reviewed.",v:1},{t:"Double-check they exist before buying.",v:2},{t:"Verify each independently. AI fabricates citations that look real.",v:3},{t:"Verify. Also change approach next time \u2014 recommending from memory is hallucination-prone.",v:4}]},{id:"Q4.2",d:"D4",q:"AI scores applicants. Consistently rates certain university candidates higher. Explanation?",o:[{t:"AI has better information about those universities.",v:1},{t:"Seems biased. Probably shouldn\u2019t use AI for hiring.",v:2},{t:"Learned from historical data correlating prestige with \u201cgood hires.\u201d Replicating bias at scale.",v:3},{t:"Pattern may proxy for bias in your human process. Fix: bias auditing, impact testing, process redesign.",v:4}]},{id:"Q4.3",d:"D4",q:"AI says \u201ccompletion rate improved 3.2% YoY.\u201d Most important check?",o:[{t:"If the data was correct, the analysis should be too.",v:1},{t:"Sanity-check against original data.",v:2},{t:"Exact calculation: percentage points or percent change?",v:3},{t:"Whether 3.2% is the right fact to highlight. Verify number AND question the framing.",v:4}]},{id:"Q4.4",d:"D4",q:"Two AI tools contradict each other on a policy question. How do you resolve?",o:[{t:"Go with whichever is newer.",v:1},{t:"Ask a third tool. Go with majority.",v:2},{t:"Neither\u2019s confidence means anything. Check the primary source.",v:3},{t:"Go to the policy document. AI confidence has no correlation with accuracy.",v:4}]},{id:"Q5.1",d:"D5",q:"Colleague pastes client names, emails, contract values into AI chatbot. The concern?",o:[{t:"No problem \u2014 just sorting a list.",v:1},{t:"Might not be safe. Client data is sensitive.",v:2},{t:"Potential breach. PII to a third party may violate privacy regs.",v:3},{t:"The concern isn\u2019t one incident \u2014 it\u2019s missing guardrails. Need data classification and approved tools.",v:4}]},{id:"Q5.2",d:"D5",q:"Team uses AI for blog posts and images. Most important IP consideration?",o:[{t:"AI made it, so it\u2019s ours.",v:1},{t:"Might be copyright issues. Check with legal.",v:2},{t:"Two-sided: may not be copyrightable AND might reproduce copyrighted material.",v:3},{t:"Legal landscape unsettled. Build policy covering ownership, exposure, infringement, disclosure.",v:4}]},{id:"Q5.3",d:"D5",q:"CEO: \u201cEveryone should use AI for everything \u2014 we\u2019re behind.\u201d Your response?",o:[{t:"Great \u2014 let\u2019s get everyone access ASAP.",v:1},{t:"Start with a small pilot first.",v:2},{t:"Urgency is right, but without guardrails: data leaks, compliance issues.",v:3},{t:"Channel it: 30-day sprint \u2014 inventory usage, classify by risk, approved tools, role-based training.",v:4}]},{id:"Q6.1",d:"D6",q:"Where in supply chain is AI delivering proven value today?",o:[{t:"Not sure which areas specifically.",v:1},{t:"Automating reports and finding info faster.",v:2},{t:"Demand forecasting, inventory optimization, logistics routing, supplier risk.",v:3},{t:"Proven: demand sensing, inventory, logistics. Emerging: AI S&OP, autonomous tail-spend, predictive maintenance.",v:4}]},{id:"Q6.2",d:"D6",q:"Planner: \u201cAI forecast is 15% more accurate. Switch?\u201d",o:[{t:"15% is huge \u2014 switch now.",v:1},{t:"Test more first.",v:2},{t:"15% by what measure? All families? Can planners override?",v:3},{t:"Parallel run, two cycles. Handle new products/promotions? Best: AI baseline + planner adjustments.",v:4}]},{id:"Q6.3",d:"D6",q:"Vendor pitches \u201cAI control tower\u201d with end-to-end visibility. Red flag?",o:[{t:"I\u2019d want a demo.",v:1},{t:"Can\u2019t deliver if systems aren\u2019t connected.",v:2},{t:"Requires ERP/WMS/TMS/supplier integration most lack. Autonomous decisions without boundaries = dangerous.",v:3},{t:"80% data integration, 20% AI. No integration story = won\u2019t work.",v:4}]},{id:"Q6.4",d:"D6",q:"Starting AI in supply chain. First thing?",o:[{t:"Which tools are popular.",v:1},{t:"Budget and people.",v:2},{t:"Data readiness: master data, demand history, integrations.",v:3},{t:"Four things: data quality, process maturity, use case priority, adoption readiness.",v:4}]},{id:"Q7.1",d:"D7",q:"24 months sales data, need product segmentation. AI\u2019s role?",o:[{t:"Excel. Not sure AI adds value.",v:1},{t:"Ask AI which products matter most.",v:2},{t:"ABC revenue, XYZ variability, matrix, policies. Validate against business knowledge.",v:3},{t:"Clean data first. Standard segmentation + edge cases. AI does math; I handle judgment.",v:4}]},{id:"Q7.2",d:"D7",q:"Planning: supplier lead time +30%, demand +20%, both. AI\u2019s role?",o:[{t:"Present scenarios, facilitate discussion.",v:1},{t:"AI writes up scenarios and impacts.",v:2},{t:"Feed AI plan and capacity, model metric impact. Quantified trade-offs beat opinions.",v:3},{t:"Model cascading effects. Mitigation options with cost estimates and decision matrix.",v:4}]},{id:"Q7.3",d:"D7",q:"When trust AI output vs. own judgment?",o:[{t:"When it seems reasonable.",v:1},{t:"Routine = AI. Important = human.",v:2},{t:"Trust for pattern recognition, stats, routine. Override when context missing or stakes need accountability.",v:3},{t:"Not trust-or-override \u2014 calibration. Weight by reversibility, data quality, novelty. Track override outcomes.",v:4}]}];
+// ═══ QUESTIONS — All 40, length-bias fixed ═══
+var Q=[
+// D1 Conceptual Understanding
+{id:"Q1.1",d:"D1",q:"Which best describes how tools like ChatGPT generate responses?",o:[{t:"It searches the internet for the best answer and rewrites it, similar to how a research assistant would compile information from multiple sources and present a thorough summary.",v:1},{t:"It pulls from a large database of pre-written responses and matches your question to the closest one, then adjusts the phrasing so it reads naturally.",v:2},{t:"It understands your question, thinks about it, and writes a thoughtful answer \u2014 essentially a very fast, knowledgeable thinker.",v:1},{t:"It predicts the most probable next words based on patterns learned during training.",v:4}]},
+{id:"Q1.2",d:"D1",q:"Your company uses: (1) Auto-route tickets via keyword rules. (2) Fraud detector that improves with more data. (3) Chatbot for employee questions. Which use AI/ML?",o:[{t:"All three are AI \u2014 any software system that handles complex tasks without direct human intervention, whether routing tickets, detecting fraud, or answering questions, qualifies as artificial intelligence.",v:1},{t:"Only the chatbot. It talks like a person, so that\u2019s clearly AI.",v:2},{t:"Fraud detection and chatbot. The ticket router follows fixed rules \u2014 automation, not AI.",v:3},{t:"Depends on implementation. Fraud tool is ML if it learns. Chatbot is LLM-based. Ticket router is probably rules \u2014 could use NLP though.",v:4}]},
+{id:"Q1.3",d:"D1",q:"You ask AI about a policy updated last week. Confident answer, but details are wrong. Most likely explanation?",o:[{t:"AI made a mistake. Try asking again more clearly.",v:1},{t:"Probably doesn\u2019t have information that recent.",v:2},{t:"Training data predates the update. Rather than saying \u201cI don\u2019t know,\u201d it generated a plausible response \u2014 a hallucination.",v:3},{t:"It lacks the new info and filled the gap. Fix: provide the policy as context, or use a tool with document access.",v:4}]},
+{id:"Q1.4",d:"D1",q:"Vendor claims \u201cadvanced AI\u201d automates expense approvals. Your first question?",o:[{t:"If it saves time, that\u2019s what matters.",v:1},{t:"I\u2019d want to see a demo and check references from other companies in our industry who have successfully implemented it for similar approval workflows.",v:2},{t:"What kind of AI \u2014 pattern matching, LLM, or just rules with an \u201cAI\u201d label?",v:3},{t:"What does it actually do vs. rules? What\u2019s the error rate? What happens when it\u2019s wrong?",v:4}]},
+// D2 Capabilities Awareness
+{id:"Q2.1",d:"D2",q:"Beyond generating text, what can current AI tools do?",o:[{t:"Mainly answer questions and help with writing.",v:1},{t:"Also create images, translate languages, summarize documents.",v:2},{t:"Generate and analyze images, write and run code, process spreadsheets, search the web, read documents, transcribe audio, and connect to external tools.",v:3},{t:"All of that, plus chain tasks into multi-step workflows and act on goals autonomously.",v:4}]},
+{id:"Q2.2",d:"D2",q:"200-page document: find all liability sections, compare to your standard terms. Your AI approach?",o:[{t:"I\u2019d read it myself. This is far too important and nuanced to trust to AI \u2014 legal language requires human understanding of context, precedent, and the specific business relationship involved.",v:1},{t:"Copy sections into ChatGPT, ask for summaries, compare manually.",v:2},{t:"Upload to a long-document tool, extract liability clauses, compare to standards. Review before acting.",v:3},{t:"Upload both documents. Comparison table flagging deviations. Verify high-risk items myself.",v:4}]},
+{id:"Q2.3",d:"D2",q:"Colleague wants AI for: (1) Status report. (2) Final compliance determination. (3) Survey themes. (4) Slides. Push back on which?",o:[{t:"I\u2019d push back on all of them \u2014 we should thoroughly test AI on our specific work context before using it for any of these tasks, since each one involves different stakeholders and risk levels.",v:1},{t:"Task 4 \u2014 design needs a human eye.",v:2},{t:"Task 2 \u2014 compliance is high-stakes. Also cautious on Task 3.",v:3},{t:"Task 2. AI can draft and analyze, but compliance needs guaranteed accuracy and accountability.",v:4}]},
+{id:"Q2.4",d:"D2",q:"\u201cAI just generates text \u2014 can\u2019t actually do things.\u201d Most accurate correction:",o:[{t:"That\u2019s mostly right. AI is primarily a writing and conversation tool \u2014 it\u2019s very impressive at generating text, but when it comes to actually performing tasks in the real world, it\u2019s still quite limited.",v:1},{t:"It also makes images, translates, does basic analysis.",v:2},{t:"It can browse the web, run code, analyze files, create documents.",v:3},{t:"Two years ago, sure. AI agents now research, code, iterate, use tools, and deliver outputs autonomously.",v:4}]},
+// D3 Tool Proficiency
+{id:"Q3.1",d:"D3",q:"Prompt to decline a meeting via email. Which gets the best result?",o:[{t:"Write an email saying I can\u2019t make the meeting.",v:1},{t:"Write a professional email declining a meeting politely due to a scheduling conflict, and make sure to express regret and offer to catch up on any notes or action items afterward.",v:2},{t:"Decline meeting with Jordan, Q3 planning. Conflict Thursday 2pm. Respectful. Suggest alternative. Concise.",v:3},{t:"Decline Thursday 2pm with Jordan. Client call conflicts. Suggest Friday AM. Under 100 words.",v:4}]},
+{id:"Q3.2",d:"D3",q:"AI\u2019s project data analysis is surface-level. Next move?",o:[{t:"AI can\u2019t handle this. I\u2019ll use a spreadsheet.",v:1},{t:"I\u2019d rephrase the question more specifically and try again \u2014 maybe include some examples of the kind of analysis I\u2019m looking for so the AI understands the depth I need.",v:2},{t:"Targeted follow-up: \u201cBreak down by team and month. Flag delivery rate drops >10%.\u201d",v:3},{t:"Steer iteratively: breakdown, cross-cuts, anomalies. If it runs code, analyze programmatically.",v:4}]},
+{id:"Q3.3",d:"D3",q:"Summarize a report, build presentation, send to team. How do you use AI?",o:[{t:"Do all three manually. By the time I explain what I need, review the output, fix the mistakes, and format everything properly, it would honestly be faster to just do it myself from scratch.",v:1},{t:"AI for summary. Slides and email myself.",v:2},{t:"Upload report, get summary, draft slides and email. Review before sending.",v:3},{t:"Match tool to task: long-context for summary, slide generator for deck, AI for email. Automate if recurring.",v:4}]},
+{id:"Q3.4",d:"D3",q:"Skilled AI user decides NOT to use AI. Most sophisticated reason?",o:[{t:"The task is too important \u2014 anything with high stakes or significant consequences should always be handled manually by someone with the right expertise, because the risk of AI error is simply too great.",v:1},{t:"AI lacks access to the right data or systems.",v:2},{t:"Confidential info can\u2019t go to an external service.",v:3},{t:"Verification cost exceeds time saved \u2014 and the human process IS the value.",v:4}]},
+// D4 Critical Evaluation
+{id:"Q4.1",d:"D4",q:"AI recommends 3 books with titles, authors, years. Perfectly formatted. What do you do?",o:[{t:"Search for them and start with the best-reviewed one. The recommendations look solid and well-researched, and AI is generally very reliable when it comes to suggesting books since there\u2019s so much published information to draw from.",v:1},{t:"Double-check they exist before buying.",v:2},{t:"Verify each independently. AI fabricates citations that look real.",v:3},{t:"Verify. Also change approach \u2014 recommending from memory is hallucination-prone.",v:4}]},
+{id:"Q4.2",d:"D4",q:"AI scores applicants. Consistently rates certain university candidates higher. Explanation?",o:[{t:"AI has better information about those universities.",v:1},{t:"Seems biased. Probably shouldn\u2019t use AI for hiring.",v:2},{t:"Learned from historical data correlating prestige with \u201cgood hires.\u201d Replicating bias at scale.",v:3},{t:"Pattern may proxy for bias in your human process. Fix: audit, impact-test, redesign.",v:4}]},
+{id:"Q4.3",d:"D4",q:"AI says \u201ccompletion rate improved 3.2% YoY.\u201d Most important check?",o:[{t:"If the data was correct, the analysis should be too.",v:1},{t:"I\u2019d want to sanity-check the number against the original data \u2014 maybe pull up the spreadsheet, recalculate manually, and make sure the AI didn\u2019t misread any of the columns or date ranges.",v:2},{t:"Exact calculation: percentage points or percent change?",v:3},{t:"Whether 3.2% is the right fact to highlight. Verify number AND question the framing.",v:4}]},
+{id:"Q4.4",d:"D4",q:"Two AI tools contradict each other on a policy question. How do you resolve?",o:[{t:"Go with whichever tool is newer \u2014 it likely has more recent training data and therefore a better understanding of the current policy landscape and any recent updates or amendments.",v:1},{t:"Ask a third tool. Go with majority.",v:2},{t:"Neither\u2019s confidence means anything. Check the primary source.",v:3},{t:"Go to the policy document. AI confidence has no correlation with accuracy.",v:4}]},
+// D5 Ethics & Risk
+{id:"Q5.1",d:"D5",q:"Colleague pastes client names, emails, contract values into AI chatbot. The concern?",o:[{t:"No problem \u2014 they\u2019re just sorting a list. The AI processes the data and gives it back, it\u2019s no different from using any other software tool to organize information for a project or client meeting.",v:1},{t:"Might not be safe. Client data is sensitive.",v:2},{t:"Potential breach. PII sent to a third party may violate privacy regs.",v:3},{t:"The concern isn\u2019t one incident \u2014 it\u2019s missing guardrails. Need data classification and approved tools.",v:4}]},
+{id:"Q5.2",d:"D5",q:"Team uses AI for blog posts and images. Most important IP consideration?",o:[{t:"AI made it, so it\u2019s ours. We prompted it, we directed the output, we reviewed and edited it \u2014 that\u2019s creative direction, which should give us full intellectual property ownership of everything produced.",v:1},{t:"Might be copyright issues. Check with legal.",v:2},{t:"Two-sided: may not be copyrightable AND might reproduce copyrighted material.",v:3},{t:"Legal landscape unsettled. Build policy covering ownership, exposure, and disclosure.",v:4}]},
+{id:"Q5.3",d:"D5",q:"CEO: \u201cEveryone should use AI for everything \u2014 we\u2019re behind.\u201d Your response?",o:[{t:"Great \u2014 let\u2019s get everyone access to the best AI tools as quickly as possible. The competitive advantage goes to companies that adopt fastest, and our competitors are almost certainly already ahead of us on this.",v:1},{t:"Start with a small pilot first.",v:2},{t:"Urgency is right, but without guardrails: data leaks, compliance issues.",v:3},{t:"Channel it: 30-day sprint \u2014 inventory usage, classify by risk, approved tools, role-based training.",v:4}]},
+// D6 SC-AI Use Cases
+{id:"Q6.1",d:"D6",q:"Where in supply chain is AI delivering proven value today?",o:[{t:"Not sure which areas specifically.",v:1},{t:"Automating reports and finding information faster \u2014 basically acting as a productivity tool that helps supply chain teams spend less time on manual data gathering and more time on analysis and decision-making.",v:2},{t:"Demand forecasting, inventory optimization, logistics routing, supplier risk.",v:3},{t:"Proven: demand sensing, inventory, logistics. Emerging: AI S&OP, autonomous tail-spend, predictive maintenance.",v:4}]},
+{id:"Q6.2",d:"D6",q:"Planner: \u201cAI forecast is 15% more accurate. Switch?\u201d",o:[{t:"15% is huge \u2014 switch now.",v:1},{t:"That\u2019s a significant improvement and we should definitely consider it seriously, but I\u2019d want to run a few more test cycles across different product families and seasonal periods before making any final commitments to the new system.",v:2},{t:"15% by what measure? All families? Can planners override?",v:3},{t:"Parallel run, two cycles. Best: AI baseline + planner adjustments.",v:4}]},
+{id:"Q6.3",d:"D6",q:"Vendor pitches \u201cAI control tower\u201d with end-to-end visibility. Red flag?",o:[{t:"I\u2019d want a demo.",v:1},{t:"Can\u2019t deliver if systems aren\u2019t connected.",v:2},{t:"Requires ERP/WMS/TMS/supplier integration most lack. Autonomous decisions without boundaries is dangerous.",v:3},{t:"80% data integration, 20% AI. No integration story = won\u2019t work.",v:4}]},
+{id:"Q6.4",d:"D6",q:"Starting AI in supply chain. First thing?",o:[{t:"Which tools are popular.",v:1},{t:"Budget allocation and people resources \u2014 we need to figure out how much we can invest, who will lead the initiative, what training is needed, and create a comprehensive roadmap with clear milestones and success metrics.",v:2},{t:"Data readiness: master data, demand history, integrations.",v:3},{t:"Four things: data quality, process maturity, use case priority, adoption readiness.",v:4}]},
+// D7 AI-Augmented SC Decisions
+{id:"Q7.1",d:"D7",q:"24 months sales data, need product segmentation. AI\u2019s role?",o:[{t:"I\u2019d probably just use Excel for this. I\u2019m not sure AI would add much value to a straightforward segmentation exercise when pivot tables and basic formulas can handle the analysis perfectly well for most product portfolios.",v:1},{t:"Ask AI which products matter most.",v:2},{t:"ABC revenue, XYZ variability, matrix, policies. Validate against business knowledge.",v:3},{t:"Clean data first. Standard segmentation + edge cases. AI does math; I handle judgment.",v:4}]},
+{id:"Q7.2",d:"D7",q:"Planning: supplier lead time +30%, demand +20%, both. AI\u2019s role?",o:[{t:"Present scenarios, facilitate discussion.",v:1},{t:"AI writes up scenarios and impacts.",v:2},{t:"Feed AI plan and capacity, model metric impact. Quantified trade-offs beat opinions in S&OP.",v:3},{t:"Model cascading effects. Mitigation options with cost estimates and decision matrix.",v:4}]},
+{id:"Q7.3",d:"D7",q:"When trust AI output vs. own judgment?",o:[{t:"When it seems reasonable.",v:1},{t:"Routine tasks go to AI, important decisions stay with humans. The key is knowing which category each task falls into and having clear guidelines about where AI assistance is appropriate versus where human expertise is essential.",v:2},{t:"Trust for pattern recognition, stats, routine. Override when context is missing or stakes need accountability.",v:3},{t:"Not trust-or-override \u2014 calibration. Weight by reversibility, data quality, novelty.",v:4}]},
+// D8 AI in PM Practice
+{id:"Q8.1",d:"D8",q:"Where is AI delivering proven value in project management today?",o:[{t:"Mostly chatbots and basic Q&A \u2014 not much for serious project work yet.",v:1},{t:"Automating status reports, summarizing meetings, drafting emails, and helping with slide decks \u2014 basically a writing assistant that saves PMs hours of admin work every week.",v:2},{t:"Risk scoring, schedule forecasting, resource optimization, stakeholder comms.",v:3},{t:"It\u2019s transforming everything \u2014 AI can now run entire projects autonomously, from planning through execution, making traditional PM skills largely obsolete for routine projects.",v:1}]},
+{id:"Q8.2",d:"D8",q:"Sponsor asks: \u201cCan AI replace the project scheduler?\u201d Your response?",o:[{t:"Not yet, but it\u2019s getting close. Give it another year or two and we\u2019ll likely see AI schedulers that outperform humans, especially on large complex programs with many dependencies.",v:1},{t:"AI handles optimization. Schedulers add judgment on soft dependencies and stakeholder politics. Augment, don\u2019t replace.",v:4},{t:"Possibly \u2014 AI is already better than humans at optimizing resource allocation and finding critical path efficiencies in complex networks.",v:1},{t:"AI can build and update schedules, but needs a human to validate assumptions and navigate commitments that don\u2019t show up in the data.",v:3}]},
+{id:"Q8.3",d:"D8",q:"You\u2019re managing a complex project with 15 stakeholders. How would you use AI?",o:[{t:"I\u2019d be cautious \u2014 with 15 stakeholders there\u2019s too much political nuance and interpersonal dynamics for AI to handle. I\u2019d invest in direct personal engagement and understanding each stakeholder\u2019s individual needs.",v:1},{t:"Summarize transcripts, draft tailored updates per audience, flag schedule risks from status data.",v:3},{t:"Draft communications and format meeting agendas.",v:2},{t:"Automate roll-ups, generate risk heat maps, model recovery options. Relationship work stays human.",v:4}]},
+{id:"Q8.4",d:"D8",q:"Vendor pitches \u201cAI project management platform\u201d \u2014 predicts delays 6 weeks early. First question?",o:[{t:"What\u2019s the false positive rate? A tool flagging everything is useless.",v:4},{t:"That sounds incredibly valuable. What does it cost and how quickly can we pilot it? We lose so much money on late projects that even a small improvement in early warning would have massive ROI.",v:1},{t:"What data does it need? Ours lives across Jira, MS Project, SharePoint, and email \u2014 half our updates are verbal.",v:3},{t:"What\u2019s the accuracy rate in comparable environments?",v:2}]},
+// D9 AI-Augmented PM Decisions
+{id:"Q9.1",d:"D9",q:"Project is behind schedule. You have task data, resource availability, and dependency maps. AI\u2019s role?",o:[{t:"Present the data to leadership and facilitate \u2014 AI isn\u2019t mature enough to help with recovery planning and the human dynamics of getting a struggling project back on track.",v:1},{t:"Model recovery scenarios with cascading impacts and cost trade-offs. I add judgment on team capacity and tolerance.",v:4},{t:"Ask AI to generate a comprehensive health dashboard with visualizations showing exactly where delays are, which resources are over-allocated, and detailed recommendations for recovery.",v:2},{t:"Feed AI the schedule, model crash vs. fast-track scenarios with cost impacts. Present quantified options.",v:3}]},
+{id:"Q9.2",d:"D9",q:"When would a skilled PM deliberately NOT use AI?",o:[{t:"When verification cost exceeds time saved \u2014 and when the human process IS the value.",v:4},{t:"When the task involves highly confidential strategic information, sensitive personnel matters, proprietary competitive intelligence, or anything covered by NDAs that shouldn\u2019t go to third-party services.",v:3},{t:"When it\u2019s a creative or strategic task.",v:2},{t:"When the task is too important to risk.",v:1}]},
+{id:"Q9.3",d:"D9",q:"Team member says: \u201cAI built the risk register \u2014 we don\u2019t need a risk workshop.\u201d Your response?",o:[{t:"Good \u2014 but workshops surface risks only humans know. The AI register is a starting point.",v:3},{t:"We should still review it together as a team, just to make sure nothing was missed and everyone is aligned on the key risks and mitigation strategies before we finalize the plan.",v:2},{t:"Workshops build shared understanding and surface \u201cundiscussable\u201d risks. The process matters as much as the output.",v:4},{t:"That\u2019s a smart use of AI and I appreciate the initiative. If the register is comprehensive and covers technical, organizational, and external risks with proper ratings, we can review asynchronously instead.",v:1}]},
+// D10 AI in Engineering Practice
+{id:"Q10.1",d:"D10",q:"Where is AI being applied in professional engineering practice today?",o:[{t:"AI is revolutionizing every aspect of engineering \u2014 from fully automated structural designs requiring minimal human review to AI systems that independently assess site conditions and generate complete construction documents.",v:1},{t:"Design optimization, energy modeling, simulation acceleration, defect detection.",v:3},{t:"Mostly for writing reports and documentation faster.",v:1},{t:"Proven: generative design, simulation. Emerging: AI code-compliance checking, structural health monitoring. All require professional validation.",v:4}]},
+{id:"Q10.2",d:"D10",q:"You use AI to optimize a structural design. The result is 15% more efficient. What do you do?",o:[{t:"Independent verification: code compliance, load path validation, sensitivity analysis. AI optimizes within its model \u2014 my job is to verify the model represents reality.",v:4},{t:"Run a quick sanity check against rules of thumb and standard reference tables, then proceed if the numbers are in a reasonable range for this structure type.",v:2},{t:"If the AI tool is well-established and used by other firms in our industry, the results should be reliable, especially since the optimization is within a reasonable improvement range.",v:1},{t:"Validate against code requirements, check boundary conditions, verify the AI didn\u2019t violate constraints I didn\u2019t specify.",v:3}]},
+{id:"Q10.3",d:"D10",q:"Client asks: \u201cCan\u2019t AI just do the design? Why do I need an engineer?\u201d",o:[{t:"AI is a powerful tool, but can\u2019t take professional responsibility. The P.Eng seal means personal legal accountability.",v:4},{t:"That\u2019s a great question, and honestly AI is advancing so rapidly that within a few years we\u2019ll likely see AI systems capable of producing complete designs meeting all code requirements, especially for routine structures.",v:1},{t:"AI helps with analysis and options, but engineering judgment is still needed, especially for complex projects with limited training data.",v:2},{t:"AI accelerates analysis and generates alternatives faster than traditional methods, but doesn\u2019t understand site-specific context or life-safety implications. Only a licensed engineer can seal drawings.",v:3}]},
+{id:"Q10.4",d:"D10",q:"Evaluating an AI tool for engineering calculations. Minimum requirement before using in professional work?",o:[{t:"Validate against known solutions, document limitations, version-control the tool, written V&V protocol. Same standard as any engineering software.",v:4},{t:"If several respected firms are already using this tool on similar projects and the vendor has a strong track record with engineering software, that provides sufficient confidence to adopt it.",v:1},{t:"Test it on a few benchmark problems with known solutions first.",v:2},{t:"Validate against hand calculations, understand training data and limitations, confirm edge case handling for our discipline.",v:3}]},
+// D11 AI + Professional Accountability
+{id:"Q11.1",d:"D11",q:"PEO adopted a practice advisory on AI use. What\u2019s the core obligation?",o:[{t:"Engineers should try to be careful and use good judgment when incorporating AI tools into professional practice, making sure to double-check important results before finalizing any deliverables.",v:2},{t:"Engineers must verify and validate AI output \u2014 you can\u2019t delegate professional judgment to a tool.",v:3},{t:"Not sure what PEO requires regarding AI.",v:1},{t:"Personal accountability for all work, including AI-assisted. Verify, validate, document AI\u2019s role. The seal means YOU checked it.",v:4}]},
+{id:"Q11.2",d:"D11",q:"Junior engineer uses AI to draft a technical report and puts it forward for your seal. Your approach?",o:[{t:"Read it carefully before signing \u2014 make sure the writing is clear, professional, and the conclusions are reasonable for the project scope.",v:2},{t:"Same standard as if they wrote it from scratch. Calculations verified? Sources real? Code refs correct? \u201cAI wrote it\u201d isn\u2019t a defense.",v:4},{t:"Since AI produces very polished, technically fluent documents, I\u2019d focus my review on high-level conclusions rather than checking every calculation, which would defeat the purpose of using AI in the first place.",v:1},{t:"Review every technical claim. AI content may contain plausible errors that pass surface review.",v:3}]},
+{id:"Q11.3",d:"D11",q:"AI generates a site assessment recommending a non-standard design approach. It\u2019s technically sound. Your obligation?",o:[{t:"If it works technically and meets all applicable code requirements, proceed \u2014 innovation should be encouraged and the profession needs to embrace new approaches rather than defaulting to convention.",v:1},{t:"Document rationale, verify code compliance, apply the \u201creasonable engineer\u201d test. \u201cAI suggested it\u201d isn\u2019t engineering judgment.",v:4},{t:"Check with a senior colleague or peer reviewer before proceeding.",v:2},{t:"Document why you\u2019re deviating from standard practice and confirm code compliance.",v:3}]}
+];
 
-var S={tr:null,qi:0,an:{},pk:null,aq:[],sh:[]};
+var S={tr:[],qi:0,an:{},pk:null,aq:[],sh:[]};
+var CORE=["D1","D2","D3","D4","D5"];
+
 function sf(a,s){a=a.slice();for(var i=a.length-1;i>0;i--){s=(s*9301+49297)%233280;var j=Math.floor(s/233280*(i+1));var t=a[i];a[i]=a[j];a[j]=t}return a}
 function si(x){var s=0;for(var i=0;i<x.length;i++)s+=x.charCodeAt(i);return s}
 function gb(s){return s<=1.5?1:s<=2.5?2:s<=3.5?3:4}
 function e(s){var d=document.createElement('div');d.textContent=s;return d.innerHTML}
 function sw(id){['view-welcome','view-questions','view-results'].forEach(function(v){document.getElementById(v).classList.add('hidden')});document.getElementById(id).classList.remove('hidden');document.getElementById('app').scrollIntoView({behavior:'smooth'})}
 
-function pick(t){S.tr=t;document.querySelectorAll('.w-card').forEach(function(el){el.classList.toggle('on',el.getAttribute('data-t')===t)});document.getElementById('startBtn').disabled=false}
-function go(){if(!S.tr)return;S.aq=S.tr==='sc'?Q:Q.filter(function(q){return q.d<='D5'});S.qi=0;S.an={};S.pk=null;rq();sw('view-questions')}
+// ═══ WELCOME — Multi-select ═══
+function tog(t){var i=S.tr.indexOf(t);if(i>-1)S.tr.splice(i,1);else S.tr.push(t);document.querySelectorAll('.w-card').forEach(function(el){el.classList.toggle('on',S.tr.indexOf(el.getAttribute('data-t'))>-1)});uc()}
+function uc(){var n=19+S.tr.length*7;var m=Math.round(n*0.45);document.getElementById('wCount').textContent=n+' questions \u00B7 ~'+m+' minutes'}
+function go(){var dims=CORE.slice();S.tr.forEach(function(t){dims=dims.concat(TRACK_DIMS[t])});S.aq=Q.filter(function(q){return dims.indexOf(q.d)>-1});S.qi=0;S.an={};S.pk=null;rq();sw('view-questions')}
 
-function rq(){var q=S.aq[S.qi],t=S.aq.length,p=Math.round(S.qi/t*100);document.getElementById('pf').style.width=p+'%';document.getElementById('pn').textContent=(S.qi+1)+' / '+t;S.sh=sf(q.o,si(q.id));var sc=q.d==='D6'||q.d==='D7';var h='<div class="qblock"><span class="dim-tag '+(sc?'dim-tag-l2':'dim-tag-l1')+'">'+e(DN[q.d])+'</span><p class="q-text">'+e(q.q)+'</p>';S.sh.forEach(function(o,i){h+='<button class="opt" onclick="po('+i+')">'+e(o.t)+'</button>'});h+='</div>';document.getElementById('qs').innerHTML=h;S.pk=null;if(S.an[q.id]!==undefined){for(var i=0;i<S.sh.length;i++){if(S.sh[i].v===S.an[q.id]){S.pk=i;document.querySelectorAll('.opt')[i].classList.add('on');break}}}document.getElementById('bb').disabled=S.qi===0;document.getElementById('bn').disabled=S.pk===null;document.getElementById('bn').textContent=S.qi+1>=t?'See Results \u2192':'Next \u2192'}
+function rq(){var q=S.aq[S.qi],t=S.aq.length,p=Math.round(S.qi/t*100);document.getElementById('pf').style.width=p+'%';document.getElementById('pn').textContent=(S.qi+1)+' / '+t;S.sh=sf(q.o,si(q.id));var tag=DIM_TAG[q.d]||'core';var h='<div class="qblock"><span class="dim-tag dim-tag-'+tag+'">'+e(DN[q.d])+'</span><p class="q-text">'+e(q.q)+'</p>';S.sh.forEach(function(o,i){h+='<button class="opt" onclick="po('+i+')">'+e(o.t)+'</button>'});h+='</div>';document.getElementById('qs').innerHTML=h;S.pk=null;if(S.an[q.id]!==undefined){for(var i=0;i<S.sh.length;i++){if(S.sh[i].v===S.an[q.id]){S.pk=i;document.querySelectorAll('.opt')[i].classList.add('on');break}}}document.getElementById('bb').disabled=S.qi===0;document.getElementById('bn').disabled=S.pk===null;document.getElementById('bn').textContent=S.qi+1>=t?'See Results \u2192':'Next \u2192'}
 function po(i){S.pk=i;document.querySelectorAll('.opt').forEach(function(el,j){el.classList.toggle('on',j===i)});document.getElementById('bn').disabled=false}
 function bk(){if(S.qi>0){S.qi--;rq()}}
 function nx(){if(S.pk===null)return;S.an[S.aq[S.qi].id]=S.sh[S.pk].v;if(S.qi+1>=S.aq.length){rr();sw('view-results')}else{S.qi++;rq()}}
 
-/* ═══════════════════════════════════════════════════════════
-   TRACKING — Send results to Google Sheets
-   ═══════════════════════════════════════════════════════════ */
-function getUser() {
-  // Priority 1: LearnWorlds Liquid variables (set via LW_USER above)
-  if (LW_USER && LW_USER.name && LW_USER.email) {
-    return LW_USER;
-  }
-  // Priority 2: URL parameters (?name=...&email=...)
-  var params = new URLSearchParams(window.location.search);
-  var n = params.get('name') || params.get('user_name');
-  var em = params.get('email') || params.get('user_email');
-  if (n && em) return { name: n, email: em };
-  // Priority 3: null (no user identity available)
-  return null;
+// ═══ TRACKING ═══
+function getUser(){if(LW_USER&&LW_USER.name&&LW_USER.email)return LW_USER;var p=new URLSearchParams(window.location.search);var n=p.get('name')||p.get('user_name'),em=p.get('email')||p.get('user_email');if(n&&em)return{name:n,email:em};return null}
+function toast(msg,ok){var el=document.createElement('div');el.className='track-toast '+(ok?'track-toast-ok':'track-toast-err');el.textContent=msg;document.body.appendChild(el);setTimeout(function(){el.style.opacity='0'},2500);setTimeout(function(){el.remove()},3000)}
+
+function buildPath(ds){
+  var dims=CORE.slice();S.tr.forEach(function(t){dims=dims.concat(TRACK_DIMS[t])});
+  var shown={},ma=[],cu=[],fu=[];
+  dims.forEach(function(dim){var sc=ds[dim]||0,need=nl(sc),tx=TX[dim];
+    [1,2,3].forEach(function(lv){(tx[lv]||[]).forEach(function(id){if(shown[id])return;shown[id]=true;var r=R[id];if(!r)return;var entry=r.n+(r.s==='hl'?' [HLearn - Coming Soon]':' [Free] '+r.u);if(need===4||lv<need)ma.push(entry);else if(lv===need)cu.push(entry);else fu.push(entry)})})});
+  return{mastered:ma,recommended:cu,nextLevel:fu};
 }
 
-function toast(msg, ok) {
-  var el = document.createElement('div');
-  el.className = 'track-toast ' + (ok ? 'track-toast-ok' : 'track-toast-err');
-  el.textContent = msg;
-  document.body.appendChild(el);
-  setTimeout(function(){ el.style.opacity = '0'; }, 2500);
-  setTimeout(function(){ el.remove(); }, 3000);
+function sendResults(ds,s1,b1,st,gw){
+  if(!WEBHOOK_URL)return;var user=getUser();var rawAns={};Object.keys(S.an).forEach(function(k){rawAns[k]=S.an[k]});
+  var path=buildPath(ds);
+  var trackScores={};S.tr.forEach(function(t){var dd=TRACK_DIMS[t];var ts=Math.round(dd.reduce(function(a,d){return a+(ds[d]||0)},0)/dd.length*10)/10;trackScores[t+'Score']=ts;trackScores[t+'Band']=BN[gb(ts)]});
+  var payload={name:user?user.name:"(anonymous)",email:user?user.email:"(anonymous)",tracks:S.tr.join(','),overallScore:s1,overallBand:BN[b1],
+    d1:ds.D1||"",d2:ds.D2||"",d3:ds.D3||"",d4:ds.D4||"",d5:ds.D5||"",
+    d6:ds.D6||"",d7:ds.D7||"",d8:ds.D8||"",d9:ds.D9||"",d10:ds.D10||"",d11:ds.D11||"",
+    scScore:trackScores.scScore||"",scBand:trackScores.scBand||"",
+    pmScore:trackScores.pmScore||"",pmBand:trackScores.pmBand||"",
+    peScore:trackScores.peScore||"",peBand:trackScores.peBand||"",
+    strengths:st.map(function(x){return DN[x.d]+' ('+x.s+')'}).join(', '),
+    growthAreas:gw.map(function(x){return DN[x.d]+' ('+x.s+')'}).join(', '),
+    mastered:path.mastered.join(', '),recommended:path.recommended.join(', '),nextLevel:path.nextLevel.join(', '),
+    rawAnswers:JSON.stringify(rawAns)};
+  fetch(WEBHOOK_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},body:JSON.stringify(payload)}).then(function(){toast('Results saved',true)}).catch(function(){toast('Could not save results',false)});
 }
 
-function sendResults(ds, s1, b1, s2, b2, st, gw) {
-  if (!WEBHOOK_URL) return; // No webhook configured — skip silently
-  var user = getUser();
-  var rawAns = {};
-  Object.keys(S.an).forEach(function(k){ rawAns[k] = S.an[k]; });
-
-  var payload = {
-    name:        user ? user.name : "(anonymous)",
-    email:       user ? user.email : "(anonymous)",
-    track:       S.tr,
-    overallScore: s1,
-    overallBand:  BN[b1],
-    d1: ds["D1"] || "",
-    d2: ds["D2"] || "",
-    d3: ds["D3"] || "",
-    d4: ds["D4"] || "",
-    d5: ds["D5"] || "",
-    d6: ds["D6"] || "",
-    d7: ds["D7"] || "",
-    scScore:     s2 || "",
-    scBand:      s2 ? BN[b2] : "",
-    strengths:   st.map(function(x){ return DN[x.d]+' ('+x.s+')'; }).join(', '),
-    growthAreas: gw.map(function(x){ return DN[x.d]+' ('+x.s+')'; }).join(', '),
-    rawAnswers:  JSON.stringify(rawAns)
-  };
-
-  fetch(WEBHOOK_URL, {
-    method: 'POST',
-    mode: 'no-cors', // Apps Script doesn't support CORS preflight
-    headers: { 'Content-Type': 'text/plain' },
-    body: JSON.stringify(payload)
-  }).then(function(){
-    toast('Results saved', true);
-  }).catch(function(err){
-    console.error('Tracking error:', err);
-    toast('Could not save results', false);
-  });
-}
-
-/* ═══════════════════════════════════════════════════════════
-   RESULTS RENDERING
-   ═══════════════════════════════════════════════════════════ */
+// ═══ RESULTS ═══
 function rr(){
   var bk={};Q.forEach(function(q){if(S.an[q.id]!==undefined){if(!bk[q.d])bk[q.d]=[];bk[q.d].push(S.an[q.id])}});
   var ds={};Object.keys(bk).forEach(function(d){ds[d]=Math.round(bk[d].reduce(function(a,b){return a+b},0)/bk[d].length*10)/10});
-  var L1=["D1","D2","D3","D4","D5"],L2=["D6","D7"],ad=S.tr==='sc'?L1.concat(L2):L1;
-  var s1=Math.round(L1.reduce(function(a,d){return a+(ds[d]||0)},0)/L1.length*10)/10,b1=gb(s1);
-  var s2=null,b2=null;if(S.tr==='sc'){s2=Math.round(L2.reduce(function(a,d){return a+(ds[d]||0)},0)/L2.length*10)/10;b2=gb(s2)}
-  var rk=L1.map(function(d){return{d:d,s:ds[d]||0}}).sort(function(a,b){return b.s-a.s});
+  var s1=Math.round(CORE.reduce(function(a,d){return a+(ds[d]||0)},0)/CORE.length*10)/10,b1=gb(s1);
+  var rk=CORE.map(function(d){return{d:d,s:ds[d]||0}}).sort(function(a,b){return b.s-a.s});
   var st=rk.filter(function(x){return x.s>=3}).slice(0,2),gw=rk.filter(function(x){return x.s<2.5}).sort(function(a,b){return a.s-b.s}).slice(0,2);
+  sendResults(ds,s1,b1,st,gw);
 
-  // *** TRACKING: send to Google Sheets ***
-  sendResults(ds, s1, b1, s2, b2, st, gw);
+  var dims=CORE.slice();S.tr.forEach(function(t){dims=dims.concat(TRACK_DIMS[t])});
 
-  var h='<div class="r-inner">';
-  h+='<div class="r-card anim"><h1 class="r-title">AI <span class="r-accent">Journey Builder</span></h1>';
+  var h='<div class="r-inner"><div class="r-card anim"><h1 class="r-title">AI <span class="r-accent">Journey Builder</span></h1>';
   h+='<div class="sc-row"><span class="sc-big">'+s1+'</span><div><span class="band" style="background:'+BC[b1]+'">'+BN[b1]+'</span><div class="sc-of">out of 4.0</div></div></div>';
   h+='<div class="db">';
-  L1.forEach(function(d,i){var s=ds[d]||0;var l=s<2?1:s<3?2:s<3.5?3:4;h+='<div class="dr anim ad'+(i+1)+'"><span class="dn">'+DN[d]+'</span><div class="dt"><div class="df df'+l+'" style="width:'+s/4*100+'%"></div></div><span class="dv">'+s+'</span></div>'});
-  if(S.tr==='sc'){h+='<div class="ddiv"></div><div class="dscl">Supply Chain</div>';L2.forEach(function(d,i){var s=ds[d]||0;var l=s<2?1:s<3?2:s<3.5?3:4;h+='<div class="dr anim ad'+(i+6)+'"><span class="dn">'+DN[d]+'</span><div class="dt"><div class="df df'+l+'" style="width:'+s/4*100+'%"></div></div><span class="dv">'+s+'</span></div>'})}
+  CORE.forEach(function(d,i){var s=ds[d]||0;var l=gb(s);h+='<div class="dr anim ad'+(i+1)+'"><span class="dn">'+DN[d]+'</span><div class="dt"><div class="df df'+l+'" style="width:'+s/4*100+'%"></div></div><span class="dv">'+s+'</span></div>'});
+  S.tr.forEach(function(t){
+    var dd=TRACK_DIMS[t];var ts=Math.round(dd.reduce(function(a,d){return a+(ds[d]||0)},0)/dd.length*10)/10;
+    h+='<div class="ddiv"></div><div class="dscl">'+TRACK_LABELS[t]+'</div>';
+    dd.forEach(function(d,i){var s=ds[d]||0;var l=gb(s);h+='<div class="dr anim ad'+(i+6)+'"><span class="dn">'+DN[d]+'</span><div class="dt"><div class="df df'+l+'" style="width:'+s/4*100+'%"></div></div><span class="dv">'+s+'</span></div>'});
+  });
   h+='</div><div class="ins-row">';
   if(st.length)h+='<div class="ins ins-s"><div class="ins-t">Your Strengths</div><div class="ins-b">'+st.map(function(x){return DN[x.d]+' ('+x.s+')'}).join(' \u00B7 ')+'</div></div>';
   if(gw.length)h+='<div class="ins ins-g"><div class="ins-t">Growth Areas</div><div class="ins-b">'+gw.map(function(x){return DN[x.d]+' ('+x.s+')'}).join(' \u00B7 ')+'</div></div>';
-  if(!st.length&&!gw.length)h+='<div class="ins ins-s"><div class="ins-b">Balanced profile. Your path deepens expertise across all dimensions.</div></div>';
+  if(!st.length&&!gw.length)h+='<div class="ins ins-s"><div class="ins-b">Balanced profile across all dimensions.</div></div>';
   h+='</div></div>';
 
-  h+='<div class="ps anim ad3"><h2 class="ps-h">Your AI Journey</h2><p class="ps-sub">Organized by dimension. Mastered resources available for refresh. All external resources are free.</p>';
+  h+='<div class="ps anim ad3"><h2 class="ps-h">Your AI Journey</h2><p class="ps-sub">Organized by dimension. All external resources are free.</p>';
   var shown={};
-  ad.forEach(function(dim){
-    var sc=ds[dim]||0,need=nl(sc),tx=TX[dim],isSC=dim==='D6'||dim==='D7';
+  dims.forEach(function(dim){
+    var sc=ds[dim]||0,need=nl(sc),tx=TX[dim],tag=DIM_TAG[dim]||'core';
+    var isSC=tag==='sc',isPM=tag==='pm',isPE=tag==='pe';
+    var rqClass=isSC?' rq-sc':isPM?' rq-pm':isPE?' rq-pe':'';
     var ma=[],cu=[],fu=[];
     [1,2,3].forEach(function(lv){tx[lv].forEach(function(id){if(shown[id])return;if(need===4)ma.push(id);else if(lv<need)ma.push(id);else if(lv===need)cu.push(id);else fu.push(id)})});
     ma.concat(cu).concat(fu).forEach(function(id){shown[id]=true});
     if(!ma.length&&!cu.length&&!fu.length)return;
-    var sl=sc<2?1:sc<3?2:sc<3.5?3:4;
+    var sl=gb(sc);
     h+='<div class="ds"><div class="ds-h"><span class="ds-name">'+e(DN[dim])+'</span><span class="ds-pill" style="background:'+BC[sl]+'">'+sc+' / 4.0</span></div>';
     if(ma.length){var tid='m-'+dim;h+='<button class="m-toggle" onclick="mt(\''+tid+'\',this)"><span class="m-icon">\u25B6</span><span class="m-text">Mastered</span><span class="m-cnt">'+ma.length+' resource'+(ma.length>1?'s':'')+'</span></button><div class="m-list" id="'+tid+'">';ma.forEach(function(id){h+=mcard(id)});h+='</div>'}
-    if(cu.length){h+='<div class="sec-label sec-cur">\u2794 Your Path</div>';cu.forEach(function(id,i){h+=rcard(id,i+1,isSC)})}else if(need===4){h+='<div style="font-size:13px;color:#1B7A35;padding:8px 0;font-weight:600">\u2714 Fully mastered \u2014 expand above to refresh.</div>'}
+    if(cu.length){h+='<div class="sec-label sec-cur">\u2794 Your Path</div>';cu.forEach(function(id,i){h+=rcard(id,i+1,rqClass)})}else if(need===4){h+='<div style="font-size:13px;color:#1B7A35;padding:8px 0;font-weight:600">\u2714 Fully mastered \u2014 expand above to refresh.</div>'}
     if(fu.length){h+='<div class="sec-label sec-fut">\u26BF Next Level</div>';fu.forEach(function(id,i){h+=pcard(id,i+1)})}
     h+='</div>'});
   h+='</div>';
-
   h+='<div class="save"><button class="sv-btn" id="pdfBtn" onclick="sp()"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/><path d="M12 3v12"/><path d="M5 21h14"/></svg><span id="pdfLabel">Save as PDF</span></button><button class="sv-btn" onclick="cr()"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg><span id="cl">Copy Summary</span></button></div>';
   h+='<div class="retake"><button class="btn btn-g" onclick="rt()">Retake Assessment</button></div>';
-  h+='<div class="foot">HLearn AI Journey Builder \u00B7 Personalized learning paths for the AI era</div>';
-  h+='</div>';
+  h+='<div class="foot">HLearn AI Journey Builder \u00B7 Personalized learning paths for the AI era</div></div>';
   document.getElementById('view-results').innerHTML=h;
 }
-
-function rcard(id,n,sc){var r=R[id];if(!r)return'';var lk=r.s==='hl'?'<span class="rl rl-soon">Coming Soon on HLearn</span>':'<a href="'+r.u+'" target="_blank" rel="noopener" class="rl rl-free">Open free resource \u2192</a>';return'<div class="rc"><div class="ci"><span class="rq'+(sc?' rq-sc':'')+'">'+n+'</span><div class="rb"><div class="rtr"><span class="rn">'+e(r.n)+'</span><span class="tag '+(r.s==='hl'?'tag-hl':'tag-fr')+'">'+(r.s==='hl'?'HLearn \u00B7 Coming Soon':'Free')+'</span><span class="tag tag-fmt">'+e(r.f)+'</span></div><div class="rm">'+e(r.p)+' \u00B7 '+e(r.d)+'</div><div class="rd">'+e(r.c)+'</div>'+lk+'</div></div></div>'}
-
+function rcard(id,n,cls){var r=R[id];if(!r)return'';var lk=r.s==='hl'?'<span class="rl rl-soon">Coming Soon on HLearn</span>':'<a href="'+r.u+'" target="_blank" rel="noopener" class="rl rl-free">Open free resource \u2192</a>';return'<div class="rc"><div class="ci"><span class="rq'+cls+'">'+n+'</span><div class="rb"><div class="rtr"><span class="rn">'+e(r.n)+'</span><span class="tag '+(r.s==='hl'?'tag-hl':'tag-fr')+'">'+(r.s==='hl'?'HLearn \u00B7 Coming Soon':'Free')+'</span><span class="tag tag-fmt">'+e(r.f)+'</span></div><div class="rm">'+e(r.p)+' \u00B7 '+e(r.d)+'</div><div class="rd">'+e(r.c)+'</div>'+lk+'</div></div></div>'}
 function mcard(id){var r=R[id];if(!r)return'';var lk=r.s==='hl'?'<span class="refresh refresh-soon">Coming Soon</span>':'<a href="'+r.u+'" target="_blank" rel="noopener" class="refresh">\u21BB Refresh</a>';return'<div class="m-card"><div class="ci"><span class="m-chk">\u2713</span><div class="rb"><div class="rtr"><span class="rn">'+e(r.n)+'</span><span class="tag tag-fmt">'+e(r.f)+'</span></div><div class="rm">'+e(r.p)+' \u00B7 '+e(r.d)+'</div><div class="rd">'+e(r.c)+'</div>'+lk+'</div></div></div>'}
-
 function pcard(id,n){var r=R[id];if(!r)return'';return'<div class="pv"><div class="ci"><span class="pv-n">'+n+'</span><div class="rb"><div class="rtr"><span class="rn">'+e(r.n)+'</span><span class="pv-tag">'+(r.s==='hl'?'HLearn \u00B7 Coming Soon':'Free \u00B7 '+e(r.f))+'</span></div><div class="rm">'+e(r.p)+' \u00B7 '+e(r.d)+'</div><div class="rd">'+e(r.c)+'</div></div></div></div>'}
-
 function mt(id,btn){document.getElementById(id).classList.toggle('open');btn.classList.toggle('open')}
-function rt(){S={tr:null,qi:0,an:{},pk:null,aq:[],sh:[]};document.querySelectorAll('.w-card').forEach(function(el){el.classList.remove('on')});document.getElementById('startBtn').disabled=true;sw('view-welcome')}
+function rt(){S={tr:[],qi:0,an:{},pk:null,aq:[],sh:[]};document.querySelectorAll('.w-card').forEach(function(el){el.classList.remove('on')});uc();sw('view-welcome')}
 
-/* PDF save — fixed for mobile */
 function sp(){
   var btn=document.getElementById('pdfBtn'),label=document.getElementById('pdfLabel');
   if(btn)btn.disabled=true;if(label)label.textContent='Preparing\u2026';
-  var welcome=document.getElementById('view-welcome'),questions=document.getElementById('view-questions'),results=document.getElementById('view-results');
-  welcome.style.display='none';questions.style.display='none';results.style.display='block';
-  var anims=results.querySelectorAll('.anim,[class*="ad"],.qblock');
-  anims.forEach(function(el){el.style.opacity='1';el.style.transform='none';el.style.animation='none'});
-  var bars=results.querySelectorAll('.df');
-  bars.forEach(function(el){el.style.animation='none'});
+  var results=document.getElementById('view-results');
   var mLists=results.querySelectorAll('.m-list'),mToggles=results.querySelectorAll('.m-toggle');
   mLists.forEach(function(el){el.classList.add('open')});mToggles.forEach(function(el){el.classList.add('open')});
-  setTimeout(function(){
-    window.print();
-    setTimeout(function(){
-      welcome.style.display='';questions.style.display='';results.style.display='';
-      anims.forEach(function(el){el.style.opacity='';el.style.transform='';el.style.animation=''});
-      bars.forEach(function(el){el.style.animation=''});
-      mLists.forEach(function(el){el.classList.remove('open')});mToggles.forEach(function(el){el.classList.remove('open')});
-      if(btn)btn.disabled=false;if(label)label.textContent='Save as PDF';
-    },500);
-  },100);
+  var content=results.querySelector('.r-inner');
+  if(!content){if(btn)btn.disabled=false;if(label)label.textContent='Save as PDF';return;}
+  var html='<!DOCTYPE html><html><head><meta charset="UTF-8"><title>AI Journey Builder Results</title>';
+  html+='<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"><style>';
+  var sheets=document.styleSheets;for(var i=0;i<sheets.length;i++){try{var rules=sheets[i].cssRules||sheets[i].rules;if(rules){for(var j=0;j<rules.length;j++){var txt=rules[j].cssText||'';if(txt.indexOf('@keyframes')===0||txt.indexOf('@media print')===0)continue;html+=txt+'\n'}}}catch(ex){}}
+  html+='*{animation:none!important;opacity:1!important;visibility:visible!important;transform:none!important}.hidden{display:block!important}.m-list{display:block!important}.pv,.m-card{opacity:1!important}.save,.retake{display:none!important}body{background:#f5f6fa;padding:20px 28px;font-family:"DM Sans",-apple-system,sans-serif}.r-inner{max-width:700px;margin:0 auto}@media print{*{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}.save,.retake{display:none!important}}</style></head><body>';
+  html+=content.outerHTML;
+  html+='<script>window.onload=function(){setTimeout(function(){window.print()},300)}<\/script></body></html>';
+  mLists.forEach(function(el){el.classList.remove('open')});mToggles.forEach(function(el){el.classList.remove('open')});
+  var w=window.open('','_blank');
+  if(w){w.document.write(html);w.document.close()}else{var blob=new Blob([html],{type:'text/html'});var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='AI-Journey-Builder-Results.html';a.click();URL.revokeObjectURL(a.href)}
+  if(btn)btn.disabled=false;if(label)label.textContent='Save as PDF';
 }
 
 function cr(){
   var bk={};Q.forEach(function(q){if(S.an[q.id]!==undefined){if(!bk[q.d])bk[q.d]=[];bk[q.d].push(S.an[q.id])}});
   var ds={};Object.keys(bk).forEach(function(d){ds[d]=Math.round(bk[d].reduce(function(a,b){return a+b},0)/bk[d].length*10)/10});
-  var L1=["D1","D2","D3","D4","D5"],ad=S.tr==='sc'?L1.concat(["D6","D7"]):L1;
-  var s1=Math.round(L1.reduce(function(a,d){return a+(ds[d]||0)},0)/L1.length*10)/10;
+  var dims=CORE.slice();S.tr.forEach(function(t){dims=dims.concat(TRACK_DIMS[t])});
+  var s1=Math.round(CORE.reduce(function(a,d){return a+(ds[d]||0)},0)/CORE.length*10)/10;
   var t='HLearn AI Journey Builder \u2014 Results\n==========================================\n\nOverall: '+s1+' / 4.0 ('+BN[gb(s1)]+')\n';
   var shown={};
-  ad.forEach(function(dim){var sc=ds[dim]||0,need=nl(sc);t+='\n'+DN[dim]+' ('+sc+')\n---\n';TX[dim]&&[1,2,3].forEach(function(lv){(TX[dim][lv]||[]).forEach(function(id){if(shown[id])return;shown[id]=true;var r=R[id];var sta=(lv<need||need===4)?'\u2713':(lv===need&&need<=3)?'\u2794':'\u26BF';var sr=r.s==='hl'?'[HLearn \u2014 Coming Soon]':'[Free]';t+='  '+sta+' '+r.n+' '+sr+'\n';if(r.s==='free'&&r.u)t+='    '+r.u+'\n'})})});
+  dims.forEach(function(dim){var sc=ds[dim]||0,need=nl(sc);t+='\n'+DN[dim]+' ('+sc+')\n---\n';TX[dim]&&[1,2,3].forEach(function(lv){(TX[dim][lv]||[]).forEach(function(id){if(shown[id])return;shown[id]=true;var r=R[id];var sta=(lv<need||need===4)?'\u2713':(lv===need&&need<=3)?'\u2794':'\u26BF';var sr=r.s==='hl'?'[HLearn \u2014 Coming Soon]':'[Free]';t+='  '+sta+' '+r.n+' '+sr+'\n';if(r.s==='free'&&r.u&&r.u!=='#')t+='    '+r.u+'\n'})})});
   t+='\n---\nhttps://hlearn.ca';
   navigator.clipboard.writeText(t).then(function(){var l=document.getElementById('cl');l.textContent='Copied!';setTimeout(function(){l.textContent='Copy Summary'},2000)}).catch(function(){var a=document.createElement('textarea');a.value=t;a.style.position='fixed';a.style.opacity='0';document.body.appendChild(a);a.select();document.execCommand('copy');document.body.removeChild(a);var l=document.getElementById('cl');l.textContent='Copied!';setTimeout(function(){l.textContent='Copy Summary'},2000)})
 }
