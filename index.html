@@ -7,8 +7,6 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-
-/* The root wrapper has NO padding, NO background. Each screen owns everything. */
 #app {
   font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   line-height: 1.6;
@@ -22,9 +20,6 @@
 .ad1{animation-delay:.06s}.ad2{animation-delay:.12s}.ad3{animation-delay:.18s}
 .ad4{animation-delay:.24s}.ad5{animation-delay:.3s}.ad6{animation-delay:.36s}.ad7{animation-delay:.42s}
 
-/* ════════════════════════════════════════════════════════════
-   WELCOME SCREEN — dark, full width
-   ════════════════════════════════════════════════════════════ */
 #view-welcome {
   background: linear-gradient(135deg, #0a0e1a 0%, #0f1629 40%, #121d3a 100%);
   padding: 44px 28px 52px;
@@ -65,9 +60,6 @@
 .w-btn:disabled { opacity:.3; cursor:not-allowed; transform:none!important; box-shadow:none!important; }
 .w-note { font-size:15px; color:rgba(255,255,255,.3); text-align:center; margin-top:20px; }
 
-/* ════════════════════════════════════════════════════════════
-   QUESTION SCREEN — light, full width
-   ════════════════════════════════════════════════════════════ */
 #view-questions {
   background: #f5f6fa;
   color: #1a1a2e;
@@ -96,9 +88,6 @@
 .btn-g:hover { border-color:#c5c9d2; }
 .btn:disabled { opacity:.35; cursor:not-allowed; transform:none!important; box-shadow:none!important; }
 
-/* ════════════════════════════════════════════════════════════
-   RESULTS SCREEN — light, full width
-   ════════════════════════════════════════════════════════════ */
 #view-results {
   background: #f5f6fa;
   color: #1a1a2e;
@@ -132,12 +121,10 @@
 .ins-s .ins-t{color:#1B7A35} .ins-g .ins-t{color:#C44D00}
 .ins-b { font-size:15px; color:#1a1a2e; line-height:1.5; margin:0; }
 
-/* Path section */
 .ps { margin-bottom:36px; }
 .ps-h { font-size:23px; font-weight:800; letter-spacing:-.3px; color:#1a1a2e; margin-bottom:6px; }
 .ps-sub { font-size:15px; color:#888; margin-bottom:20px; }
 
-/* Dimension sections */
 .ds { margin-bottom:24px; }
 .ds-h { display:flex; align-items:center; gap:10px; margin-bottom:12px; flex-wrap:wrap; }
 .ds-name { font-size:18px; font-weight:800; color:#1a1a2e; }
@@ -146,7 +133,6 @@
 .sec-cur { color:#4A6CF7; }
 .sec-fut { color:#888; }
 
-/* Mastered toggle */
 .m-toggle { display:flex; align-items:center; gap:8px; cursor:pointer; padding:6px 0; border:none; background:none; font-family:inherit; width:100%; text-align:left; }
 .m-icon { font-size:10px; color:#888; transition:transform .2s; display:inline-block; }
 .m-toggle.open .m-icon { transform:rotate(90deg); }
@@ -164,7 +150,6 @@
 .refresh-soon { background:#F0F1F4; border-color:#E0E1E4; color:#888; cursor:default; font-style:italic; }
 .refresh-soon:hover { background:#F0F1F4; }
 
-/* Resource cards */
 .rc { background:#fff; border:1px solid #e2e5ec; border-radius:12px; padding:20px 22px; margin-bottom:12px; transition:all .2s; box-shadow:0 1px 2px rgba(0,0,0,.04); }
 .rc:hover { box-shadow:0 2px 8px rgba(0,0,0,.05); border-color:#c5c9d2; transform:translateY(-1px); }
 .ci { display:flex; align-items:flex-start; gap:14px; }
@@ -185,7 +170,6 @@
 .rl-free:hover { background:#C8E6C9; transform:translateY(-1px); }
 .rl-soon { background:#F0F1F4; color:#888; font-style:italic; cursor:default; }
 
-/* Preview cards */
 .pv { background:#fff; border:1px dashed #e2e5ec; border-radius:12px; padding:16px 18px; margin-bottom:10px; opacity:.65; }
 .pv .ci { gap:12px; }
 .pv-n { display:flex; align-items:center; justify-content:center; width:28px; height:28px; border-radius:50%; background:#E6E8EE; color:#888; font-size:12px; font-weight:700; flex-shrink:0; }
@@ -193,36 +177,34 @@
 .pv .rd { color:#888; }
 .pv-tag { display:inline-block; font-size:10px; font-weight:700; padding:2px 10px; border-radius:5px; background:#F0F1F4; color:#888; }
 
-/* SC score pill */
 .scp { display:inline-flex; align-items:center; gap:10px; padding:8px 18px; background:#FFF4EB; border-radius:8px; margin-bottom:18px; }
 .scp-t { font-size:14px; font-weight:700; color:#D84E00; }
 
-/* Save bar */
 .save { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:36px; padding-top:24px; border-top:1px solid #e2e5ec; }
 .sv-btn { display:inline-flex; align-items:center; gap:8px; padding:12px 24px; border-radius:8px; border:2px solid #e2e5ec; background:#fff; font-size:16px; font-weight:700; color:#1a1a2e; cursor:pointer; font-family:inherit; transition:all .2s; }
 .sv-btn:hover { border-color:#4A6CF7; color:#4A6CF7; box-shadow:0 2px 8px rgba(0,0,0,.05); transform:translateY(-1px); }
+.sv-btn:disabled { opacity:.5; cursor:wait; transform:none!important; }
 .sv-btn svg { width:18px; height:18px; stroke:currentColor; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+
+/* Tracking status toast */
+.track-toast { position:fixed; bottom:20px; left:50%; transform:translateX(-50%); padding:10px 20px; border-radius:8px; font-size:14px; font-weight:600; font-family:inherit; z-index:9999; transition:opacity .3s; pointer-events:none; }
+.track-toast-ok { background:#E8F5E9; color:#1B7A35; border:1px solid #C8E6C9; }
+.track-toast-err { background:#FFEBEE; color:#C62828; border:1px solid #FFCDD2; }
 
 .retake { text-align:center; margin-top:24px; }
 .foot { text-align:center; padding:28px 0 0; margin-top:40px; border-top:1px solid #e2e5ec; font-size:15px; color:#aaa; }
 
-/* ════════════════════════════════════════════════════════════
-   MOBILE
-   ════════════════════════════════════════════════════════════ */
 @media(max-width:640px) {
   #view-welcome { padding:32px 16px 40px; }
   .w-title { font-size:36px; }
   .w-desc { font-size:15px; }
   .w-badge { font-size:11px; padding:5px 10px; }
   .w-btn { padding:14px 32px; font-size:16px; }
-
   #view-questions { padding:0 16px 32px; }
   #view-results { padding:20px 16px 32px; }
-
   .q-text { font-size:19px; }
   .opt { padding:14px 16px; font-size:15px; }
   .btn { padding:12px 24px; font-size:15px; }
-
   .r-card { padding:24px 18px 20px; border-radius:16px; }
   .r-title { font-size:32px; }
   .sc-big { font-size:40px; }
@@ -248,10 +230,30 @@
 
 @media print {
   #view-welcome { display:none!important; }
-  .save,.retake,.nav-row,.prog { display:none!important; }
+  #view-questions { display:none!important; }
+  #view-results { display:block!important; background:#fff!important; padding:20px!important; }
+  .save,.retake,.nav-row,.prog,.track-toast { display:none!important; }
+  .anim, .qblock, [class*="ad"] {
+    animation:none!important;
+    opacity:1!important;
+    transform:none!important;
+  }
+  .df { animation:none!important; }
   .r-card { box-shadow:none; border:1px solid #ddd; }
-  .rc { break-inside:avoid; box-shadow:none; }
-  .anim { animation:none!important; }
+  .rc { break-inside:avoid; box-shadow:none; border:1px solid #ddd; }
+  .rc:hover { transform:none; }
+  .ds { break-inside:avoid; }
+  .pv { break-inside:avoid; }
+  .m-card { break-inside:avoid; }
+  .m-list { display:block!important; }
+  .m-toggle .m-icon { transform:rotate(90deg); }
+  .band, .ds-pill, .rq, .tag, .df1, .df2, .df3, .df4,
+  .ins-s, .ins-g, .dim-tag-l1, .dim-tag-l2 {
+    -webkit-print-color-adjust:exact!important;
+    print-color-adjust:exact!important;
+    color-adjust:exact!important;
+  }
+  #view-welcome::before, #view-welcome::after { display:none!important; }
 }
 </style>
 </head>
@@ -303,6 +305,19 @@
 
 </div>
 <script>
+/* ═══════════════════════════════════════════════════════════
+   CONFIGURATION — Update these two values
+   ═══════════════════════════════════════════════════════════ */
+
+// Paste your Google Apps Script Web App URL here:
+var WEBHOOK_URL = "";
+
+// LearnWorlds injects these via Liquid templates (see setup instructions).
+// If running outside LearnWorlds, user will see a fallback form.
+var LW_USER = window.LW_USER || null;
+
+/* ═══════════════════════════════════════════════════════════ */
+
 var R={R001:{n:"Elements of AI",p:"University of Helsinki",f:"Course",s:"free",d:"20-30 hrs",u:"https://www.elementsofai.com/",c:"Conceptual foundation \u2014 understand what AI actually is and its real implications",dm:["D1","D2"],lv:1},R002:{n:"AI for Everyone 2.0",p:"Andrew Ng / Coursera",f:"Course",s:"free",d:"6 weeks",u:"https://www.coursera.org/learn/ai-for-everyone",c:"Build decision-making fluency \u2014 evaluate AI opportunities and risks",dm:["D1","D2","D5"],lv:1},R003:{n:"Google AI Essentials",p:"Google",f:"Course",s:"free",d:"~10 hrs",u:"https://grow.google/ai-essentials/",c:"Hands-on with AI tools \u2014 practical exercises with real use cases",dm:["D1","D2","D3"],lv:1},R004:{n:"AI Capabilities Survey",p:"HLearn",f:"Course",s:"hl",d:"2-3 hrs",u:"https://hlearn.com/courses/ai-capabilities-survey",c:"Explore AI capabilities \u2014 text, data, images, code, and agents",dm:["D2"],lv:1},R005:{n:"AI Tools in Action",p:"HLearn",f:"Workshop",s:"hl",d:"2 hrs",u:"https://hlearn.com/workshops/ai-tools-in-action",c:"Multi-modal AI workflows \u2014 follow along building real projects",dm:["D2","D3"],lv:2},R006:{n:"Advanced AI Capabilities",p:"HLearn",f:"Course",s:"hl",d:"2 hrs",u:"https://hlearn.com/courses/advanced-ai-capabilities",c:"Agentic AI, automation pipelines, and multi-step workflows",dm:["D2"],lv:3},R007:{n:"Prompt Engineering Basics",p:"IBM / Coursera",f:"Course",s:"free",d:"~4 hrs",u:"https://www.coursera.org/learn/generative-ai-prompt-engineering-for-everyone",c:"Zero-shot, few-shot, and chain-of-thought techniques",dm:["D3"],lv:1},R008:{n:"Prompt Engineering for ChatGPT",p:"Vanderbilt / Coursera",f:"Course",s:"free",d:"~6 hrs",u:"https://www.coursera.org/learn/prompt-engineering",c:"Build from basic to sophisticated prompt patterns",dm:["D3"],lv:2},R009:{n:"Prompt Engineering Tutorial",p:"Anthropic",f:"Tutorial",s:"free",d:"3-4 hrs",u:"https://github.com/anthropics/prompt-eng-interactive-tutorial",c:"Interactive hands-on \u2014 9 chapters of exercises with Claude",dm:["D3"],lv:2},R010:{n:"Prompting Best Practices",p:"Anthropic",f:"Article",s:"free",d:"30 min",u:"https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/claude-4-best-practices",c:"Official reference for prompting Claude\u2019s latest models",dm:["D3"],lv:2},R011:{n:"Prompting Masterclass",p:"HLearn",f:"Workshop",s:"hl",d:"2 hrs",u:"https://hlearn.com/workshops/prompting-masterclass",c:"Bring real work tasks, leave with better AI workflows",dm:["D3"],lv:2},R012:{n:"Context Engineering Guide",p:"Anthropic",f:"Article",s:"free",d:"30 min",u:"https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",c:"Engineer context for AI agents and complex systems",dm:["D3","D4"],lv:3},R013:{n:"When NOT to Trust AI",p:"HLearn",f:"Video",s:"hl",d:"30 min",u:"https://hlearn.com/videos/when-not-to-trust-ai",c:"Real examples of where AI fails and why",dm:["D4"],lv:1},R014:{n:"AI Output Evaluation",p:"HLearn",f:"Course",s:"hl",d:"2-3 hrs",u:"https://hlearn.com/courses/ai-output-evaluation",c:"Spot hallucinations, bias, and errors before damage",dm:["D4"],lv:2},R015:{n:"AI Verification Framework",p:"HLearn",f:"Course",s:"hl",d:"1-2 hrs",u:"https://hlearn.com/courses/ai-verification-framework",c:"Systematic team processes \u2014 when to trust, verify, or reject",dm:["D4"],lv:3},R016:{n:"AI Risk & Governance Essentials",p:"HLearn",f:"Course",s:"hl",d:"1-2 hrs",u:"https://hlearn.com/courses/ai-risk-governance-essentials",c:"Data privacy, IP, and responsible use policies",dm:["D5"],lv:1},R017:{n:"Building Your AI Use Policy",p:"HLearn",f:"Workshop",s:"hl",d:"2 hrs",u:"https://hlearn.com/workshops/building-ai-use-policy",c:"Leave with a working AI policy draft for your org",dm:["D5"],lv:3},R018:{n:"AI in Supply Chain",p:"AI CERTs / Coursera",f:"Course",s:"free",d:"~8 hrs",u:"https://www.coursera.org/learn/ai-in-supply-chain",c:"AI for forecasting, procurement, inventory, logistics",dm:["D6"],lv:1},R019:{n:"AI for Supply Chains & Logistics",p:"Alison",f:"Course",s:"free",d:"3-4 hrs",u:"https://alison.com/course/artificial-intelligence-for-supply-chains-and-logistics",c:"AI for inventory, demand prediction, last-mile delivery",dm:["D6"],lv:1},R020:{n:"SC AI Quick Wins",p:"HLearn",f:"Video",s:"hl",d:"45 min",u:"https://hlearn.com/videos/sc-ai-quick-wins",c:"AI applied to each supply chain function",dm:["D6"],lv:1},R021:{n:"AI for SC Professionals",p:"HLearn",f:"Course",s:"hl",d:"4-6 hrs",u:"https://hlearn.com/courses/ai-for-supply-chain-professionals",c:"AI use cases across Plan, Source, Make, Deliver",dm:["D6","D7"],lv:2},R022:{n:"ML for Supply Chains",p:"LearnQuest / Coursera",f:"Course",s:"free",d:"~20 hrs",u:"https://www.coursera.org/learn/advanced-ai-techniques-for-the-supply-chain",c:"ML paradigms and neural networks for SC problems",dm:["D6","D7"],lv:2},R023:{n:"AI-Powered SC Analysis",p:"HLearn",f:"Workshop",s:"hl",d:"3 hrs",u:"https://hlearn.com/workshops/ai-powered-sc-analysis",c:"Upload data, run AI segmentation and scenario modeling",dm:["D7"],lv:2},R024:{n:"AI for SC Leaders",p:"HLearn",f:"Course",s:"hl",d:"3-4 hrs",u:"https://hlearn.com/courses/ai-for-sc-leaders",c:"Strategic AI adoption \u2014 build the case, measure ROI",dm:["D7","D6"],lv:3},R025:{n:"OpenAI Academy",p:"OpenAI",f:"Sandbox",s:"free",d:"Varies",u:"https://academy.openai.com/",c:"Workshops, content, peer connections for AI learning",dm:["D1","D2","D3"],lv:1}};
 
 var DN={D1:"Conceptual Understanding",D2:"Capabilities Awareness",D3:"Tool Proficiency",D4:"Critical Evaluation",D5:"Ethics & Risk",D6:"SC-AI Use Cases",D7:"AI-Augmented SC Decisions"};
@@ -330,6 +345,74 @@ function po(i){S.pk=i;document.querySelectorAll('.opt').forEach(function(el,j){e
 function bk(){if(S.qi>0){S.qi--;rq()}}
 function nx(){if(S.pk===null)return;S.an[S.aq[S.qi].id]=S.sh[S.pk].v;if(S.qi+1>=S.aq.length){rr();sw('view-results')}else{S.qi++;rq()}}
 
+/* ═══════════════════════════════════════════════════════════
+   TRACKING — Send results to Google Sheets
+   ═══════════════════════════════════════════════════════════ */
+function getUser() {
+  // Priority 1: LearnWorlds Liquid variables (set via LW_USER above)
+  if (LW_USER && LW_USER.name && LW_USER.email) {
+    return LW_USER;
+  }
+  // Priority 2: URL parameters (?name=...&email=...)
+  var params = new URLSearchParams(window.location.search);
+  var n = params.get('name') || params.get('user_name');
+  var em = params.get('email') || params.get('user_email');
+  if (n && em) return { name: n, email: em };
+  // Priority 3: null (no user identity available)
+  return null;
+}
+
+function toast(msg, ok) {
+  var el = document.createElement('div');
+  el.className = 'track-toast ' + (ok ? 'track-toast-ok' : 'track-toast-err');
+  el.textContent = msg;
+  document.body.appendChild(el);
+  setTimeout(function(){ el.style.opacity = '0'; }, 2500);
+  setTimeout(function(){ el.remove(); }, 3000);
+}
+
+function sendResults(ds, s1, b1, s2, b2, st, gw) {
+  if (!WEBHOOK_URL) return; // No webhook configured — skip silently
+  var user = getUser();
+  var rawAns = {};
+  Object.keys(S.an).forEach(function(k){ rawAns[k] = S.an[k]; });
+
+  var payload = {
+    name:        user ? user.name : "(anonymous)",
+    email:       user ? user.email : "(anonymous)",
+    track:       S.tr,
+    overallScore: s1,
+    overallBand:  BN[b1],
+    d1: ds["D1"] || "",
+    d2: ds["D2"] || "",
+    d3: ds["D3"] || "",
+    d4: ds["D4"] || "",
+    d5: ds["D5"] || "",
+    d6: ds["D6"] || "",
+    d7: ds["D7"] || "",
+    scScore:     s2 || "",
+    scBand:      s2 ? BN[b2] : "",
+    strengths:   st.map(function(x){ return DN[x.d]+' ('+x.s+')'; }).join(', '),
+    growthAreas: gw.map(function(x){ return DN[x.d]+' ('+x.s+')'; }).join(', '),
+    rawAnswers:  JSON.stringify(rawAns)
+  };
+
+  fetch(WEBHOOK_URL, {
+    method: 'POST',
+    mode: 'no-cors', // Apps Script doesn't support CORS preflight
+    headers: { 'Content-Type': 'text/plain' },
+    body: JSON.stringify(payload)
+  }).then(function(){
+    toast('Results saved', true);
+  }).catch(function(err){
+    console.error('Tracking error:', err);
+    toast('Could not save results', false);
+  });
+}
+
+/* ═══════════════════════════════════════════════════════════
+   RESULTS RENDERING
+   ═══════════════════════════════════════════════════════════ */
 function rr(){
   var bk={};Q.forEach(function(q){if(S.an[q.id]!==undefined){if(!bk[q.d])bk[q.d]=[];bk[q.d].push(S.an[q.id])}});
   var ds={};Object.keys(bk).forEach(function(d){ds[d]=Math.round(bk[d].reduce(function(a,b){return a+b},0)/bk[d].length*10)/10});
@@ -338,6 +421,9 @@ function rr(){
   var s2=null,b2=null;if(S.tr==='sc'){s2=Math.round(L2.reduce(function(a,d){return a+(ds[d]||0)},0)/L2.length*10)/10;b2=gb(s2)}
   var rk=L1.map(function(d){return{d:d,s:ds[d]||0}}).sort(function(a,b){return b.s-a.s});
   var st=rk.filter(function(x){return x.s>=3}).slice(0,2),gw=rk.filter(function(x){return x.s<2.5}).sort(function(a,b){return a.s-b.s}).slice(0,2);
+
+  // *** TRACKING: send to Google Sheets ***
+  sendResults(ds, s1, b1, s2, b2, st, gw);
 
   var h='<div class="r-inner">';
   h+='<div class="r-card anim"><h1 class="r-title">AI <span class="r-accent">Journey Builder</span></h1>';
@@ -367,7 +453,7 @@ function rr(){
     h+='</div>'});
   h+='</div>';
 
-  h+='<div class="save"><button class="sv-btn" onclick="sp()"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/><path d="M12 3v12"/><path d="M5 21h14"/></svg>Save as PDF</button><button class="sv-btn" onclick="cr()"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg><span id="cl">Copy Summary</span></button></div>';
+  h+='<div class="save"><button class="sv-btn" id="pdfBtn" onclick="sp()"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/><path d="M12 3v12"/><path d="M5 21h14"/></svg><span id="pdfLabel">Save as PDF</span></button><button class="sv-btn" onclick="cr()"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg><span id="cl">Copy Summary</span></button></div>';
   h+='<div class="retake"><button class="btn btn-g" onclick="rt()">Retake Assessment</button></div>';
   h+='<div class="foot">HLearn AI Journey Builder \u00B7 Personalized learning paths for the AI era</div>';
   h+='</div>';
@@ -382,7 +468,31 @@ function pcard(id,n){var r=R[id];if(!r)return'';return'<div class="pv"><div clas
 
 function mt(id,btn){document.getElementById(id).classList.toggle('open');btn.classList.toggle('open')}
 function rt(){S={tr:null,qi:0,an:{},pk:null,aq:[],sh:[]};document.querySelectorAll('.w-card').forEach(function(el){el.classList.remove('on')});document.getElementById('startBtn').disabled=true;sw('view-welcome')}
-function sp(){window.print()}
+
+/* PDF save — fixed for mobile */
+function sp(){
+  var btn=document.getElementById('pdfBtn'),label=document.getElementById('pdfLabel');
+  if(btn)btn.disabled=true;if(label)label.textContent='Preparing\u2026';
+  var welcome=document.getElementById('view-welcome'),questions=document.getElementById('view-questions'),results=document.getElementById('view-results');
+  welcome.style.display='none';questions.style.display='none';results.style.display='block';
+  var anims=results.querySelectorAll('.anim,[class*="ad"],.qblock');
+  anims.forEach(function(el){el.style.opacity='1';el.style.transform='none';el.style.animation='none'});
+  var bars=results.querySelectorAll('.df');
+  bars.forEach(function(el){el.style.animation='none'});
+  var mLists=results.querySelectorAll('.m-list'),mToggles=results.querySelectorAll('.m-toggle');
+  mLists.forEach(function(el){el.classList.add('open')});mToggles.forEach(function(el){el.classList.add('open')});
+  setTimeout(function(){
+    window.print();
+    setTimeout(function(){
+      welcome.style.display='';questions.style.display='';results.style.display='';
+      anims.forEach(function(el){el.style.opacity='';el.style.transform='';el.style.animation=''});
+      bars.forEach(function(el){el.style.animation=''});
+      mLists.forEach(function(el){el.classList.remove('open')});mToggles.forEach(function(el){el.classList.remove('open')});
+      if(btn)btn.disabled=false;if(label)label.textContent='Save as PDF';
+    },500);
+  },100);
+}
+
 function cr(){
   var bk={};Q.forEach(function(q){if(S.an[q.id]!==undefined){if(!bk[q.d])bk[q.d]=[];bk[q.d].push(S.an[q.id])}});
   var ds={};Object.keys(bk).forEach(function(d){ds[d]=Math.round(bk[d].reduce(function(a,b){return a+b},0)/bk[d].length*10)/10});
