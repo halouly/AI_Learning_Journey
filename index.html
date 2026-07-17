@@ -4,8 +4,29 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>How AI-Ready Are You? | HLearn</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<meta name="description" content="A free 5-minute AI readiness assessment for supply chain, project management, and professional engineering professionals. Get a scored profile across 5 dimensions and a personalized learning path.">
+<link rel="canonical" href="https://journey.hlearn.ca/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://journey.hlearn.ca/">
+<meta property="og:title" content="How AI-Ready Are You? | HLearn">
+<meta property="og:description" content="Free 5-minute AI readiness assessment with a scored profile and a personalized learning path — built for supply chain, project management, and professional engineering.">
+<meta property="og:image" content="https://journey.hlearn.ca/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="HLearn">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How AI-Ready Are You? | HLearn">
+<meta name="twitter:description" content="Free 5-minute AI readiness assessment with a scored profile and a personalized learning path.">
+<meta name="twitter:image" content="https://journey.hlearn.ca/og-image.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#0A0E1A">
+<link rel="apple-touch-icon" href="/icons/icon-192.png">
 <style>
+@font-face{font-family:'DM Sans';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/dm-sans-400.woff2') format('woff2')}
+@font-face{font-family:'DM Sans';font-style:normal;font-weight:500;font-display:swap;src:url('/fonts/dm-sans-500.woff2') format('woff2')}
+@font-face{font-family:'DM Sans';font-style:normal;font-weight:600;font-display:swap;src:url('/fonts/dm-sans-600.woff2') format('woff2')}
+@font-face{font-family:'DM Sans';font-style:normal;font-weight:700;font-display:swap;src:url('/fonts/dm-sans-700.woff2') format('woff2')}
+@font-face{font-family:'DM Sans';font-style:normal;font-weight:800;font-display:swap;src:url('/fonts/dm-sans-800.woff2') format('woff2')}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 body,#app{font-family:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
 .hidden{display:none!important}
@@ -31,18 +52,19 @@ body,#app{font-family:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;line
 #view-role{background:#f5f6fa;padding:60px 28px;min-height:100vh;display:flex;align-items:center;justify-content:center}
 .rp{max-width:500px;width:100%;margin:0 auto}
 .rp h2{font-size:28px;font-weight:800;color:#1a1a2e;margin-bottom:6px;text-align:center}
-.rp .rp-sub{font-size:15px;color:#888;margin-bottom:28px;text-align:center}
+.rp .rp-sub{font-size:15px;color:#63676f;margin-bottom:28px;text-align:center}
 .rp-card{position:relative;border:2px solid #e2e5ec;border-radius:12px;padding:18px 56px 18px 24px;cursor:pointer;background:#fff;transition:all .25s;margin-bottom:10px}
 .rp-card:hover{border-color:#c5c9d2;box-shadow:0 2px 8px rgba(0,0,0,.05)}
+.rp-card:focus-visible{outline:3px solid #4A6CF7;outline-offset:2px}
 .rp-card.on{border-color:#4A6CF7;background:#EEF1FF;box-shadow:0 0 0 3px rgba(74,108,247,.12)}
 .rp-card h3{font-size:16px;font-weight:700;color:#1a1a2e;margin:0 0 2px}
-.rp-card p{font-size:14px;color:#888;margin:0}
+.rp-card p{font-size:14px;color:#63676f;margin:0}
 .rp-chk{position:absolute;right:20px;top:50%;transform:translateY(-50%);width:22px;height:22px;border-radius:6px;border:2px solid #d0d3da;transition:all .2s}
 .rp-card.on .rp-chk{border-color:#4A6CF7;background:#4A6CF7}
 .rp-card.on .rp-chk::after{content:'';position:absolute;left:5px;top:2px;width:6px;height:10px;border:solid #fff;border-width:0 2.5px 2.5px 0;transform:rotate(45deg)}
 .rp-go{text-align:center;margin-top:24px}
 .rp-go .go-btn{font-size:17px;padding:14px 40px}
-.rp-skip{text-align:center;margin-top:12px;font-size:14px;color:#aaa}
+.rp-skip{text-align:center;margin-top:12px;font-size:14px;color:#63676f}
 
 /* ═══ QUESTIONS ═══ */
 #view-questions{background:#f5f6fa;color:#1a1a2e;padding:0 28px 40px}
@@ -50,18 +72,18 @@ body,#app{font-family:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;line
 .prog{display:flex;align-items:center;gap:14px;padding:28px 0 12px;margin-bottom:20px}
 .prog-bar{flex:1;height:8px;background:#e6e8ee;border-radius:4px;overflow:hidden}
 .prog-fill{height:100%;background:linear-gradient(90deg,#4A6CF7,#839DFF);border-radius:4px;transition:width .5s cubic-bezier(.22,1,.36,1)}
-.prog-n{font-size:15px;font-weight:600;color:#888;min-width:52px;text-align:right;font-variant-numeric:tabular-nums}
+.prog-n{font-size:15px;font-weight:600;color:#63676f;min-width:52px;text-align:right;font-variant-numeric:tabular-nums}
 .qblock{animation:fadeUp .3s cubic-bezier(.16,1,.3,1) both}
 .dim-tag{display:inline-block;font-size:13px;font-weight:700;padding:4px 14px;border-radius:100px;margin-bottom:16px}
-.dim-tag-core{background:#EEF1FF;color:#3949AB}.dim-tag-sc{background:#FFF4EB;color:#D84E00}.dim-tag-pm{background:#E8F5E9;color:#1B7A35}.dim-tag-pe{background:#FCE4EC;color:#AD1457}
+.dim-tag-core{background:#EEF1FF;color:#3949AB}.dim-tag-sc{background:#FFF4EB;color:#B54300}.dim-tag-pm{background:#E8F5E9;color:#1B7A35}.dim-tag-pe{background:#FCE4EC;color:#AD1457}
 .q-text{font-size:22px;font-weight:700;line-height:1.45;color:#1a1a2e;margin-bottom:24px}
 .opt{display:block;width:100%;text-align:left;padding:14px 18px;margin-bottom:8px;border-radius:10px;border:2px solid #e2e5ec;background:#fff;cursor:pointer;font-size:16px;line-height:1.55;color:#1a1a2e;font-family:inherit;transition:all .15s;box-shadow:0 1px 2px rgba(0,0,0,.04)}
 .opt:hover{border-color:#c5c9d2;box-shadow:0 2px 8px rgba(0,0,0,.05)}
 .opt.on{border-color:#4A6CF7;background:#EEF1FF;box-shadow:0 0 0 3px rgba(74,108,247,.12)}
 .nav-row{display:flex;justify-content:space-between;margin-top:28px;padding-top:18px;border-top:1px solid #e2e5ec}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:14px 34px;border-radius:8px;border:none;font-size:17px;font-weight:700;cursor:pointer;font-family:inherit;transition:all .2s}
-.btn-p{background:#4A6CF7;color:#fff;box-shadow:0 2px 10px rgba(74,108,247,.3)}
-.btn-p:hover{background:#3B5DE7;transform:translateY(-1px)}
+.btn-p{background:#3B5DE7;color:#fff;box-shadow:0 2px 10px rgba(74,108,247,.3)}
+.btn-p:hover{background:#3450CC;transform:translateY(-1px)}
 .btn-g{background:#fff;color:#1a1a2e;border:2px solid #e2e5ec}.btn-g:hover{border-color:#c5c9d2}
 .btn:disabled{opacity:.35;cursor:not-allowed;transform:none!important;box-shadow:none!important}
 
@@ -73,8 +95,8 @@ body,#app{font-family:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;line
 .r-accent{background:linear-gradient(135deg,#00D2BE,#00E5CC);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .sc-row{display:flex;align-items:center;gap:18px;margin-bottom:28px}
 .sc-big{font-size:48px;font-weight:800;color:#1a1a2e;line-height:1;letter-spacing:-2px}
-.band{display:inline-block;padding:6px 18px;border-radius:100px;font-size:16px;font-weight:700;color:#fff}
-.sc-of{font-size:12px;color:#aaa;margin-top:6px}
+.band{display:inline-block;padding:6px 18px;border-radius:100px;font-size:16px;font-weight:700;color:#0a0e1a}
+.sc-of{font-size:12px;color:#63676f;margin-top:6px}
 .db{margin-bottom:24px}
 .dr{display:flex;align-items:center;gap:12px;margin-bottom:14px}
 .dn{font-size:14px;font-weight:600;color:#4a4a5a;width:150px;text-align:right;flex-shrink:0}
@@ -83,7 +105,7 @@ body,#app{font-family:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;line
 .df1{background:#E85D4A}.df2{background:#E8A84A}.df3{background:#4AA8E8}.df4{background:#4AE88C}
 .dv{font-size:16px;font-weight:700;width:34px;color:#1a1a2e;font-variant-numeric:tabular-nums}
 .ddiv{height:1px;background:#e2e5ec;margin:18px 0}
-.dscl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:#D84E00;margin-bottom:12px;padding-left:162px}
+.dscl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:#B54300;margin-bottom:12px;padding-left:162px}
 .ins-row{display:flex;gap:12px}
 .ins{flex:1;min-width:0;padding:16px 20px;border-radius:12px}
 .ins-s{background:#E8F5E9;border-left:4px solid #4AE88C}.ins-g{background:#FFF4EB;border-left:4px solid #E8A84A}
@@ -94,11 +116,11 @@ body,#app{font-family:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;line
 /* Email gate */
 .eg{background:#fff;border-radius:16px;padding:32px;box-shadow:0 4px 20px rgba(0,0,0,.06);margin-bottom:24px;text-align:center}
 .eg h3{font-size:22px;font-weight:800;color:#1a1a2e;margin-bottom:8px}
-.eg p{font-size:15px;color:#888;margin-bottom:20px}
+.eg p{font-size:15px;color:#63676f;margin-bottom:20px}
 .eg input{display:block;width:100%;max-width:360px;margin:0 auto 10px;padding:14px 18px;border:2px solid #e2e5ec;border-radius:10px;font-size:16px;font-family:inherit;outline:none;transition:border .2s}
 .eg input:focus{border-color:#4A6CF7}
 .eg .go-btn{font-size:16px;padding:14px 36px;margin-top:8px}
-.eg .eg-note{font-size:13px;color:#bbb;margin-top:12px}
+.eg .eg-note{font-size:13px;color:#63676f;margin-top:12px}
 
 /* Calendly CTA */
 .cal{text-align:center;margin-bottom:24px;padding:28px 24px;background:linear-gradient(135deg,#0a0e1a,#121d3a);border-radius:16px}
@@ -110,24 +132,24 @@ body,#app{font-family:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;line
 /* Go Deeper CTA */
 .deep{background:#fff;border:2px dashed #4A6CF7;border-radius:16px;padding:24px;text-align:center;margin-bottom:24px}
 .deep h3{font-size:18px;font-weight:800;color:#1a1a2e;margin-bottom:6px}
-.deep p{font-size:15px;color:#888;margin-bottom:16px}
+.deep p{font-size:15px;color:#63676f;margin-bottom:16px}
 .deep .btn-p{font-size:16px;padding:12px 32px}
 
 /* Learning path */
 .ps{margin-bottom:36px}.ps-h{font-size:23px;font-weight:800;letter-spacing:-.3px;color:#1a1a2e;margin-bottom:6px}
-.ps-sub{font-size:15px;color:#888;margin-bottom:20px}
+.ps-sub{font-size:15px;color:#63676f;margin-bottom:20px}
 .path-blur{filter:blur(6px);pointer-events:none;user-select:none;position:relative}
 .path-blur::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(245,246,250,.3),rgba(245,246,250,.8))}
 .ds{margin-bottom:24px}.ds-h{display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap}
 .ds-name{font-size:18px;font-weight:800;color:#1a1a2e}
-.ds-pill{display:inline-block;font-size:13px;font-weight:700;padding:3px 10px;border-radius:100px;color:#fff}
+.ds-pill{display:inline-block;font-size:13px;font-weight:700;padding:3px 10px;border-radius:100px;color:#0a0e1a}
 .sec-label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;padding:6px 0}
-.sec-cur{color:#4A6CF7}.sec-fut{color:#888}
+.sec-cur{color:#3450CC}.sec-fut{color:#63676f}
 .m-toggle{display:flex;align-items:center;gap:8px;cursor:pointer;padding:6px 0;border:none;background:none;font-family:inherit;width:100%;text-align:left}
-.m-icon{font-size:10px;color:#888;transition:transform .2s;display:inline-block}
+.m-icon{font-size:10px;color:#63676f;transition:transform .2s;display:inline-block}
 .m-toggle.open .m-icon{transform:rotate(90deg)}
 .m-text{font-size:13px;font-weight:700;color:#1B7A35;text-transform:uppercase;letter-spacing:1px}
-.m-cnt{font-size:13px;color:#888;font-weight:600}
+.m-cnt{font-size:13px;color:#63676f;font-weight:600}
 .m-list{display:none;margin-bottom:8px}.m-list.open{display:block}
 .m-card{background:#fff;border:1px solid #d4edda;border-radius:12px;padding:14px 18px;margin-bottom:8px;opacity:.85}
 .m-card .ci{display:flex;align-items:flex-start;gap:12px}
@@ -135,38 +157,38 @@ body,#app{font-family:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;line
 .m-card .rn{color:#4a4a5a}
 .refresh{display:inline-flex;align-items:center;gap:4px;font-size:14px;font-weight:600;color:#1B7A35;text-decoration:none;margin-top:6px;padding:4px 12px;border-radius:5px;background:#E8F5E9;border:1px solid #C8E6C9;transition:all .15s}
 .refresh:hover{background:#C8E6C9}
-.refresh-soon{background:#F0F1F4;border-color:#E0E1E4;color:#888;cursor:default;font-style:italic}.refresh-soon:hover{background:#F0F1F4}
+.refresh-soon{background:#F0F1F4;border-color:#E0E1E4;color:#63676f;cursor:default;font-style:italic}.refresh-soon:hover{background:#F0F1F4}
 .rc{background:#fff;border:1px solid #e2e5ec;border-radius:12px;padding:20px 22px;margin-bottom:12px;transition:all .2s;box-shadow:0 1px 2px rgba(0,0,0,.04)}
 .rc:hover{box-shadow:0 2px 8px rgba(0,0,0,.05);border-color:#c5c9d2;transform:translateY(-1px)}
 .ci{display:flex;align-items:flex-start;gap:14px}
-.rq{display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:#4A6CF7;color:#fff;font-size:14px;font-weight:800;flex-shrink:0}
-.rq-sc{background:#D84E00}.rq-pm{background:#1B7A35}.rq-pe{background:#AD1457}
+.rq{display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:#3B5DE7;color:#fff;font-size:14px;font-weight:800;flex-shrink:0}
+.rq-sc{background:#BC4400}.rq-pm{background:#1B7A35}.rq-pe{background:#AD1457}
 .rb{flex:1;min-width:0}
 .rtr{display:flex;align-items:center;flex-wrap:wrap;gap:7px;margin-bottom:3px}
 .rn{font-size:17px;font-weight:700;color:#1a1a2e}
 .tag{display:inline-block;font-size:12px;font-weight:700;padding:2px 10px;border-radius:5px;letter-spacing:.2px}
-.tag-hl{background:#4A6CF7;color:#fff}.tag-fr{background:#E8F5E9;color:#1B7A35}.tag-fmt{background:#F0F1F4;color:#888;font-weight:600}
-.tag-l1{background:#E3F2FD;color:#1565C0}.tag-l2{background:#FFF3E0;color:#E65100}.tag-l3{background:#F3E5F5;color:#7B1FA2}
-.rm{font-size:15px;color:#888;margin-bottom:6px}
+.tag-hl{background:#3B5DE7;color:#fff}.tag-fr{background:#E8F5E9;color:#1B7A35}.tag-fmt{background:#F0F1F4;color:#63676f;font-weight:600}
+.tag-l1{background:#E3F2FD;color:#1565C0}.tag-l2{background:#FFF3E0;color:#B54300}.tag-l3{background:#F3E5F5;color:#7B1FA2}
+.rm{font-size:15px;color:#63676f;margin-bottom:6px}
 .rd{font-size:17px;color:#4a4a5a;line-height:1.55;margin-bottom:8px}
 .rl{display:inline-flex;align-items:center;gap:4px;font-size:14px;font-weight:700;text-decoration:none;padding:6px 16px;border-radius:6px;transition:all .15s}
 .rl-free{color:#1B7A35;background:#E8F5E9;border:1px solid #C8E6C9}.rl-free:hover{background:#C8E6C9;transform:translateY(-1px)}
-.rl-soon{background:#F0F1F4;color:#888;font-style:italic;cursor:default}
+.rl-soon{background:#F0F1F4;color:#63676f;font-style:italic;cursor:default}
 .pv{background:#fff;border:1px dashed #e2e5ec;border-radius:12px;padding:16px 18px;margin-bottom:10px;opacity:.65}
 .pv .ci{gap:12px}
-.pv-n{display:flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:#E6E8EE;color:#888;font-size:12px;font-weight:700;flex-shrink:0}
-.pv .rn{color:#4a4a5a}.pv .rd{color:#888}
-.pv-tag{display:inline-block;font-size:10px;font-weight:700;padding:2px 10px;border-radius:5px;background:#F0F1F4;color:#888}
+.pv-n{display:flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:#E6E8EE;color:#63676f;font-size:12px;font-weight:700;flex-shrink:0}
+.pv .rn{color:#4a4a5a}.pv .rd{color:#63676f}
+.pv-tag{display:inline-block;font-size:10px;font-weight:700;padding:2px 10px;border-radius:5px;background:#F0F1F4;color:#63676f}
 .save{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:28px;padding-top:20px;border-top:1px solid #e2e5ec}
 .sv-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:8px;border:2px solid #e2e5ec;background:#fff;font-size:16px;font-weight:700;color:#1a1a2e;cursor:pointer;font-family:inherit;transition:all .2s}
-.sv-btn:hover{border-color:#4A6CF7;color:#4A6CF7;box-shadow:0 2px 8px rgba(0,0,0,.05);transform:translateY(-1px)}
+.sv-btn:hover{border-color:#4A6CF7;color:#3450CC;box-shadow:0 2px 8px rgba(0,0,0,.05);transform:translateY(-1px)}
 .sv-btn:disabled{opacity:.5;cursor:wait;transform:none!important}
 .sv-btn svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .track-toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);padding:10px 20px;border-radius:8px;font-size:14px;font-weight:600;font-family:inherit;z-index:9999;transition:opacity .3s;pointer-events:none}
 .track-toast-ok{background:#E8F5E9;color:#1B7A35;border:1px solid #C8E6C9}
 .track-toast-err{background:#FFEBEE;color:#C62828;border:1px solid #FFCDD2}
 .retake{text-align:center;margin-top:20px}
-.foot{text-align:center;padding:24px 0 0;margin-top:32px;border-top:1px solid #e2e5ec;font-size:15px;color:#aaa}
+.foot{text-align:center;padding:24px 0 0;margin-top:32px;border-top:1px solid #e2e5ec;font-size:15px;color:#63676f}
 
 @media(max-width:640px){
 .ld h1{font-size:38px}.ld .sub{font-size:16px}.go-btn{padding:16px 36px;font-size:18px}
@@ -209,6 +231,7 @@ body,#app{font-family:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;line
     <li>Free &mdash; takes about 5 minutes</li>
   </ul>
   <button class="go-btn ad3 anim" onclick="goRole()">Start Assessment &#8594;</button>
+  <p class="ad4 anim" style="margin-top:18px;font-size:13px"><a href="https://hlearn.ca/privacy" target="_blank" rel="noopener" style="color:rgba(255,255,255,.6);text-decoration:underline">Privacy Policy</a></p>
 </div>
 </div>
 
@@ -216,9 +239,9 @@ body,#app{font-family:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;line
 <div class="rp">
   <h2 class="anim">What&#8217;s your profession?</h2>
   <p class="rp-sub anim ad1">Select all that apply to add role-specific questions.</p>
-  <div class="rp-card anim ad2" data-t="sc" onclick="tog('sc')"><h3>Supply Chain</h3><p>+4 questions on AI for SC</p><span class="rp-chk"></span></div>
-  <div class="rp-card anim ad3" data-t="pm" onclick="tog('pm')"><h3>Project Management</h3><p>+4 questions on AI for PM</p><span class="rp-chk"></span></div>
-  <div class="rp-card anim ad4" data-t="pe" onclick="tog('pe')"><h3>Professional Engineering (Ontario)</h3><p>+4 questions on AI + P.Eng accountability</p><span class="rp-chk"></span></div>
+  <div class="rp-card anim ad2" data-t="sc" onclick="tog('sc')" onkeydown="tk(event,'sc')" role="checkbox" aria-checked="false" tabindex="0"><h3>Supply Chain</h3><p>+4 questions on AI for SC</p><span class="rp-chk"></span></div>
+  <div class="rp-card anim ad3" data-t="pm" onclick="tog('pm')" onkeydown="tk(event,'pm')" role="checkbox" aria-checked="false" tabindex="0"><h3>Project Management</h3><p>+4 questions on AI for PM</p><span class="rp-chk"></span></div>
+  <div class="rp-card anim ad4" data-t="pe" onclick="tog('pe')" onkeydown="tk(event,'pe')" role="checkbox" aria-checked="false" tabindex="0"><h3>Professional Engineering (Ontario)</h3><p>+4 questions on AI + P.Eng accountability</p><span class="rp-chk"></span></div>
   <div class="rp-go anim ad5"><button class="go-btn" onclick="startQ()">Continue &#8594;</button></div>
   <p class="rp-skip anim ad6">Skip if none apply &mdash; you&#8217;ll still get the core AI assessment.</p>
 </div>
@@ -239,10 +262,9 @@ body,#app{font-family:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;line
 // ═══ CONFIG ═══
 var WEBHOOK_URL="https://script.google.com/macros/s/AKfycbywOdkQoCQEqVW60nugpySwQxuUxCjH5KjewpZ5Y4tPaR_Qu-h5zbiTgal8gnCWyFEf/exec";
 var CALENDLY_URL="https://calendly.com/h-elouarrak/data-analytics-q-a";
-var LW_USER=window.LW_USER||null;
 
 // ═══ RESOURCES ═══
-var R={R001:{n:"Elements of AI",p:"University of Helsinki",f:"Course",s:"free",d:"20-30 hrs",u:"https://www.elementsofai.com/",c:"Conceptual foundation \u2014 what AI is and its real implications",dm:["D1","D2"],lv:1},R002:{n:"AI for Everyone 2.0",p:"Andrew Ng / Coursera",f:"Course",s:"free",d:"6 weeks",u:"https://www.coursera.org/learn/ai-for-everyone",c:"Evaluate AI opportunities and risks",dm:["D1","D2","D5"],lv:1},R003:{n:"Google AI Essentials",p:"Google",f:"Course",s:"free",d:"~10 hrs",u:"https://grow.google/ai-essentials/",c:"Hands-on with AI tools and real use cases",dm:["D1","D2","D3"],lv:1},R004:{n:"AI Capabilities Survey",p:"HLearn",f:"Course",s:"hl",d:"2-3 hrs",u:"#",c:"Explore AI capabilities \u2014 text, data, images, code, agents",dm:["D2"],lv:1},R005:{n:"AI Tools in Action",p:"HLearn",f:"Workshop",s:"hl",d:"2 hrs",u:"#",c:"Multi-modal AI workflows with real projects",dm:["D2","D3"],lv:2},R006:{n:"Advanced AI Capabilities",p:"HLearn",f:"Course",s:"hl",d:"2 hrs",u:"#",c:"Agentic AI, automation pipelines, multi-step workflows",dm:["D2"],lv:3},R007:{n:"Prompt Engineering Basics",p:"IBM / Coursera",f:"Course",s:"free",d:"~4 hrs",u:"https://www.coursera.org/learn/generative-ai-prompt-engineering-for-everyone",c:"Zero-shot, few-shot, chain-of-thought techniques",dm:["D3"],lv:1},R008:{n:"Prompt Engineering for ChatGPT",p:"Vanderbilt / Coursera",f:"Course",s:"free",d:"~6 hrs",u:"https://www.coursera.org/learn/prompt-engineering",c:"Basic to sophisticated prompt patterns",dm:["D3"],lv:2},R009:{n:"Prompt Engineering Tutorial",p:"Anthropic",f:"Tutorial",s:"free",d:"3-4 hrs",u:"https://github.com/anthropics/prompt-eng-interactive-tutorial",c:"9 interactive chapters with Claude",dm:["D3"],lv:2},R010:{n:"Prompting Best Practices",p:"Anthropic",f:"Article",s:"free",d:"30 min",u:"https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/claude-4-best-practices",c:"Official Claude prompting reference",dm:["D3"],lv:2},R011:{n:"Prompting Masterclass",p:"HLearn",f:"Workshop",s:"hl",d:"2 hrs",u:"#",c:"Bring real tasks, leave with better AI workflows",dm:["D3"],lv:2},R012:{n:"Context Engineering Guide",p:"Anthropic",f:"Article",s:"free",d:"30 min",u:"https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",c:"Engineer context for AI agents",dm:["D3","D4"],lv:3},R013:{n:"When NOT to Trust AI",p:"HLearn",f:"Video",s:"hl",d:"30 min",u:"#",c:"Real examples of where AI fails",dm:["D4"],lv:1},R014:{n:"AI Output Evaluation",p:"HLearn",f:"Course",s:"hl",d:"2-3 hrs",u:"#",c:"Spot hallucinations, bias, and errors",dm:["D4"],lv:2},R015:{n:"AI Verification Framework",p:"HLearn",f:"Course",s:"hl",d:"1-2 hrs",u:"#",c:"When to trust, verify, or reject AI output",dm:["D4"],lv:3},R016:{n:"AI Risk & Governance",p:"HLearn",f:"Course",s:"hl",d:"1-2 hrs",u:"#",c:"Data privacy, IP, and responsible use",dm:["D5"],lv:1},R017:{n:"Building Your AI Use Policy",p:"HLearn",f:"Workshop",s:"hl",d:"2 hrs",u:"#",c:"Leave with a working AI policy draft",dm:["D5"],lv:3},R018:{n:"AI in Supply Chain",p:"AI CERTs / Coursera",f:"Course",s:"free",d:"~8 hrs",u:"https://www.coursera.org/learn/ai-in-supply-chain",c:"AI for forecasting, procurement, inventory, logistics",dm:["D6"],lv:1},R019:{n:"AI for Supply Chains & Logistics",p:"Alison",f:"Course",s:"free",d:"3-4 hrs",u:"https://alison.com/course/artificial-intelligence-for-supply-chains-and-logistics",c:"AI for inventory, demand prediction, last-mile",dm:["D6"],lv:1},R020:{n:"SC AI Quick Wins",p:"HLearn",f:"Video",s:"hl",d:"45 min",u:"#",c:"AI applied to each SC function",dm:["D6"],lv:1},R021:{n:"AI for SC Professionals",p:"HLearn",f:"Course",s:"hl",d:"4-6 hrs",u:"#",c:"AI across Plan, Source, Make, Deliver",dm:["D6","D7"],lv:2},R022:{n:"ML for Supply Chains",p:"LearnQuest / Coursera",f:"Course",s:"free",d:"~20 hrs",u:"https://www.coursera.org/learn/advanced-ai-techniques-for-the-supply-chain",c:"ML and neural networks for SC",dm:["D6","D7"],lv:2},R023:{n:"AI-Powered SC Analysis",p:"HLearn",f:"Workshop",s:"hl",d:"3 hrs",u:"#",c:"AI segmentation and scenario modeling",dm:["D7"],lv:2},R024:{n:"AI for SC Leaders",p:"HLearn",f:"Course",s:"hl",d:"3-4 hrs",u:"#",c:"Strategic AI adoption, build the case, measure ROI",dm:["D7","D6"],lv:3},R025:{n:"AI & Career Empowerment Certificate",p:"University of Maryland",f:"Course",s:"free",d:"~6 hrs",u:"https://www.rhsmith.umd.edu/programs/executive-education/learning-opportunities-individuals/free-online-certificate-artificial-intelligence-and-career-empowerment",c:"AI literacy, capabilities, and career strategy \u2014 free university certificate",dm:["D1","D2","D3"],lv:1},R026:{n:"Free Intro: PMI-CPMAI",p:"PMI",f:"Course",s:"free",d:"~2 hrs",u:"https://www.pmi.org/shop/p-/elearning/free-introduction-to-cognitive-project-management-in-ai-cpmai/el185",c:"AI PM foundations and CPMAI methodology",dm:["D8"],lv:1},R027:{n:"ChatGPT for PM",p:"Vanderbilt / Coursera",f:"Course",s:"free",d:"~8 hrs",u:"https://www.coursera.org/specializations/chatgpt-project-management",c:"AI for planning, execution, tracking, comms",dm:["D8","D9"],lv:1},R028:{n:"PMI AI Learning Hub",p:"PMI",f:"Hub",s:"free",d:"Varies",u:"https://www.pmi.org/learning/ai-in-project-management",c:"Curated AI resources and frameworks for PMs",dm:["D8"],lv:2},R029:{n:"AI for PM Professionals",p:"HLearn",f:"Course",s:"hl",d:"4-6 hrs",u:"#",c:"AI across initiation, planning, execution, close",dm:["D8","D9"],lv:2},R030:{n:"AI-Powered Project Planning",p:"HLearn",f:"Workshop",s:"hl",d:"3 hrs",u:"#",c:"Build an AI-augmented project plan from real data",dm:["D9"],lv:2},R031:{n:"AI PM Mastery",p:"HLearn",f:"Course",s:"hl",d:"3-4 hrs",u:"#",c:"Strategic AI adoption for PMOs and program leaders",dm:["D9","D8"],lv:3},R032:{n:"PEO AI Practice Advisory",p:"PEO / EGBC",f:"Advisory",s:"free",d:"30 min",u:"https://www.peo.on.ca/knowledge-centre/practice-advice-resources-and-guidelines/practice-guidelines",c:"PEO guidance on AI in professional engineering",dm:["D10","D11"],lv:1},R033:{n:"Engineers Canada AI Guidance",p:"Engineers Canada",f:"Guide",s:"free",d:"1 hr",u:"https://engineerscanada.ca/",c:"National guidance for AI-involved engineering",dm:["D10"],lv:1},R034:{n:"OSPE EngTalks: AI",p:"OSPE",f:"Event",s:"free",d:"2 hrs",u:"https://ospe.on.ca/advocacy/join-the-conversation-on-ai-and-engineering/",c:"AI adoption, innovation, and risk in engineering",dm:["D10","D11"],lv:2},R035:{n:"AI for Licensed Engineers",p:"HLearn",f:"Course",s:"hl",d:"4-6 hrs",u:"#",c:"AI tools and V&V for professional engineering",dm:["D10","D11"],lv:2},R036:{n:"AI Verification for Engineering",p:"HLearn",f:"Workshop",s:"hl",d:"3 hrs",u:"#",c:"V&V protocols for AI-assisted calculations",dm:["D11"],lv:2},R037:{n:"AI Practice Leadership",p:"HLearn",f:"Course",s:"hl",d:"3-4 hrs",u:"#",c:"Lead responsible AI adoption in engineering orgs",dm:["D11","D10"],lv:3}};
+var R={R001:{n:"Elements of AI",p:"University of Helsinki",f:"Course",s:"free",d:"20-30 hrs",u:"https://www.elementsofai.com/",c:"Conceptual foundation \u2014 what AI is and its real implications",dm:["D1","D2"],lv:1},R002:{n:"AI for Everyone 2.0",p:"Andrew Ng / Coursera",f:"Course",s:"free",d:"6 weeks",u:"https://www.coursera.org/learn/ai-for-everyone",c:"Evaluate AI opportunities and risks",dm:["D1","D2","D5"],lv:1},R003:{n:"Google AI Essentials",p:"Google",f:"Course",s:"free",d:"~10 hrs",u:"https://grow.google/ai-essentials/",c:"Hands-on with AI tools and real use cases",dm:["D1","D2","D3"],lv:1},R004:{n:"AI Capabilities Survey",p:"HLearn",f:"Course",s:"hl",d:"2-3 hrs",u:"#",c:"Explore AI capabilities \u2014 text, data, images, code, agents",dm:["D2"],lv:1},R005:{n:"AI Tools in Action",p:"HLearn",f:"Workshop",s:"hl",d:"2 hrs",u:"#",c:"Multi-modal AI workflows with real projects",dm:["D2","D3"],lv:2},R006:{n:"Advanced AI Capabilities",p:"HLearn",f:"Course",s:"hl",d:"2 hrs",u:"#",c:"Agentic AI, automation pipelines, multi-step workflows",dm:["D2"],lv:3},R007:{n:"Prompt Engineering Basics",p:"IBM / Coursera",f:"Course",s:"free",d:"~4 hrs",u:"https://www.coursera.org/learn/generative-ai-prompt-engineering-for-everyone",c:"Zero-shot, few-shot, chain-of-thought techniques",dm:["D3"],lv:1},R008:{n:"Prompt Engineering for ChatGPT",p:"Vanderbilt / Coursera",f:"Course",s:"free",d:"~6 hrs",u:"https://www.coursera.org/learn/prompt-engineering",c:"Basic to sophisticated prompt patterns",dm:["D3"],lv:2},R009:{n:"Prompt Engineering Tutorial",p:"Anthropic",f:"Tutorial",s:"free",d:"3-4 hrs",u:"https://github.com/anthropics/prompt-eng-interactive-tutorial",c:"9 interactive chapters with Claude",dm:["D3"],lv:2},R010:{n:"Prompting Best Practices",p:"Anthropic",f:"Article",s:"free",d:"30 min",u:"https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/claude-4-best-practices",c:"Official Claude prompting reference",dm:["D3"],lv:2},R011:{n:"Prompting Masterclass",p:"HLearn",f:"Workshop",s:"hl",d:"2 hrs",u:"#",c:"Bring real tasks, leave with better AI workflows",dm:["D3"],lv:2},R012:{n:"Context Engineering Guide",p:"Anthropic",f:"Article",s:"free",d:"30 min",u:"https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",c:"Engineer context for AI agents",dm:["D3","D4"],lv:3},R013:{n:"When NOT to Trust AI",p:"HLearn",f:"Video",s:"hl",d:"30 min",u:"#",c:"Real examples of where AI fails",dm:["D4"],lv:1},R014:{n:"AI Output Evaluation",p:"HLearn",f:"Course",s:"hl",d:"2-3 hrs",u:"#",c:"Spot hallucinations, bias, and errors",dm:["D4"],lv:2},R015:{n:"AI Verification Framework",p:"HLearn",f:"Course",s:"hl",d:"1-2 hrs",u:"#",c:"When to trust, verify, or reject AI output",dm:["D4"],lv:3},R016:{n:"AI Risk & Governance",p:"HLearn",f:"Course",s:"hl",d:"1-2 hrs",u:"#",c:"Data privacy, IP, and responsible use",dm:["D5"],lv:1},R017:{n:"Building Your AI Use Policy",p:"HLearn",f:"Workshop",s:"hl",d:"2 hrs",u:"#",c:"Leave with a working AI policy draft",dm:["D5"],lv:3},R018:{n:"AI in Supply Chain",p:"AI CERTs / Coursera",f:"Course",s:"free",d:"~8 hrs",u:"https://www.coursera.org/learn/ai-in-supply-chain",c:"AI for forecasting, procurement, inventory, logistics",dm:["D6"],lv:1},R019:{n:"AI for Supply Chains & Logistics",p:"Alison",f:"Course",s:"free",d:"3-4 hrs",u:"https://alison.com/course/artificial-intelligence-for-supply-chains-and-logistics",c:"AI for inventory, demand prediction, last-mile",dm:["D6"],lv:1},R020:{n:"Supply Chain AI Quick Wins",p:"HLearn",f:"Video",s:"hl",d:"45 min",u:"#",c:"AI applied to each supply chain function",dm:["D6","D7"],lv:1},R021:{n:"AI for SC Professionals",p:"HLearn",f:"Course",s:"hl",d:"4-6 hrs",u:"#",c:"AI across Plan, Source, Make, Deliver",dm:["D6","D7"],lv:2},R022:{n:"ML for Supply Chains",p:"LearnQuest / Coursera",f:"Course",s:"free",d:"~20 hrs",u:"https://www.coursera.org/learn/advanced-ai-techniques-for-the-supply-chain",c:"ML and neural networks for SC",dm:["D6","D7"],lv:2},R023:{n:"AI-Powered SC Analysis",p:"HLearn",f:"Workshop",s:"hl",d:"3 hrs",u:"#",c:"AI segmentation and scenario modeling",dm:["D7"],lv:2},R024:{n:"AI for SC Leaders",p:"HLearn",f:"Course",s:"hl",d:"3-4 hrs",u:"#",c:"Strategic AI adoption, build the case, measure ROI",dm:["D7","D6"],lv:3},R025:{n:"AI & Career Empowerment Certificate",p:"University of Maryland",f:"Course",s:"free",d:"~6 hrs",u:"https://www.rhsmith.umd.edu/programs/executive-education/learning-opportunities-individuals/free-online-certificate-artificial-intelligence-and-career-empowerment",c:"AI literacy, capabilities, and career strategy \u2014 free university certificate",dm:["D1","D2","D3"],lv:1},R026:{n:"Free Intro: PMI-CPMAI",p:"PMI",f:"Course",s:"free",d:"~2 hrs",u:"https://www.pmi.org/shop/p-/elearning/free-introduction-to-cognitive-project-management-in-ai-cpmai/el185",c:"AI PM foundations and CPMAI methodology",dm:["D8"],lv:1},R027:{n:"ChatGPT for PM",p:"Vanderbilt / Coursera",f:"Course",s:"free",d:"~8 hrs",u:"https://www.coursera.org/specializations/chatgpt-project-management",c:"AI for planning, execution, tracking, comms",dm:["D8","D9"],lv:1},R028:{n:"PMI AI Learning Hub",p:"PMI",f:"Hub",s:"free",d:"Varies",u:"https://www.pmi.org/learning/ai-in-project-management",c:"Curated AI resources and frameworks for PMs",dm:["D8"],lv:2},R029:{n:"AI for PM Professionals",p:"HLearn",f:"Course",s:"hl",d:"4-6 hrs",u:"#",c:"AI across initiation, planning, execution, close",dm:["D8","D9"],lv:2},R030:{n:"AI-Powered Project Planning",p:"HLearn",f:"Workshop",s:"hl",d:"3 hrs",u:"#",c:"Build an AI-augmented project plan from real data",dm:["D9"],lv:2},R031:{n:"AI PM Mastery",p:"HLearn",f:"Course",s:"hl",d:"3-4 hrs",u:"#",c:"Strategic AI adoption for PMOs and program leaders",dm:["D9","D8"],lv:3},R032:{n:"PEO AI Practice Advisory",p:"PEO / EGBC",f:"Advisory",s:"free",d:"30 min",u:"https://www.peo.on.ca/knowledge-centre/practice-advice-resources-and-guidelines/practice-guidelines",c:"PEO guidance on AI in professional engineering",dm:["D10","D11"],lv:1},R033:{n:"Engineers Canada AI Guidance",p:"Engineers Canada",f:"Guide",s:"free",d:"1 hr",u:"https://engineerscanada.ca/",c:"National guidance for AI-involved engineering",dm:["D10"],lv:1},R034:{n:"OSPE EngTalks: AI",p:"OSPE",f:"Event",s:"free",d:"2 hrs",u:"https://ospe.on.ca/advocacy/join-the-conversation-on-ai-and-engineering/",c:"AI adoption, innovation, and risk in engineering",dm:["D10","D11"],lv:2},R035:{n:"AI for Licensed Engineers",p:"HLearn",f:"Course",s:"hl",d:"4-6 hrs",u:"#",c:"AI tools and V&V for professional engineering",dm:["D10","D11"],lv:2},R036:{n:"AI Verification for Engineering",p:"HLearn",f:"Workshop",s:"hl",d:"3 hrs",u:"#",c:"V&V protocols for AI-assisted calculations",dm:["D11"],lv:2},R037:{n:"AI Practice Leadership",p:"HLearn",f:"Course",s:"hl",d:"3-4 hrs",u:"#",c:"Lead responsible AI adoption in engineering orgs",dm:["D11","D10"],lv:3},R038:{n:"NIST AI Risk Management Framework",p:"NIST",f:"Guide",s:"free",d:"2-3 hrs",u:"https://www.nist.gov/itl/ai-risk-management-framework",c:"Map, measure, and manage AI risk \u2014 the reference framework plus a practical Playbook",dm:["D5"],lv:2},R039:{n:"Intro to Large Language Models",p:"Andrej Karpathy",f:"Video",s:"free",d:"1 hr",u:"https://www.youtube.com/watch?v=zjkBMFhNj_g",c:"How large language models actually work \u2014 training, finetuning, tool use, and security, for a general audience",dm:["D1"],lv:2},R040:{n:"How AI Really Works \u2014 for Practitioners",p:"HLearn",f:"Course",s:"hl",d:"2-3 hrs",u:"#",c:"A working mental model of modern AI \u2014 capabilities, limits, and failure modes that survive contact with real projects",dm:["D1"],lv:3}};
 
 var DN={D1:"Conceptual Understanding",D2:"Capabilities Awareness",D3:"Tool Proficiency",D4:"Critical Evaluation",D5:"Ethics & Risk",D6:"SC-AI Use Cases",D7:"AI-Augmented SC Decisions",D8:"AI in PM Practice",D9:"AI-Augmented PM Decisions",D10:"AI in Engineering Practice",D11:"AI + Professional Accountability"};
 var BN={1:"Unaware",2:"Aware",3:"Practitioner",4:"Strategic"};
@@ -251,7 +273,7 @@ var TRACK_DIMS={sc:["D6","D7"],pm:["D8","D9"],pe:["D10","D11"]};
 var TRACK_LABELS={sc:"Supply Chain",pm:"Project Management",pe:"Professional Engineering"};
 var DIM_TAG={D1:"core",D2:"core",D3:"core",D4:"core",D5:"core",D6:"sc",D7:"sc",D8:"pm",D9:"pm",D10:"pe",D11:"pe"};
 var TX={};(function(){Object.keys(DN).forEach(function(d){TX[d]={1:[],2:[],3:[]}});Object.keys(R).forEach(function(id){R[id].dm.forEach(function(d){if(TX[d])TX[d][R[id].lv].push(id)})})})();
-function nl(s){return s<2?1:s<3?2:s<3.5?3:4}
+function nl(s){return s<2?1:s<3?2:s<=3.5?3:4}
 
 // L1 question IDs
 var L1_IDS={"Q1.1":1,"Q1.3":1,"Q2.1":1,"Q2.3":1,"Q3.1":1,"Q3.4":1,"Q4.1":1,"Q4.2":1,"Q5.1":1,"Q5.3":1,"Q6.1":1,"Q6.2":1,"Q7.2":1,"Q7.3":1,"Q8.1":1,"Q8.3":1,"Q9.1":1,"Q9.3":1,"Q10.2":1,"Q10.3":1,"Q11.1":1,"Q11.2":1};
@@ -283,7 +305,7 @@ var Q=[
 {id:"Q7.1",d:"D7",q:"24 months of sales data, need product segmentation. AI\u2019s role?",o:[{t:"Probably just use Excel \u2014 pivot tables and basic formulas can handle segmentation for most product portfolios without adding AI complexity.",v:1},{t:"Ask AI which products matter most.",v:2},{t:"ABC revenue, XYZ variability, matrix, policies. Validate against business knowledge.",v:3},{t:"Clean data first. Standard segmentation + edge cases. AI does math; I handle judgment.",v:4}]},
 {id:"Q7.2",d:"D7",q:"Scenario planning: supplier lead time +30%, demand +20%, or both. AI\u2019s role?",o:[{t:"Present scenarios, facilitate discussion.",v:1},{t:"AI writes up scenarios and impacts.",v:2},{t:"Feed AI the plan and capacity, model metric impacts. Quantified trade-offs beat opinions in S&OP.",v:3},{t:"Model cascading effects. Mitigation options with cost estimates and decision matrix.",v:4}]},
 {id:"Q7.3",d:"D7",q:"When do you trust AI output vs. your own judgment?",o:[{t:"When it seems reasonable.",v:1},{t:"Routine goes to AI, important stays human. The key is knowing which category each task falls into and having clear guidelines for the team.",v:2},{t:"Trust for pattern recognition, stats, routine. Override when context is missing or stakes need accountability.",v:3},{t:"Not trust-or-override \u2014 calibration. Weight by reversibility, data quality, novelty.",v:4}]},
-{id:"Q8.1",d:"D8",q:"Where is AI delivering proven value in project management?",o:[{t:"Mostly chatbots and Q&A \u2014 not much for serious project work.",v:1},{t:"Status reports, meeting summaries, email drafts, slides \u2014 a writing assistant saving PMs hours of admin every week.",v:2},{t:"Risk scoring, schedule forecasting, resource optimization, stakeholder comms.",v:3},{t:"It\u2019s transforming everything \u2014 AI can run entire projects autonomously now, making traditional PM skills obsolete for routine work.",v:1}]},
+{id:"Q8.1",d:"D8",q:"Where is AI delivering proven value in project management?",o:[{t:"Mostly chatbots and Q&A \u2014 not much for serious project work.",v:1},{t:"Status reports, meeting summaries, email drafts, slides \u2014 a writing assistant saving PMs hours of admin every week.",v:2},{t:"Risk scoring, schedule forecasting, resource optimization, stakeholder comms.",v:3},{t:"Proven: status automation, risk scoring, schedule forecasting. Emerging: resource optimization, autonomous roll-ups \u2014 judgment stays human.",v:4}]},
 {id:"Q8.2",d:"D8",q:"Sponsor: \u201cCan AI replace the project scheduler?\u201d",o:[{t:"Getting close. In a year or two AI schedulers will outperform humans, especially on large complex programs with many dependencies.",v:1},{t:"AI handles optimization. Schedulers add judgment on soft dependencies and politics. Augment, don\u2019t replace.",v:4},{t:"Possibly \u2014 AI is already better at resource allocation and critical path optimization in complex networks.",v:1},{t:"AI can build schedules, but needs humans for assumptions and commitments not in the data.",v:3}]},
 {id:"Q8.3",d:"D8",q:"Complex project, 15 stakeholders. How do you use AI?",o:[{t:"I\u2019d be cautious \u2014 too much political nuance for AI. I\u2019d invest in direct engagement and understanding each stakeholder\u2019s needs.",v:1},{t:"Summarize transcripts, draft tailored updates per audience, flag schedule risks.",v:3},{t:"Draft comms and meeting agendas.",v:2},{t:"Automate roll-ups, risk heat maps, recovery models. Relationship work stays human.",v:4}]},
 {id:"Q8.4",d:"D8",q:"Vendor\u2019s AI platform predicts project delays 6 weeks early. First question?",o:[{t:"What\u2019s the false positive rate? Flagging everything is useless.",v:4},{t:"Sounds valuable. What\u2019s the cost? Even small improvements in early warning would have massive ROI given what late projects cost us.",v:1},{t:"What data does it need? Ours lives across Jira, MS Project, SharePoint, and email.",v:3},{t:"Accuracy rate in comparable environments?",v:2}]},
@@ -311,7 +333,8 @@ function sw(id){['view-welcome','view-role','view-questions','view-results'].for
 
 // ═══ WELCOME + ROLE ═══
 function goRole(){sw('view-role')}
-function tog(t){var i=S.tr.indexOf(t);if(i>-1)S.tr.splice(i,1);else S.tr.push(t);document.querySelectorAll('.rp-card').forEach(function(el){el.classList.toggle('on',S.tr.indexOf(el.getAttribute('data-t'))>-1)})}
+function tk(ev,t){if(ev.key===' '||ev.key==='Enter'){ev.preventDefault();tog(t)}}
+function tog(t){var i=S.tr.indexOf(t);if(i>-1)S.tr.splice(i,1);else S.tr.push(t);document.querySelectorAll('.rp-card').forEach(function(el){var on=S.tr.indexOf(el.getAttribute('data-t'))>-1;el.classList.toggle('on',on);el.setAttribute('aria-checked',on?'true':'false')})}
 
 function startQ(){
   S.level=1;S.qi=0;S.pk=null;S.emailDone=false;S.l2Done=false;
@@ -326,16 +349,17 @@ function bk(){if(S.qi>0){S.qi--;rq()}}
 function nx(){if(S.pk===null)return;S.an[S.aq[S.qi].id]=S.sh[S.pk].v;if(S.qi+1>=S.aq.length){if(S.level===2)S.l2Done=true;rr();sw('view-results')}else{S.qi++;rq()}}
 
 // ═══ TRACKING ═══
-function getUser(){if(S.uName&&S.uEmail)return{name:S.uName,email:S.uEmail};if(LW_USER&&LW_USER.name&&LW_USER.email)return LW_USER;var p=new URLSearchParams(window.location.search);var n=p.get('name'),em=p.get('email');if(n&&em)return{name:n,email:em};return null}
+function getUser(){if(S.uName&&S.uEmail)return{name:S.uName,email:S.uEmail};return null}
 function toast(msg,ok){var el=document.createElement('div');el.className='track-toast '+(ok?'track-toast-ok':'track-toast-err');el.textContent=msg;document.body.appendChild(el);setTimeout(function(){el.style.opacity='0'},2500);setTimeout(function(){el.remove()},3000)}
-function buildPath(ds){var dims=CORE.slice();S.tr.forEach(function(t){dims=dims.concat(TRACK_DIMS[t])});var shown={},ma=[],cu=[],fu=[];dims.forEach(function(dim){var sc=ds[dim]||0,need=nl(sc),tx=TX[dim];[1,2,3].forEach(function(lv){(tx[lv]||[]).forEach(function(id){if(shown[id])return;shown[id]=true;var r=R[id];if(!r)return;var entry=r.n+(r.s==='hl'?' [HLearn - Coming Soon]':' [Free] '+r.u);var wouldMaster=(need===4||lv<need);if(wouldMaster){var allClear=true;r.dm.forEach(function(d){if(dims.indexOf(d)>-1){var dn=nl(ds[d]||0);if(dn!==4&&lv>=dn)allClear=false}});if(allClear)ma.push(entry);else cu.push(entry)}else if(lv===need)cu.push(entry);else fu.push(entry)})})});return{mastered:ma,recommended:cu,nextLevel:fu}}
+function homeDim(id,ds,dims){var r=R[id],best=null,bs=Infinity;r.dm.forEach(function(d){if(dims.indexOf(d)>-1){var s=ds[d]||0;if(s<bs){bs=s;best=d}}});return best}
+function buildPath(ds){var dims=CORE.slice();S.tr.forEach(function(t){dims=dims.concat(TRACK_DIMS[t])});var shown={},ma=[],cu=[],fu=[];dims.forEach(function(dim){var sc=ds[dim]||0,need=nl(sc),tx=TX[dim];[1,2,3].forEach(function(lv){(tx[lv]||[]).forEach(function(id){if(shown[id])return;if(homeDim(id,ds,dims)!==dim)return;shown[id]=true;var r=R[id];if(!r)return;var entry=r.n+(r.s==='hl'?' [HLearn - Coming Soon]':' [Free] '+r.u);var wouldMaster=(need===4||lv<need);if(wouldMaster){var allClear=true;r.dm.forEach(function(d){if(dims.indexOf(d)>-1){var dn=nl(ds[d]||0);if(dn!==4&&lv>=dn)allClear=false}});if(allClear)ma.push(entry);else cu.push(entry)}else if(lv===need)cu.push(entry);else fu.push(entry)})})});return{mastered:ma,recommended:cu,nextLevel:fu}}
 
 function sendToSheet(ds,s1,b1,st,gw,extra){
   if(!WEBHOOK_URL)return;var user=getUser();var path=buildPath(ds);
   var ts={};S.tr.forEach(function(t){var dd=TRACK_DIMS[t];var v=Math.round(dd.reduce(function(a,d){return a+(ds[d]||0)},0)/dd.length*10)/10;ts[t+'Score']=v;ts[t+'Band']=BN[gb(v)]});
   var rawAns={};Object.keys(S.an).forEach(function(k){rawAns[k]=S.an[k]});
   var payload=Object.assign({name:user?user.name:"(anonymous)",email:user?user.email:"(anonymous)",tracks:S.tr.join(','),waitlist:"",level:S.level,overallScore:s1,overallBand:BN[b1],d1:ds.D1||"",d2:ds.D2||"",d3:ds.D3||"",d4:ds.D4||"",d5:ds.D5||"",d6:ds.D6||"",d7:ds.D7||"",d8:ds.D8||"",d9:ds.D9||"",d10:ds.D10||"",d11:ds.D11||"",scScore:ts.scScore||"",scBand:ts.scBand||"",pmScore:ts.pmScore||"",pmBand:ts.pmBand||"",peScore:ts.peScore||"",peBand:ts.peBand||"",strengths:st.map(function(x){return DN[x.d]+' ('+x.s+')'}).join(', '),growthAreas:gw.map(function(x){return DN[x.d]+' ('+x.s+')'}).join(', '),mastered:path.mastered.join(', '),recommended:path.recommended.join(', '),nextLevel:path.nextLevel.join(', '),rawAnswers:JSON.stringify(rawAns)},extra||{});
-  fetch(WEBHOOK_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},body:JSON.stringify(payload)}).then(function(){toast('Results saved',true)}).catch(function(){toast('Could not save results',false)});
+  fetch(WEBHOOK_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},body:JSON.stringify(payload)}).then(function(){toast('Results submitted',true)}).catch(function(){toast('Could not save results',false)});
 }
 
 // ═══ COMPUTE SCORES ═══
@@ -364,24 +388,24 @@ function rr(){
 
   // Email gate or full path
   if(!S.emailDone){
-    h+='<div class="eg anim ad3"><h3>Unlock your learning path</h3><p>Get your personalized AI resources and recommendations.</p><input type="text" id="eName" placeholder="Your name"><input type="email" id="eEmail" placeholder="Your email"><button class="go-btn" onclick="submitEmail()">Get My Learning Path &#8594;</button><p class="eg-note">No spam. Just your results and relevant updates.</p></div>';
+    h+='<div class="eg anim ad3"><h3>Unlock your learning path</h3><p>Get your personalized AI resources and recommendations.</p><input type="text" id="eName" placeholder="Your name" autocomplete="name" maxlength="100" aria-label="Your name"><input type="email" id="eEmail" placeholder="Your email" autocomplete="email" maxlength="254" aria-label="Your email"><button class="go-btn" onclick="submitEmail()">Get My Learning Path &#8594;</button><p class="eg-note">No spam. Just your results and relevant updates.</p></div>';
     h+=renderPathBlurred(ds,dims);
   } else {
-    h+=renderPath(ds,dims);
-    h+='<div class="cal"><h3>Want expert guidance?</h3><p>Book a free 15-minute AI readiness consultation.</p><a href="'+CALENDLY_URL+'" target="_blank" rel="noopener" class="cal-btn">Book Your Call &#8594;</a></div>';
     if(!S.l2Done){
       var l2count=countL2();
       if(l2count>0) h+='<div class="deep"><h3>Want more precise results?</h3><p>'+l2count+' more questions for deeper insights across all dimensions.</p><button class="btn btn-p" onclick="goDeeper()">Go Deeper &#8594;</button></div>';
     }
+    h+=renderPath(ds,dims);
+    h+='<div class="cal"><h3>Want expert guidance?</h3><p>Book a free 15-minute AI readiness consultation.</p><a href="'+CALENDLY_URL+'" target="_blank" rel="noopener" class="cal-btn">Book Your Call &#8594;</a></div>';
     h+='<div class="save"><button class="sv-btn" id="pdfBtn" onclick="sp()"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/><path d="M12 3v12"/><path d="M5 21h14"/></svg><span id="pdfLabel">Save as PDF</span></button><button class="sv-btn" onclick="cr()"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg><span id="cl">Copy Summary</span></button></div>';
   }
   h+='<div class="retake"><button class="btn btn-g" onclick="rt()">Retake Assessment</button></div>';
-  h+='<div class="foot">HLearn AI Journey Builder \u00B7 Personalized learning paths for the AI era</div></div>';
+  h+='<div class="foot">HLearn AI Journey Builder \u00B7 Personalized learning paths for the AI era \u00B7 <a href="https://hlearn.ca/privacy" target="_blank" rel="noopener" style="color:#63676f">Privacy Policy</a></div></div>';
   document.getElementById('view-results').innerHTML=h;
 }
 
 function renderPathBlurred(ds,dims){
-  var h='<div class="ps anim ad2"><h2 class="ps-h">Your AI Journey</h2><p class="ps-sub">Personalized learning path based on your results.</p><div class="path-blur">';
+  var h='<div class="ps anim ad2"><h2 class="ps-h">Your AI Journey</h2><p class="ps-sub">Personalized learning path based on your results. Enter your name and email above to unlock it.</p><div class="path-blur" aria-hidden="true" inert>';
   h+=buildPathHTML(ds,dims);
   h+='</div></div>';return h;
 }
@@ -398,6 +422,7 @@ function buildPathHTML(ds,dims){
     var ma=[],cu=[],fu=[];
     [1,2,3].forEach(function(lv){tx[lv].forEach(function(id){
       if(shown[id])return;
+      if(homeDim(id,ds,dims)!==dim)return;
       var r=R[id];if(!r)return;
       var wouldMaster=(need===4||lv<need);
       if(wouldMaster){
@@ -413,7 +438,7 @@ function buildPathHTML(ds,dims){
     var sl=gb(sc);
     h+='<div class="ds"><div class="ds-h"><span class="ds-name">'+e(DN[dim])+'</span><span class="ds-pill" style="background:'+BC[sl]+'">'+sc+' / 4.0</span></div>';
     if(ma.length){var tid='m-'+dim;h+='<button class="m-toggle open" onclick="mt(\''+tid+'\',this)"><span class="m-icon">\u25B6</span><span class="m-text">Mastered</span><span class="m-cnt">'+ma.length+' resource'+(ma.length>1?'s':'')+'</span></button><div class="m-list open" id="'+tid+'">';ma.forEach(function(id){h+=mcard(id)});h+='</div>'}
-    if(cu.length){h+='<div class="sec-label sec-cur">\u2794 Your Path</div>';cu.forEach(function(id,i){h+=rcard(id,i+1,rqCls)})}else if(need===4){h+='<div style="font-size:13px;color:#1B7A35;padding:8px 0;font-weight:600">\u2714 Fully mastered.</div>'}
+    if(cu.length){h+='<div class="sec-label sec-cur">\u2794 Your Path</div>';cu.forEach(function(id,i){h+=rcard(id,i+1,rqCls)})}else if(need===4){h+='<div style="font-size:13px;color:#1B7A35;padding:8px 0;font-weight:600">\u2714 Fully mastered.</div>'}else if((tx[need]||[]).length){h+='<div style="font-size:13px;color:#63676f;padding:8px 0;font-weight:600">Resources that serve this dimension appear under related dimensions in your path.</div>'}else{h+='<div style="font-size:13px;color:#63676f;padding:8px 0;font-weight:600">You\u2019ve covered what\u2019s available at your current level \u2014 new resources for this dimension are coming to HLearn.</div>'}
     if(fu.length){h+='<div class="sec-label sec-fut">\u26BF Next Level</div>';fu.forEach(function(id,i){h+=pcard(id,i+1)})}
     h+='</div>'});
   return h;
@@ -426,8 +451,9 @@ function mt(id,btn){document.getElementById(id).classList.toggle('open');btn.cla
 
 // ═══ EMAIL CAPTURE ═══
 function submitEmail(){
-  var n=document.getElementById('eName').value.trim(),em=document.getElementById('eEmail').value.trim();
-  if(!n||!em||em.indexOf('@')<1){toast('Please enter your name and email',false);return}
+  if(S.emailDone)return;
+  var n=document.getElementById('eName').value.trim().replace(/^[=+\-@\t\r]+/,''),em=document.getElementById('eEmail').value.trim().replace(/^[=+\-\t\r]+/,'');
+  if(!n||!em||!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(em)){toast('Please enter your name and a valid email',false);return}
   S.uName=n;S.uEmail=em;S.emailDone=true;
   var c=calcScores();sendToSheet(c.ds,c.s1,c.b1,c.st,c.gw);
   rr();sw('view-results');
@@ -446,10 +472,19 @@ function goDeeper(){
 function rt(){S={tr:[],level:1,qi:0,an:{},pk:null,aq:[],sh:[],emailDone:false,l2Done:false,uName:'',uEmail:''};document.querySelectorAll('.rp-card').forEach(function(el){el.classList.remove('on')});sw('view-welcome')}
 
 // ═══ PDF ═══
-function sp(){var btn=document.getElementById('pdfBtn'),label=document.getElementById('pdfLabel');if(btn)btn.disabled=true;if(label)label.textContent='Preparing\u2026';var results=document.getElementById('view-results');var mLists=results.querySelectorAll('.m-list'),mToggles=results.querySelectorAll('.m-toggle');mLists.forEach(function(el){el.classList.add('open')});mToggles.forEach(function(el){el.classList.add('open')});var content=results.querySelector('.r-inner');if(!content){if(btn)btn.disabled=false;if(label)label.textContent='Save as PDF';return}var html='<!DOCTYPE html><html><head><meta charset="UTF-8"><title>AI Journey Builder Results</title><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"><style>';var sheets=document.styleSheets;for(var i=0;i<sheets.length;i++){try{var rules=sheets[i].cssRules||sheets[i].rules;if(rules){for(var j=0;j<rules.length;j++){var txt=rules[j].cssText||'';if(txt.indexOf('@keyframes')===0||txt.indexOf('@media print')===0)continue;html+=txt+'\n'}}}catch(ex){}}html+='*{animation:none!important;opacity:1!important;visibility:visible!important;transform:none!important}.hidden{display:block!important}.m-list{display:block!important}.pv,.m-card{opacity:1!important}.save,.retake,.cal,.deep,.eg,.path-blur::after{display:none!important}.path-blur{filter:none!important}body{background:#f5f6fa;padding:20px 28px;font-family:"DM Sans",-apple-system,sans-serif}.r-inner{max-width:700px;margin:0 auto}@media print{*{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}.save,.retake,.cal,.deep,.eg{display:none!important}}</style></head><body>';html+=content.outerHTML;html+='<script>window.onload=function(){setTimeout(function(){window.print()},300)}<\/script></body></html>';mLists.forEach(function(el){el.classList.remove('open')});mToggles.forEach(function(el){el.classList.remove('open')});var w=window.open('','_blank');if(w){w.document.write(html);w.document.close()}else{var blob=new Blob([html],{type:'text/html'});var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='AI-Journey-Builder-Results.html';a.click();URL.revokeObjectURL(a.href)}if(btn)btn.disabled=false;if(label)label.textContent='Save as PDF'}
+function sp(){var btn=document.getElementById('pdfBtn'),label=document.getElementById('pdfLabel');if(btn)btn.disabled=true;if(label)label.textContent='Preparing\u2026';var results=document.getElementById('view-results');var mLists=results.querySelectorAll('.m-list'),mToggles=results.querySelectorAll('.m-toggle');mLists.forEach(function(el){el.classList.add('open')});mToggles.forEach(function(el){el.classList.add('open')});var content=results.querySelector('.r-inner');if(!content){if(btn)btn.disabled=false;if(label)label.textContent='Save as PDF';return}var user=getUser();var now=new Date();var ts=now.toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'})+' at '+now.toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit'});var fo=location.origin;var ff='';[400,500,600,700,800].forEach(function(w){ff+='@font-face{font-family:\'DM Sans\';font-style:normal;font-weight:'+w+';font-display:swap;src:url(\''+fo+'/fonts/dm-sans-'+w+'.woff2\') format(\'woff2\')}\n'});var html='<!DOCTYPE html><html><head><meta charset="UTF-8"><title>AI Journey Builder Results</title><style>'+ff;var sheets=document.styleSheets;for(var i=0;i<sheets.length;i++){try{var rules=sheets[i].cssRules||sheets[i].rules;if(rules){for(var j=0;j<rules.length;j++){var txt=rules[j].cssText||'';if(txt.indexOf('@keyframes')===0||txt.indexOf('@media print')===0)continue;html+=txt+'\n'}}}catch(ex){}}html+='*{animation:none!important;opacity:1!important;visibility:visible!important;transform:none!important}.hidden{display:block!important}.m-list{display:block!important}.pv,.m-card{opacity:1!important}.save,.retake,.cal,.deep,.eg,.path-blur::after{display:none!important}.path-blur{filter:none!important}body{background:#f5f6fa;padding:20px 28px;font-family:"DM Sans",-apple-system,sans-serif}.r-inner{max-width:700px;margin:0 auto}.pdf-header{max-width:700px;margin:0 auto 20px;padding:16px 24px;background:#fff;border-radius:12px;border:1px solid #e2e5ec;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}.pdf-user{font-size:16px;font-weight:700;color:#1a1a2e}.pdf-email{font-size:14px;color:#63676f}.pdf-date{font-size:13px;color:#63676f;text-align:right}@media print{*{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}.save,.retake,.cal,.deep,.eg{display:none!important}}</style></head><body>';html+='<div class="pdf-header"><div><div class="pdf-user">'+e(user?user.name:'Assessment Results')+'</div><div class="pdf-email">'+e(user?user.email:'')+'</div></div><div class="pdf-date">'+ts+'</div></div>';html+=content.outerHTML;html+='<script>window.onload=function(){setTimeout(function(){window.print()},300)}<\/script></body></html>';mLists.forEach(function(el){el.classList.remove('open')});mToggles.forEach(function(el){el.classList.remove('open')});var w=window.open('','_blank');if(w){w.document.write(html);w.document.close()}else{var blob=new Blob([html],{type:'text/html'});var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='AI-Journey-Builder-Results.html';a.click();URL.revokeObjectURL(a.href)}if(btn)btn.disabled=false;if(label)label.textContent='Save as PDF'}
 
 // ═══ COPY ═══
-function cr(){var c=calcScores(),ds=c.ds;var dims=CORE.slice();S.tr.forEach(function(t){dims=dims.concat(TRACK_DIMS[t])});var t='HLearn AI Journey Builder \u2014 Results\n==========================================\n\nOverall: '+c.s1+' / 4.0 ('+BN[c.b1]+')\n';var shown={};dims.forEach(function(dim){var sc=ds[dim]||0,need=nl(sc);t+='\n'+DN[dim]+' ('+sc+')\n---\n';TX[dim]&&[1,2,3].forEach(function(lv){(TX[dim][lv]||[]).forEach(function(id){if(shown[id])return;shown[id]=true;var r=R[id];var sta=(lv<need||need===4)?'\u2713':(lv===need&&need<=3)?'\u2794':'\u26BF';var sr=r.s==='hl'?'[HLearn]':'[Free]';t+='  '+sta+' '+r.n+' '+sr+'\n';if(r.s==='free'&&r.u&&r.u!=='#')t+='    '+r.u+'\n'})})});t+='\n---\nhttps://hlearn.ca';navigator.clipboard.writeText(t).then(function(){var l=document.getElementById('cl');l.textContent='Copied!';setTimeout(function(){l.textContent='Copy Summary'},2000)}).catch(function(){var a=document.createElement('textarea');a.value=t;a.style.position='fixed';a.style.opacity='0';document.body.appendChild(a);a.select();document.execCommand('copy');document.body.removeChild(a);var l=document.getElementById('cl');l.textContent='Copied!';setTimeout(function(){l.textContent='Copy Summary'},2000)})}
+function cr(){var c=calcScores(),ds=c.ds;var dims=CORE.slice();S.tr.forEach(function(t){dims=dims.concat(TRACK_DIMS[t])});var t='HLearn AI Journey Builder \u2014 Results\n==========================================\n\nOverall: '+c.s1+' / 4.0 ('+BN[c.b1]+')\n';var shown={};dims.forEach(function(dim){var sc=ds[dim]||0,need=nl(sc);t+='\n'+DN[dim]+' ('+sc+')\n---\n';TX[dim]&&[1,2,3].forEach(function(lv){(TX[dim][lv]||[]).forEach(function(id){if(shown[id])return;if(homeDim(id,ds,dims)!==dim)return;shown[id]=true;var r=R[id];var wm=(need===4||lv<need);var ac=wm&&R[id].dm.every(function(d){if(dims.indexOf(d)<0)return true;var dn2=nl(ds[d]||0);return dn2===4||lv<dn2});var sta=(wm&&ac)?'\u2713':(wm||lv===need)?'\u2794':'\u26BF';var sr=r.s==='hl'?'[HLearn]':'[Free]';t+='  '+sta+' '+r.n+' '+sr+'\n';if(r.s==='free'&&r.u&&r.u!=='#')t+='    '+r.u+'\n'})})});t+='\n---\nhttps://hlearn.ca';navigator.clipboard.writeText(t).then(function(){var l=document.getElementById('cl');l.textContent='Copied!';setTimeout(function(){l.textContent='Copy Summary'},2000)}).catch(function(){var a=document.createElement('textarea');a.value=t;a.style.position='fixed';a.style.opacity='0';document.body.appendChild(a);a.select();document.execCommand('copy');document.body.removeChild(a);var l=document.getElementById('cl');l.textContent='Copied!';setTimeout(function(){l.textContent='Copy Summary'},2000)})}
+</script>
+<script>
+if('serviceWorker' in navigator){
+  window.addEventListener('load',function(){
+    navigator.serviceWorker.register('/sw.js').catch(function(err){
+      console.warn('Service worker registration failed:',err);
+    });
+  });
+}
 </script>
 </body>
 </html>
